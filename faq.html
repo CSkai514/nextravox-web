@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5ZVMQXDS');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Rich SEO Meta Data -->
+  <title>Website FAQ & Technical Troubleshooting Guides | Nextravox Malaysia</title>
+  <meta name="description"
+    content="Common questions about web development, website maintenance, legacy WordPress problems, slow website troubleshooting, and AI code deployment in Malaysia." />
+  <meta name="keywords"
+    content="why wordpress is slow, fix broken wordpress website, website maintenance malaysia, upah jaga website, wordpress to static html, how to deploy ai website, website troubleshooting penang" />
+  <link rel="canonical" href="https://nextravox.com/faq.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'] },
+          colors: {
+            primary: '#135bec',
+            accent: '#06b6d4',
+            dark: '#0f172a',
+            darker: '#020617',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      color: #f9fafb;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer.open {
+      max-height: 600px;
+    }
+
+    /* --- Chatbot Styles --- */
+    .fab-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 15px;
+    }
+
+    .fab-button {
+      width: 60px;
+      height: 60px;
+      background-color: #06b6d4;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .fab-button:hover { transform: scale(1.1); }
+    .fab-button svg { width: 35px; height: 35px; fill: white; }
+
+    .chat-box {
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transform-origin: bottom right;
+      transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+      pointer-events: none;
+    }
+    .chat-box.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+    .chat-header { background: linear-gradient(135deg, #135bec, #06b6d4); padding: 16px 20px; color: white; position: relative; }
+    .chat-header h3 { margin: 0; font-size: 16px; font-weight: 600; }
+    .chat-header p { margin: 4px 0 0; font-size: 12px; opacity: 0.9; }
+    .close-btn { position: absolute; top: 12px; right: 15px; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+    .chat-body { padding: 20px; height: 330px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+    .message { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 13.5px; line-height: 1.4; font-family: sans-serif; }
+    .message.bot { background: rgba(255, 255, 255, 0.1); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .message.user { background: #06b6d4; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .options-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+    .option-btn { background: transparent; border: 1px solid #06b6d4; color: #06b6d4; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .option-btn:hover { background: #06b6d4; color: #020617; }
+  </style>
+</head>
+
+<body class="bg-darker text-slate-200 font-sans antialiased selection:bg-primary/30 selection:text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZVMQXDS" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-darker/80 border-b border-white/10" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="w-36 md:w-48 lg:w-60 flex items-center justify-center">
+          <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox Logo">
+        </a>
+        <div class="flex-shrink-0 flex items-center gap-2">
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navAbout">About</a>
+            <a href="index.html#services" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navServices">Services</a>
+            <a href="index.html#portfolio" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navPortfolio">Portfolio</a>
+            <a href="faq.html" class="text-sm font-bold text-accent transition-colors" data-i18n="navFAQ">FAQ & Tips</a>
+
+            <div class="flex items-center gap-2 bg-white/5 rounded-full p-1 border border-white/10">
+              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium bg-primary text-white" data-lang="en">EN</button>
+              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white" data-lang="cn">中文</button>
+              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white" data-lang="bm">BM</button>
+            </div>
+          </div>
+          <a href="index.html" class="md:hidden text-xs px-3 py-1.5 rounded-full bg-white/10 text-white font-medium">← Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="relative pt-36 pb-16 lg:pt-44 lg:pb-20 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-darker to-darker -z-10"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-6">
+        Knowledge Base & FAQ
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6" data-i18n="page_title">
+        Web FAQs & Troubleshooting Guides
+      </h1>
+      <p class="text-slate-400 text-lg md:text-xl leading-relaxed" data-i18n="page_desc">
+        Honest answers, common website mistakes to avoid, and why bloated systems crash—explained by a practical web developer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Accordion Area -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+
+    <!-- Section 1: Working With Nextravox -->
+    <div class="mb-14">
+      <div class="flex items-center gap-3 mb-6">
+        <i data-lucide="help-circle" class="w-6 h-6 text-accent"></i>
+        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat1_title">1. Services & Working Together</h2>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Cat 1 - Q1 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('s1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s1_q">Do you use pre-made bloated templates or code from scratch?</span>
+            <i data-lucide="chevron-down" id="icon-s1" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-s1" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="s1_a">
+              We build with clean native HTML, CSS, JavaScript, and lightweight backends. Pre-made WordPress themes usually come with 50+ unnecessary scripts, bulky visual builders, and heavy SQL queries that slow your website down. By coding directly, your site stays clean, loads under a second, and gives you total control over the layout.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cat 1 - Q2 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('s2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s2_q">Can you take care of a website that was built by another agency or developer?</span>
+            <i data-lucide="chevron-down" id="icon-s2" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-s2" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="s2_a">
+              Yes, provided the website is reasonably stable. We conduct a preliminary check to inspect how the site and server are configured. We then take over routine content updates, domain/SSL management, and emergency error troubleshooting. If an older site is severely corrupted or built on end-of-life PHP, we will honestly recommend migrating key pages to static HTML rather than billing you endless hours for band-aid fixes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cat 1 - Q3 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('s3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s3_q">How long does it take to convert WordPress into static HTML?</span>
+            <i data-lucide="chevron-down" id="icon-s3" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-s3" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="s3_a">
+              For typical corporate, clinic, and SME brochure sites (5 to 15 pages), conversion typically takes 3 to 7 business days. We recreate the clean layout, optimize all image assets into WebP, wire up secure form endpoints (so inquiry emails deliver straight to your inbox without spam), and link your domain on a lightning-fast edge CDN.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cat 1 - Q4 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('s4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s4_q">How does your chatbot router work? Do I have to pay monthly SaaS fees?</span>
+            <i data-lucide="chevron-down" id="icon-s4" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-s4" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="s4_a">
+              Our Smart Router chatbot is coded directly in native JavaScript—exactly like the one running in the bottom right corner of this website! Unlike generic SaaS chat widgets (which charge $29 to $99 every month and slow your site with external tracking cookies), our bot is lightweight, loads in milliseconds, requires zero subscriptions, and routes pre-qualified customer inquiries straight to your WhatsApp.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 2: Technical Troubleshooting & Free Insights -->
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <i data-lucide="alert-triangle" class="w-6 h-6 text-primary"></i>
+        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat2_title">2. Website Troubleshooting & Free Tech Insights</h2>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Cat 2 - T1 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('t1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="t1_q">Why is my WordPress website getting slower and slower over time?</span>
+            <i data-lucide="chevron-down" id="icon-t1" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-t1" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <div data-i18n="t1_a">
+              <p class="mb-3"><b class="text-white">The Technical Cause:</b> Every time a visitor clicks a page on WordPress, the server executes dozens of PHP files and queries a MySQL database. Over months and years, post revisions, spam transients, and uninstalled plugin tables bloat your database. Add 20+ plugins each loading their own CSS/JS files, and your server's CPU maxes out.</p>
+              <p><b class="text-accent">The Solution:</b> Regularly prune your database transients and revisions, disable unused plugin assets from loading globally, or convert to pure static HTML so no database queries are needed at all.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cat 2 - T2 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('t2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="t2_q">Why do WordPress websites suddenly show a blank white screen or critical error after updates?</span>
+            <i data-lucide="chevron-down" id="icon-t2" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-t2" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <div data-i18n="t2_a">
+              <p class="mb-3"><b class="text-white">The Technical Cause:</b> WordPress core, PHP, themes, and plugins are built by hundreds of different authors. When you click "Update All", a newer plugin might call a function deprecated in your server's PHP version, or conflict with your page builder hook, causing a fatal PHP error (the infamous "White Screen of Death").</p>
+              <p><b class="text-accent">Practical Tip:</b> Never click "Update All" on a live production server. Always run off-site backups first, or test plugin updates on a staging subdomain before applying them to your live website.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cat 2 - T3 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('t3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="t3_q">Why can't AI tools (ChatGPT / Claude / v0) fully handle my website deployment on their own?</span>
+            <i data-lucide="chevron-down" id="icon-t3" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-t3" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <div data-i18n="t3_a">
+              <p class="mb-3"><b class="text-white">The Reality:</b> AI is exceptional at generating frontend code snippets, but it cannot touch the real world. It cannot log into your domain registrar to configure DNS records (A, CNAME, MX records), manage your email deliverability SPF/DKIM keys, wire a secure serverless form backend, or resolve mobile screen viewport bugs across real physical devices.</p>
+              <p><b class="text-accent">How We Help:</b> You bring the AI-generated layout or ideas, and we execute the real engineering work to turn it into an active, secure, and Google-indexed website.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cat 2 - T4 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq('t4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="t4_q">Why does my website look fine on laptop but broken or unclickable on mobile?</span>
+            <i data-lucide="chevron-down" id="icon-t4" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-t4" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <div data-i18n="t4_a">
+              <p class="mb-3"><b class="text-white">The Technical Cause:</b> Fixed widths (`width: 1200px`), unconstrained absolute positioning, and heavy background images that aren't wrapped in proper media queries or flex/grid containers. Furthermore, touch targets smaller than 48px fail Google mobile usability guidelines.</p>
+              <p><b class="text-accent">Practical Tip:</b> Always develop mobile-first with relative units (`rem`, `%`, `vw`). If your website has mobile glitches, our Fix-It desk can diagnose and clean up the responsive CSS without having to rebuild the entire site.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom CTA Bar -->
+    <div class="mt-16 glass-card p-8 md:p-12 rounded-3xl border border-accent/20 text-center">
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4" data-i18n="cta_title">Have a Website Problem or Need a Fresh Build?</h3>
+      <p class="text-slate-400 text-base md:text-lg mb-8 max-w-2xl mx-auto" data-i18n="cta_desc">
+        Skip the frustrating guesswork. Send us a message and we'll look at your site directly.
+      </p>
+      <a href="https://wa.me/60142880514?text=Hi! I was reading your FAQ & Tips page and have a question about my website." target="_blank"
+        class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-lg">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span data-i18n="cta_wa">Chat Directly on WhatsApp</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-darker border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-4 text-center">
+      <div class="w-36 md:w-48 flex items-center justify-center">
+        <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox logo">
+      </div>
+      <div class="flex gap-6 text-sm text-slate-400 my-2">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+        <a href="index.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+        <a href="faq.html" class="text-accent font-bold">FAQ & Tips</a>
+      </div>
+      <p class="text-slate-500 text-sm">© Nextravox Tech. Web Development & Digital Solutions in Malaysia.</p>
+    </div>
+  </footer>
+
+  <!-- Smart Router Chatbot -->
+  <div class="fab-container">
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <h3 id="botHeaderTitle">Nextravox Bot 🤖</h3>
+        <p id="botHeaderDesc">I don't sleep. Ask me anything.</p>
+        <button class="close-btn" onclick="toggleChat()">×</button>
+      </div>
+      <div class="chat-body" id="chatBody"></div>
+    </div>
+    <div class="fab-button" onclick="toggleChat()">
+      <i data-lucide="message-square" class="w-8 h-8 text-white"></i>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    function toggleFaq(id) {
+      const answer = document.getElementById(`ans-${id}`);
+      const icon = document.getElementById(`icon-${id}`);
+      const isOpen = answer.classList.contains('open');
+
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('[id^="icon-"]').forEach(el => el.classList.remove('rotate-180'));
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    const faqTranslations = {
+      en: {
+        navAbout: "About", navServices: "Services", navPortfolio: "Portfolio", navFAQ: "FAQ & Tips",
+        page_title: "Web FAQs & Troubleshooting Guides",
+        page_desc: "Honest answers, common website mistakes to avoid, and why bloated systems crash—explained by a practical web developer.",
+        cat1_title: "1. Services & Working Together",
+        s1_q: "Do you use pre-made bloated templates or code from scratch?",
+        s1_a: "We build with clean native HTML, CSS, JavaScript, and lightweight backends. Pre-made WordPress themes usually come with 50+ unnecessary scripts, bulky visual builders, and heavy SQL queries that slow your website down. By coding directly, your site stays clean, loads under a second, and gives you total control over the layout.",
+        s2_q: "Can you take care of a website that was built by another agency or developer?",
+        s2_a: "Yes, provided the website is reasonably stable. We conduct a preliminary check to inspect how the site and server are configured. We then take over routine content updates, domain/SSL management, and emergency error troubleshooting. If an older site is severely corrupted or built on end-of-life PHP, we will honestly recommend migrating key pages to static HTML rather than billing you endless hours for band-aid fixes.",
+        s3_q: "How long does it take to convert WordPress into static HTML?",
+        s3_a: "For typical corporate, clinic, and SME brochure sites (5 to 15 pages), conversion typically takes 3 to 7 business days. We recreate the clean layout, optimize all image assets into WebP, wire up secure form endpoints (so inquiry emails deliver straight to your inbox without spam), and link your domain on a lightning-fast edge CDN.",
+        s4_q: "How does your chatbot router work? Do I have to pay monthly SaaS fees?",
+        s4_a: "Our Smart Router chatbot is coded directly in native JavaScript—exactly like the one running in the bottom right corner of this website! Unlike generic SaaS chat widgets (which charge $29 to $99 every month and slow your site with external tracking cookies), our bot is lightweight, loads in milliseconds, requires zero subscriptions, and routes pre-qualified customer inquiries straight to your WhatsApp.",
+        cat2_title: "2. Website Troubleshooting & Free Tech Insights",
+        t1_q: "Why is my WordPress website getting slower and slower over time?",
+        t2_q: "Why do WordPress websites suddenly show a blank white screen or critical error after updates?",
+        t3_q: "Why can't AI tools (ChatGPT / Claude / v0) fully handle my website deployment on their own?",
+        t4_q: "Why does my website look fine on laptop but broken or unclickable on mobile?",
+        cta_title: "Have a Website Problem or Need a Fresh Build?",
+        cta_desc: "Skip the frustrating guesswork. Send us a message and we'll look at your site directly.",
+        cta_wa: "Chat Directly on WhatsApp"
+      },
+      cn: {
+        navAbout: "关于", navServices: "服务", navPortfolio: "作品集", navFAQ: "常见问答与技巧",
+        page_title: "网站问答与实用排障指南",
+        page_desc: "解答关于定制建站、WordPress老站卡顿原因，以及为什么臃肿系统总是频繁报错—来自一线开发者的诚恳分享。",
+        cat1_title: "1. 合作模式与建站服务",
+        s1_q: "你们是套用臃肿的模板还是纯代码手写定制？",
+        s1_a: "我们坚持使用原生 HTML、CSS、JS 和轻量后端编写代码。市面上现成的 WordPress 商业主题往往强行塞入 50 多个没用的脚本和沉重的可视化编辑器，导致网页奇慢无比。手写纯净代码能保证网页秒开，且日后没有任何臃肿依赖。",
+        s2_q: "别人或上一家公司做好的网站，你们愿意接手维护吗？",
+        s2_a: "只要网站基础架构相对正常，我们完全可以接手。我们会先做初步检查，接手日常图文修改、域名证书管理以及突发报错排障。如果老网站已经深度损坏或使用早已淘汰的 PHP 5.x，我们会坦白建议您迁移部分页面至纯静态 HTML，而不是无休止地收取修补费用。",
+        s3_q: "将 WordPress 迁移到纯静态 HTML 需要多长时间？",
+        s3_a: "普通展示型企业、诊所或商家网站（5-15个页面），通常只需 3 到 7 个工作日。我们重建纯净页面，将图片转化为现代 WebP 格式，接通防垃圾邮件的安全表单，并接入全球边缘 CDN 节点。",
+        s4_q: "你们的智能客服机器人怎么运作？需要每月付软件月费吗？",
+        s4_a: "我们的智能客服完全由原生 JavaScript 编写（就像您在当前页面右下角看到的这个机器人！）。市面上的 SaaS 客服插件每个月要收几百令吉还会拖慢网页速度，而我们的轻量代码零月费、秒级响应，直接帮您将意向客户无缝引导至 WhatsApp。",
+        cat2_title: "2. 实用排障干货与技术内幕",
+        t1_q: "为什么 WordPress 网站随着时间推移会越来越卡？",
+        t2_q: "为什么 WordPress 点了更新插件后，网站突然白屏报错？",
+        t3_q: "为什么 AI (ChatGPT / v0) 无法完全自己搞定网站发布上线？",
+        t4_q: "为什么网站在电脑上看很正常，用手机打开却排版错乱甚至点不动？",
+        cta_title: "遇到了网站棘手问题，或打算搭建一个极速新站？",
+        cta_desc: "省去繁杂的技术试错。直接发消息给我们，我们为您直接检查诊断。",
+        cta_wa: "通过 WhatsApp 直接咨询"
+      },
+      bm: {
+        navAbout: "Tentang", navServices: "Servis", navPortfolio: "Portfolio", navFAQ: "Soalan & Tips",
+        page_title: "Soalan Lazim & Tips Baiki Laman Web",
+        page_desc: "Jawapan jujur, kesilapan biasa laman web, dan punca sebenar sistem WordPress sering perlahan—dikongsi oleh jurutera web.",
+        cat1_title: "1. Servis & Cara Bekerjasama",
+        s1_q: "Adakah anda guna templat siap yang lembap atau tulis kod tersuai?",
+        s1_a: "Kami membina laman menggunakan kod native HTML, CSS, JavaScript yang bersih. Kebanyakan templat WordPress sedia ada sarat dengan puluhan skrip yang tidak perlu sehingga memperlahankan web. Kod tersuai memastikan laman anda dibuka bawah 1 saat.",
+        s2_q: "Bolehkah anda jaga website yang dibuat oleh syarikat atau pemaju lain?",
+        s2_a: "Boleh, asalkan struktur laman masih boleh diselamatkan. Kami akan buat semakan ringkas terlebih dahulu sebelum mengambil alih kerja kemas kini teks, urusan domain/SSL, dan bantuan jika berlaku ralat 'down'.",
+        s3_q: "Berapa lama masa diambil untuk tukar WordPress ke HTML statik?",
+        s3_a: "Bagi laman web syarikat dan klinik biasa (5 ke 15 muka surat), proses mengambil masa 3 hingga 7 hari bekerja. Laman akan lebih laju, jimat pelayan, dan bebas daripada ancaman godaman.",
+        s4_q: "Bagaimana chatbot router ini berfungsi? Perlu bayar yuran langganan bulanan?",
+        s4_a: "Bot Nextravox dikodkan secara natif menggunakan JavaScript (seperti di penjuru kanan bawah ini!). Tiada yuran langganan bulanan mahal seperti perisian pihak ketiga, sangat ringan dan terus menyalurkan pelanggan ke WhatsApp anda.",
+        cat2_title: "2. Tips Masalah Teknikal & Panduan Percuma",
+        t1_q: "Kenapa laman WordPress semakin lama semakin perlahan?",
+        t2_q: "Kenapa WordPress tiba-tiba keluar skrin putih atau 'critical error' lepas kemas kini plugin?",
+        t3_q: "Kenapa alat AI (ChatGPT / v0) tidak boleh lancarkan laman web sepenuhnya sendiri?",
+        t4_q: "Kenapa laman web elok di komputer tetapi berterabur pada telefon pintar?",
+        cta_title: "Ada Masalah Website Atau Ingin Bina Laman Baru?",
+        cta_desc: "Elakkan buang masa dengan masalah teknikal rumit. Hubungi kami untuk bantuan terus.",
+        cta_wa: "Hubungi Melalui WhatsApp"
+      }
+    };
+
+    let currentLang = 'en';
+    function changeLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (faqTranslations[lang][key]) el.innerHTML = faqTranslations[lang][key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.remove('text-slate-400', 'hover:text-white');
+          btn.classList.add('bg-primary', 'text-white');
+        } else {
+          btn.classList.add('text-slate-400', 'hover:text-white');
+          btn.classList.remove('bg-primary', 'text-white');
+        }
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        changeLanguage(e.target.getAttribute('data-lang'));
+      });
+    });
+
+    // Chatbot minimal integration
+    const chatBox = document.getElementById('chatBox');
+    const chatBody = document.getElementById('chatBody');
+    let isChatOpen = false;
+
+    function toggleChat() {
+      isChatOpen = !isChatOpen;
+      if (isChatOpen) {
+        chatBox.classList.add('open');
+        if (chatBody.innerHTML.trim() === "") {
+          chatBody.innerHTML = `
+            <div class="message bot">Hi! 👋 Looking to build a fast custom website, migrate from WordPress, or need troubleshooting?</div>
+            <div class="options-container">
+              <a href="https://wa.me/60142880514?text=Hi! I have a question about web development/maintenance." target="_blank" class="option-btn">WhatsApp Us Directly</a>
+            </div>
+          `;
+        }
+      } else {
+        chatBox.classList.remove('open');
+      }
+    }
+  </script>
+</body>
+
+</html>

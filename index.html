@@ -14,9 +14,62 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nextravox | Malaysia Web Development & Digital IT Services</title>
+
+  <!-- High-Converting SEO Meta Tags -->
+  <title>Nextravox | Custom Web Development, Website Maintenance & Speed Optimization Malaysia</title>
   <meta name="description"
-    content="Nextravox provides high-performance web development, legacy WordPress-to-static modernization, AI code deployment, technical SEO, and on-site IT support across Malaysia." />
+    content="Nextravox provides fast custom web development, website maintenance, legacy WordPress-to-static HTML migration, AI code deployment, and technical SEO in Penang & across Malaysia." />
+  <meta name="keywords"
+    content="website developer penang, website maintenance malaysia, wordpress to static html, hire web developer malaysia, custom web development, deploy ai website, upah jaga website, 网页制作 槟城, 网站维护 马来西亚" />
+  <link rel="canonical" href="https://nextravox.com/" />
+
+  <!-- Open Graph / WhatsApp Social Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextravox.com/" />
+  <meta property="og:title" content="Nextravox | Custom Web Development & Website Care Malaysia" />
+  <meta property="og:description" content="Fast custom websites, WordPress-to-static migration, and reliable website maintenance without bloated templates." />
+  <meta property="og:image" content="https://nextravox.com/images/Nextravox_logo_white_resized.png" />
+
+  <!-- Google Structured Data (Schema JSON-LD) for Local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nextravox Tech",
+    "image": "https://nextravox.com/images/Nextravox_logo_white_resized.png",
+    "url": "https://nextravox.com/",
+    "telephone": "+60142880514",
+    "priceRange": "RM",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Penang",
+      "addressCountry": "MY"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 5.4141,
+      "longitude": 100.3288
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    "sameAs": [
+      "https://wa.me/60142880514"
+    ],
+    "serviceType": [
+      "Web Development",
+      "Website Maintenance",
+      "WordPress to Static HTML Migration",
+      "AI Web Code Deployment",
+      "Technical SEO & Speed Optimization"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,6 +130,16 @@
     .animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
       opacity: 0;
+    }
+
+    /* Accordion styles */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer.open {
+      max-height: 350px;
     }
 
     /* --- Chatbot Styles --- */
@@ -360,9 +423,9 @@
     id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
-        <div class="w-36 md:w-48 lg:w-60 flex items-center justify-center">
-          <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox logo">
-        </div>
+        <a href="index.html" class="w-36 md:w-48 lg:w-60 flex items-center justify-center">
+          <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox Web Development Malaysia">
+        </a>
         <div class="flex-shrink-0 flex items-center gap-2">
           <div class="hidden md:flex items-center space-x-8">
             <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
@@ -373,6 +436,8 @@
               data-i18n="navProcess">Process</a>
             <a href="#portfolio" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
               data-i18n="navPortfolio">Portfolio</a>
+            <a href="#faq" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              data-i18n="navFAQ">FAQ</a>
 
             <div class="flex items-center gap-2 bg-white/5 rounded-full p-1 border border-white/10">
               <button
@@ -417,12 +482,15 @@
           <a href="#portfolio"
             class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
             data-i18n="navPortfolio">Portfolio</a>
+          <a href="#faq"
+            class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5"
+            data-i18n="navFAQ">FAQ</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Optimized for Web Development & Maintenance Searches) -->
   <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
     <div
       class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-darker to-darker -z-10">
@@ -435,20 +503,32 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
           </span>
-          <span data-i18n="hero_badge">System Online. Code compiling, coffee brewing. ☕</span>
+          <span data-i18n="hero_badge">Custom Web Development & Maintenance in Malaysia ☕</span>
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 animate-fade-in-up"
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 animate-fade-in-up"
           style="animation-delay: 0.1s;">
-          <span data-i18n="hero_title_1">Next-Gen Digital &</span><br />
+          <span data-i18n="hero_title_1">Fast Custom Websites &</span><br />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary drop-shadow-sm"
-            data-i18n="hero_title_2">IT Services in Malaysia.</span>
+            data-i18n="hero_title_2">Reliable Web Maintenance.</span>
         </h1>
 
         <p class="text-lg md:text-xl text-slate-400 mb-10 animate-fade-in-up leading-relaxed" style="animation-delay: 0.2s;"
           data-i18n="hero_desc">
-          We engineer high-performance web solutions and eliminate tech headaches. From custom websites, legacy WordPress-to-static migrations, and AI code deployment to on-site office troubleshooting, Nextravox has you covered.
+          We engineer high-performance static websites, convert vulnerable WordPress sites into clean HTML, launch AI-generated web drafts, and provide dedicated website maintenance without bloated templates.
         </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+          <a href="https://wa.me/60142880514?text=Hi! I am looking for custom web development or website maintenance." target="_blank"
+            class="px-8 py-3.5 rounded-full bg-[#25D366] text-white font-bold hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-lg flex items-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span data-i18n="hero_cta_wa">Chat on WhatsApp</span>
+          </a>
+          <a href="#services"
+            class="px-8 py-3.5 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all">
+            <span data-i18n="hero_cta_services">Explore Services</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -461,12 +541,12 @@
         <div class="flex flex-col md:flex-row items-center gap-10">
           <div
             class="w-24 h-24 md:w-36 md:h-36 bg-gradient-to-br from-primary to-accent rounded-full flex-shrink-0 flex items-center justify-center shadow-lg shadow-primary/20">
-            <i data-lucide="terminal" class="w-12 h-12 md:w-16 md:h-16 text-white"></i>
+            <i data-lucide="code" class="w-12 h-12 md:w-16 md:h-16 text-white"></i>
           </div>
           <div class="text-center md:text-left">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="about_title">Meet the Guy Behind the Code</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="about_title">Meet the Developer Behind Nextravox</h2>
             <p class="text-slate-400 leading-relaxed text-base md:text-lg" data-i18n="about_desc">
-              Hi, I'm Kai. I started out as a solo developer, but my clients quickly realized I'm a <b>complete IT specialist</b>—I don't just write frontend code, I configure servers, eliminate security backdoors, and troubleshoot complex network and office hardware. To keep up with expanding healthcare and corporate clients, Nextravox is growing into a dedicated technology partner. Same direct communication, with serious engineering firepower.
+              Hi, I'm Kai, a freelance web engineer based in Penang, Malaysia. Unlike traditional agencies that delegate your project across multiple junior staff or push heavy, breakable templates, I personally craft native, lightweight code and manage your server infrastructure directly. You get direct developer communication, sub-second page speed, and honest technical care for your web presence.
             </p>
           </div>
         </div>
@@ -474,27 +554,27 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services Section (100% Web & Maintenance Focused) -->
   <section id="services" class="py-20 bg-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-16">
         <span class="text-accent font-bold tracking-widest uppercase text-sm mb-3 block">What We Do</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6" data-i18n="section_title">Services & Skills</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6" data-i18n="section_title">Services & Web Solutions</h2>
         <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Card 1: Full-Stack Web Development -->
+        <!-- Card 1: Custom Full-Stack Web Development -->
         <article class="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group flex flex-col justify-between">
           <div>
             <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <i data-lucide="code-2" class="w-7 h-7 text-accent"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card1_title">Full-Stack Development</h3>
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card1_title">Custom Web Development</h3>
             <p class="text-slate-400 text-base leading-relaxed" data-i18n="card1_desc">
-              We engineer robust backends and clean frontends. Custom web development tailored to your exact workflows, zero bloated templates, and built to scale effortlessly.
+              Clean native HTML, CSS, JavaScript, and lightweight backends tailored to your exact business workflow. Zero bloat, instant mobile loading, and built to rank easily on Google Malaysia.
             </p>
           </div>
         </article>
@@ -508,14 +588,14 @@
             <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <i data-lucide="zap" class="w-7 h-7 text-accent"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card2_title">WP to Static Modernization</h3>
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card2_title">WordPress to Static HTML</h3>
             <p class="text-slate-400 text-base leading-relaxed" data-i18n="card2_desc">
               Tired of plugin vulnerabilities, slow PHP hosting, and crash-prone updates? We convert bloated legacy WordPress sites into pure, ultra-fast static HTML. Zero database exploits, near-zero server bills.
             </p>
           </div>
         </article>
 
-        <!-- Card 3: AI Code Deployment & Hosting -->
+        <!-- Card 3: AI Web Code Deployment & Hosting -->
         <article class="glass-card p-8 rounded-2xl border border-primary/30 hover:border-primary transition-all group relative overflow-hidden flex flex-col justify-between shadow-[0_0_15px_rgba(19,91,236,0.15)]">
           <div class="absolute -top-1 -right-1">
             <span class="bg-primary text-white text-[10px] font-bold px-4 py-1 uppercase tracking-tighter rotate-12 inline-block shadow-lg">Production Ready</span>
@@ -531,60 +611,44 @@
           </div>
         </article>
 
-        <!-- Card 4: Technical SEO & Speed -->
+        <!-- Card 4: Website Maintenance & Downtime Support -->
+        <article class="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="life-buoy" class="w-7 h-7 text-accent"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card4_title">Website Maintenance & Care</h3>
+            <p class="text-slate-400 text-base leading-relaxed" data-i18n="card4_desc">
+              Reliable routine checkups, banner and text content edits, SSL renewals, and fast emergency troubleshooting whenever a server glitch or unexpected downtime occurs.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 5: Technical SEO & Speed Optimization -->
         <article class="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group flex flex-col justify-between">
           <div>
             <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <i data-lucide="trending-up" class="w-7 h-7 text-accent"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card4_title">Technical SEO & Speed</h3>
-            <p class="text-slate-400 text-base leading-relaxed" data-i18n="card4_desc">
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card5_title">Technical SEO & Speed</h3>
+            <p class="text-slate-400 text-base leading-relaxed" data-i18n="card5_desc">
               Building a site isn't enough if Google doesn't rank you. We optimize Core Web Vitals, metadata, OpenGraph cards, and structured schema so your business dominates local search.
             </p>
           </div>
         </article>
 
-        <!-- Card 5: The "Fix-It" Desk -->
-        <article class="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all group flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <i data-lucide="wrench" class="w-7 h-7 text-accent"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card5_title">The "Fix-It" Desk</h3>
-            <p class="text-slate-400 text-base leading-relaxed" data-i18n="card5_desc">
-              You don't always need a complete rebuild. We handle targeted tech issues: setting up multi-language translations (i18n), fixing mobile CSS alignment bugs, or connecting third-party APIs.
-            </p>
-          </div>
-        </article>
-
-        <!-- Card 6: Smart Automation -->
+        <!-- Card 6: Smart Interactive Routing & Bot -->
         <article class="glass-card p-8 rounded-2xl border border-white/5 hover:border-accent/30 transition-all group relative overflow-hidden flex flex-col justify-between">
           <div class="absolute -top-1 -right-1">
-            <span class="bg-accent text-darker text-[10px] font-bold px-4 py-1 uppercase tracking-tighter rotate-12 inline-block shadow-lg">24/7 Intake</span>
+            <span class="bg-accent text-darker text-[10px] font-bold px-4 py-1 uppercase tracking-tighter rotate-12 inline-block shadow-lg">Lead Capture</span>
           </div>
           <div>
             <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <i data-lucide="bot" class="w-7 h-7 text-accent"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card6_title">Smart Automation</h3>
+            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="card6_title">Interactive Chatbot Router</h3>
             <p class="text-slate-400 text-base leading-relaxed" data-i18n="card6_desc">
-              Capture leads while you sleep. We deploy automated lead routers and chatbots that answer client inquiries at 3 AM and funnel ready-to-buy customers straight to your WhatsApp.
-            </p>
-          </div>
-        </article>
-
-        <!-- Card 7: On-Site Office IT -->
-        <article
-          class="glass-card p-8 lg:p-12 rounded-2xl border-primary/40 transition-all group relative overflow-hidden shadow-[0_0_20px_rgba(19,91,236,0.15)] lg:col-span-3 lg:flex lg:items-center lg:gap-10">
-          <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
-          <div
-            class="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 lg:mb-0 shrink-0 group-hover:scale-110 transition-transform">
-            <i data-lucide="pc-case" class="w-10 h-10 text-primary"></i>
-          </div>
-          <div>
-            <h3 class="text-3xl font-bold text-white mb-4" data-i18n="card7_title">On-Site Office IT Support</h3>
-            <p class="text-slate-400 text-lg leading-relaxed max-w-4xl" data-i18n="card7_desc">
-              PCs acting up? Network stuttering? Printer refusing to cooperate? We act as your company's dedicated IT team—weekly on-site visits in Penang, and monthly scheduled visits across Malaysia. Keep your business operational without the payroll cost of a full-time IT department.
+              Native, zero-dependency interactive chatbots (like the one on this page!) that answer visitor questions at 3 AM and route hot leads directly to your WhatsApp without monthly SaaS fees.
             </p>
           </div>
         </article>
@@ -614,7 +678,7 @@
             <span class="text-3xl font-bold text-accent">1</span>
           </div>
           <h3 class="text-2xl font-bold text-white mb-3" data-i18n="step1_title">Chat & Discovery</h3>
-          <p class="text-slate-400 text-base px-4" data-i18n="step1_desc">We discuss your technical needs, whether it's an AI web launch, legacy WP migration, or office IT maintenance.</p>
+          <p class="text-slate-400 text-base px-4" data-i18n="step1_desc">We discuss your technical needs, whether it's an AI web launch, legacy WP migration, or website maintenance.</p>
         </div>
 
         <div class="relative text-center">
@@ -622,8 +686,8 @@
             class="w-20 h-20 mx-auto bg-darker border border-primary/50 rounded-full flex items-center justify-center mb-6 relative z-10 shadow-[0_0_20px_rgba(19,91,236,0.2)]">
             <span class="text-3xl font-bold text-primary">2</span>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="step2_title">Build & Engineer</h3>
-          <p class="text-slate-400 text-base px-4" data-i18n="step2_desc">We dive into the code matrix, configure servers, or visit your workplace to execute cleanly without downtime.</p>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="step2_title">Build & Optimize</h3>
+          <p class="text-slate-400 text-base px-4" data-i18n="step2_desc">We dive into clean code, tune server caching, hook up forms, and test mobile responsiveness thoroughly.</p>
         </div>
 
         <div class="relative text-center">
@@ -632,7 +696,7 @@
             <span class="text-3xl font-bold text-[#25D366]">3</span>
           </div>
           <h3 class="text-2xl font-bold text-white mb-3" data-i18n="step3_title">Deploy & Support</h3>
-          <p class="text-slate-400 text-base px-4" data-i18n="step3_desc">You get a bulletproof, running system. We remain on retainer for continuous maintenance and emergency tech support.</p>
+          <p class="text-slate-400 text-base px-4" data-i18n="step3_desc">You get a clean, working site. We remain available for ongoing content updates, SEO tweaks, and emergency fixes.</p>
         </div>
       </div>
     </div>
@@ -645,10 +709,10 @@
         Practical Tech Support
       </div>
       <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight" data-i18n="trust_title">
-        Fast Websites & Reliable Tech Care for Growing Businesses
+        Fast Websites & Hands-On Tech Help for Growing Businesses
       </h3>
       <p class="text-slate-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="trust_desc">
-        We build clean, ultra-fast static HTML websites, keep your WordPress running smoothly without errors, and step in quickly to troubleshoot whenever glitches or downtime happen.
+        We build clean, ultra-fast static HTML websites, assist with legacy migrations, and step in quickly to troubleshoot and recover when glitches or downtime happen.
       </p>
     </div>
   </section>
@@ -668,6 +732,84 @@
     </div>
   </section>
 
+  <!-- Homepage FAQ Section (Rich in SEO Keywords & User Search Intents) -->
+  <section id="faq" class="py-20 bg-darker border-t border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="text-accent font-bold tracking-widest uppercase text-sm mb-3 block" data-i18n="faq_badge">Got Questions?</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4" data-i18n="faq_heading">Frequently Asked Questions</h2>
+        <p class="text-slate-400 text-base md:text-lg" data-i18n="faq_subheading">Quick answers about our website development, maintenance, and migration services.</p>
+        <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-6"></div>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Question 1 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q1">Why should I convert my WordPress website to pure static HTML?</span>
+            <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="faq-ans-1" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="faq_a1">
+              WordPress sites get bogged down by dozens of plugins, outdated PHP, and database bloat. By converting to static HTML, your site loads in under 1 second, cuts hosting costs to almost nothing, and has zero database vulnerabilities for hackers to exploit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q2">I created a website draft using AI (ChatGPT / v0 / Claude). Can you help me launch it?</span>
+            <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="faq-ans-2" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="faq_a2">
+              Yes! AI produces great visual code but leaves you stuck with domain wiring, secure form handling, SSL certs, and mobile bugs. We take your raw code, polish it into a production-ready website, and host it on a lightning-fast global edge network.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q3">What does your website maintenance service actually cover?</span>
+            <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="faq-ans-3" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="faq_a3">
+              We handle routine content changes (updating banners, clinic doctors, text, or prices), SSL and domain renewals, speed monitoring, and stepping in quickly to troubleshoot if your website experiences glitches or server downtime.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+            <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q4">Do I have to pay expensive monthly agency fees?</span>
+            <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="faq-ans-4" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <p data-i18n="faq_a4">
+              No. Traditional agencies charge RM 1,500 to RM 3,000 every month with complex account layers. With Nextravox, you work directly with the developer on flexible, transparent rates tailored to small businesses and growing teams.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Link to Dedicated FAQ Page -->
+      <div class="text-center mt-12">
+        <a href="faq.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/30 text-accent font-bold hover:bg-accent/20 hover:scale-105 transition-all text-sm md:text-base">
+          <span data-i18n="faq_view_all">View All FAQs & Troubleshooting Tips</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="py-24 bg-darker relative">
     <div
@@ -680,7 +822,7 @@
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-        <a href="https://wa.me/60142880514?text=Hi! I saw your website and want to talk about Web Dev or IT Support."
+        <a href="https://wa.me/60142880514?text=Hi! I saw your website and want to talk about Web Dev or Maintenance."
           target="_blank"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-lg flex items-center justify-center gap-3">
           <i data-lucide="message-circle" class="w-6 h-6"></i>
@@ -703,7 +845,13 @@
           <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox logo">
         </div>
       </div>
-      <p class="text-slate-500 text-base" data-i18n="footer">© <span id="current-year"></span> Nextravox Tech. IT & Digital Services in Malaysia.</p>
+      <div class="flex gap-6 text-sm text-slate-400 my-2">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+        <a href="faq.html" class="hover:text-white transition-colors">FAQ & Tips</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <p class="text-slate-500 text-base" data-i18n="footer">© <span id="current-year"></span> Nextravox Tech. Web Development & Digital Solutions in Malaysia.</p>
     </div>
   </footer>
 
@@ -731,163 +879,166 @@
     // Multilingual Translations Object
     const translations = {
       en: {
-        navAbout: "About", navServices: "Services", navProcess: "Process", navPortfolio: "Portfolio",
+        navAbout: "About", navServices: "Services", navProcess: "Process", navPortfolio: "Portfolio", navFAQ: "FAQ",
         toast_success: "Language Switch Success!",
         toast_title: "Impressed by this feature?",
         toast_desc: "We built this multi-language (i18n) system. Want your website to speak multiple languages smoothly? Contact us and we can code this into your project!",
-        hero_badge: "System Online. Code compiling, coffee brewing. ☕",
-        hero_title_1: "Next-Gen Digital &",
-        hero_title_2: "IT Services in Malaysia.",
-        hero_desc: "We engineer high-performance web solutions and eliminate tech headaches. From custom websites, legacy WordPress-to-static migrations, and AI code deployment to on-site office troubleshooting, Nextravox has you covered.",
-        about_title: "Meet the Guy Behind the Code",
-        about_desc: "Hi, I'm Kai. I started out as a solo developer, but my clients quickly realized I'm a <b>complete IT specialist</b>—I don't just write frontend code, I configure servers, eliminate security backdoors, and troubleshoot complex network and office hardware. To keep up with expanding healthcare and corporate clients, Nextravox is growing into a dedicated technology partner. Same direct communication, with serious engineering firepower.",
-        section_title: "Services & Skills",
-        card1_title: "Full-Stack Development",
-        card1_desc: "We engineer robust backends and clean frontends. Custom web development tailored to your exact workflows, zero bloated templates, and built to scale effortlessly.",
-        card2_title: "WP to Static Modernization",
+        hero_badge: "Custom Web Development & Maintenance in Malaysia ☕",
+        hero_title_1: "Fast Custom Websites &",
+        hero_title_2: "Reliable Web Maintenance.",
+        hero_desc: "We engineer high-performance static websites, convert vulnerable WordPress sites into clean HTML, launch AI-generated web drafts, and provide dedicated website maintenance without bloated templates.",
+        hero_cta_wa: "Chat on WhatsApp",
+        hero_cta_services: "Explore Services",
+        about_title: "Meet the Developer Behind Nextravox",
+        about_desc: "Hi, I'm Kai, a freelance web engineer based in Penang, Malaysia. Unlike traditional agencies that delegate your project across multiple junior staff or push heavy, breakable templates, I personally craft native, lightweight code and manage your server infrastructure directly. You get direct developer communication, sub-second page speed, and honest technical care for your web presence.",
+        section_title: "Services & Web Solutions",
+        card1_title: "Custom Web Development",
+        card1_desc: "Clean native HTML, CSS, JavaScript, and lightweight backends tailored to your exact business workflow. Zero bloat, instant mobile loading, and built to rank easily on Google Malaysia.",
+        card2_title: "WordPress to Static HTML",
         card2_desc: "Tired of plugin vulnerabilities, slow PHP hosting, and crash-prone updates? We convert bloated legacy WordPress sites into pure, ultra-fast static HTML. Zero database exploits, near-zero server bills.",
         card3_title: "AI Web Launch & Hosting",
         card3_desc: "Generated web code with ChatGPT, Claude, or v0, but stuck on how to launch it? We do the heavy lifting: custom domain linking, serverless contact forms, SSL certificates, and global edge CDN hosting.",
-        card4_title: "Technical SEO & Speed",
-        card4_desc: "Building a site isn't enough if Google doesn't rank you. We optimize Core Web Vitals, metadata, OpenGraph cards, and structured schema so your business dominates local search.",
-        card5_title: "The \"Fix-It\" Desk",
-        card5_desc: "You don't always need a complete rebuild. We handle targeted tech issues: setting up multi-language translations (i18n), fixing mobile CSS alignment bugs, or connecting third-party APIs.",
-        card6_title: "Smart Automation Tools",
-        card6_desc: "Capture leads while you sleep. We deploy automated lead routers and chatbots that answer client inquiries at 3 AM and funnel ready-to-buy customers straight to your WhatsApp.",
-        card7_title: "On-Site Office IT Support",
-        card7_desc: "PCs acting up? Network stuttering? Printer refusing to cooperate? We act as your company's dedicated IT team—weekly on-site visits in Penang, and monthly scheduled visits across Malaysia. Keep your business operational without the payroll cost of a full-time IT department.",
+        card4_title: "Website Maintenance & Care",
+        card4_desc: "Reliable routine checkups, banner and text content edits, SSL renewals, and fast emergency troubleshooting whenever a server glitch or unexpected downtime occurs.",
+        card5_title: "Technical SEO & Speed",
+        card5_desc: "Building a site isn't enough if Google doesn't rank you. We optimize Core Web Vitals, metadata, OpenGraph cards, and structured schema so your business dominates local search.",
+        card6_title: "Interactive Chatbot Router",
+        card6_desc: "Native, zero-dependency interactive chatbots (like the one on this page!) that answer visitor questions at 3 AM and route hot leads directly to your WhatsApp without monthly SaaS fees.",
         process_title: "How It Works",
         step1_title: "Chat & Discovery",
-        step1_desc: "We discuss your technical needs, whether it's an AI web launch, legacy WP migration, or office IT maintenance.",
-        step2_title: "Build & Engineer",
-        step2_desc: "We dive into the code matrix, configure servers, or visit your workplace to execute cleanly without downtime.",
+        step1_desc: "We discuss your technical needs, whether it's an AI web launch, legacy WP migration, or website maintenance.",
+        step2_title: "Build & Optimize",
+        step2_desc: "We dive into clean code, tune server caching, hook up forms, and test mobile responsiveness thoroughly.",
         step3_title: "Deploy & Support",
-        step3_desc: "You get a bulletproof, running system. We remain on retainer for continuous maintenance and emergency tech support.",
+        step3_desc: "You get a clean, working site. We remain available for ongoing content updates, SEO tweaks, and emergency fixes.",
         trust_badge: "Practical Tech Support",
-        trust_title: "Fast Websites & Reliable Tech Care for Growing Businesses",
-        trust_desc: "We build clean, ultra-fast static HTML websites, keep your WordPress running smoothly without errors, and step in quickly to troubleshoot whenever glitches or downtime happen.",
+        trust_title: "Fast Websites & Hands-On Tech Help for Growing Businesses",
+        trust_desc: "We build clean, ultra-fast static HTML websites, assist with legacy migrations, and step in quickly to troubleshoot and recover when glitches or downtime happen.",
         portfolioTitle: "Our Portfolio",
-        client1Name: "Aessence", client1Sub: "Medical Aesthetic Clinic",
-        client2Name: "Antara Spa & Wellness", client2Sub: "Luxury Spa and Wellness",
-        client3Name: "Cantiq Clinic", client3Sub: "Medical Aesthetic Skin Clinic",
-        client4Name: "Klinik Medipulih", client4Sub: "General Practitioner Clinic",
-        client5Name: "Klinik Gigi Tulen", client5Sub: "Dental Clinic",
-        client6Name: "Kheng Dental", client6Sub: "Dental Clinic",
-        client7Name: "Joy Dental", client7Sub: "Dental Clinic",
-        client8Name: "Tria Dental Specialist", client8Sub: "Dental Specialist Clinic",
-        client9Name: "Wong & Sim Dental Clinic", client9Sub: "Dental Clinic",
-        client10Name: "Derm Define", client10Sub: "Medical Skincare Store",
-        client11Name: "Bloom Healthcare", client11Sub: "Healthcare Group Portal",
+        faq_badge: "Got Questions?",
+        faq_heading: "Frequently Asked Questions",
+        faq_subheading: "Quick answers about our website development, maintenance, and migration services.",
+        faq_q1: "Why should I convert my WordPress website to pure static HTML?",
+        faq_a1: "WordPress sites get bogged down by dozens of plugins, outdated PHP, and database bloat. By converting to static HTML, your site loads in under 1 second, cuts hosting costs to almost nothing, and has zero database vulnerabilities for hackers to exploit.",
+        faq_q2: "I created a website draft using AI (ChatGPT / v0 / Claude). Can you help me launch it?",
+        faq_a2: "Yes! AI produces great visual code but leaves you stuck with domain wiring, secure form handling, SSL certs, and mobile bugs. We take your raw code, polish it into a production-ready website, and host it on a lightning-fast global edge network.",
+        faq_q3: "What does your website maintenance service actually cover?",
+        faq_a3: "We handle routine content changes (updating banners, clinic doctors, text, or prices), SSL and domain renewals, speed monitoring, and stepping in quickly to troubleshoot if your website experiences glitches or server downtime.",
+        faq_q4: "Do I have to pay expensive monthly agency fees?",
+        faq_a4: "No. Traditional agencies charge RM 1,500 to RM 3,000 every month with complex account layers. With Nextravox, you work directly with the developer on flexible, transparent rates tailored to small businesses and growing teams.",
+        faq_view_all: "View All FAQs & Troubleshooting Tips",
         contact_title: "Let's Talk. Don't be afraid, we don't bite. We just stare aggressively at our screens until the code works. 💻",
         contact_desc: "Not a fan of phone calls? Prefer typing over talking? It's okay, we get it. Just shoot us a WhatsApp text or an email.",
         contact_wa: "WhatsApp Us (014-288 0514)",
-        footer: "© Nextravox Tech. IT & Digital Services in Malaysia."
+        footer: "© Nextravox Tech. Web Development & Digital Solutions in Malaysia."
       },
       cn: {
-        navAbout: "关于", navServices: "服务", navProcess: "流程", navPortfolio: "作品集",
+        navAbout: "关于", navServices: "服务", navProcess: "流程", navPortfolio: "作品集", navFAQ: "常见问答",
         toast_success: "语言切换成功！",
         toast_title: "对这个功能感兴趣吗？",
         toast_desc: "这是我们构建的多语言（i18n）系统。想让您的网站也能流畅切换多国语言吗？联系我们，我们可以为您的项目原生编写此功能！",
-        hero_badge: "系统上线。代码编译中，咖啡冲泡中。☕",
-        hero_title_1: "马来西亚新一代数字与",
-        hero_title_2: "IT 技术服务伙伴。",
-        hero_desc: "我们打造高稳定性数字资产并扫除一切 IT 难题。从纯手写定制建站、WordPress老站迁移纯静态、AI代码落地部署，到企业办公室上门技术排障，Nextravox 全程为您护航。",
-        about_title: "认识背后的技术专员",
-        about_desc: "你好，我是 Kai。我最初是一名全栈开发者，但我的客户很快发现我是一个<b>全方位的 IT 专才</b>——我不只编写高质量前端代码，我还精通服务器配置、网络安全漏洞修复以及企业硬件故障排除。为了满足医疗集团及更多中小企业的技术需求，Nextravox 正式从小团队迈向更深度的专业技术服务。沟通依然直接，但交付能力更为强大。",
-        section_title: "服务与技术",
-        card1_title: "全栈深度定制开发",
-        card1_desc: "构建强大的后端与纯净的前端代码。完全贴合您业务流程的定制开发，杜绝臃肿模板，随业务增长轻松扩展。",
-        card2_title: "WP 迁移纯静态 HTML",
-        card2_desc: "厌倦了频繁的插件漏洞、老旧 PHP 导致的卡顿以及动辄崩溃的更新？我们将臃肿的 WordPress 彻底迁移为秒开的纯静态 HTML。零漏洞、零黑客隐患、极低服务器成本。",
-        card3_title: "AI 网页落地与托管",
-        card3_desc: "用 ChatGPT、Claude 或 v0 生成了网页代码却卡在怎么发布上线？我们包办最后一公里：绑定自定义域名、配置无服务器表单、SSL 证书及全球边缘高速 CDN 部署。",
-        card4_title: "技术性 SEO 与极致速度",
-        card4_desc: "仅仅把网站建好是不够的。我们深度优化 Core Web Vitals、元标签与结构化数据，让您的品牌在马来西亚 Google 本地搜索中脱颖而出。",
-        card5_title: "“技术排障”急诊服务",
-        card5_desc: "并不总是需要推倒重来。我们为您处理各类棘手的小型技术任务：设置多语言系统（i18n）、修复移动端排版错乱、排除 CSS 疑难杂症或对接第三方 API 接口。",
-        card6_title: "智能自动化工具",
-        card6_desc: "在您休息时依然全天候接待客户。我们构建自动化咨询分流器与表单，在凌晨解答常见疑问，并将高意向客户直接引导至您的 WhatsApp。",
-        card7_title: "上门办公 IT 驻场支持",
-        card7_desc: "电脑频繁卡顿？网络断断续续？打印机罢工？我们充当您公司的专属 IT 技术部——槟城地区提供每周上门巡检，全马其他州属提供每月定期维护。省去聘请全职 IT 的高额成本，保障日常运营无忧。",
-        process_title: "工作流程",
-        step1_title: "深入沟通需求",
-        step1_desc: "我们了解您的技术痛点，无论是 AI 网页上线、老旧 WP 迁移还是企业 IT 维护。",
-        step2_title: "代码构建与排障",
-        step2_desc: "我们沉浸到代码与服务器配置中（或实地上门），严谨且零宕机地完成交付。",
-        step3_title: "交付与长期保障",
-        step3_desc: "系统稳定交付运行。我们随时待命提供长期技术维护与突发状况技术支持。",
+        hero_badge: "马来西亚专业网页定制与维护服务 ☕",
+        hero_title_1: "轻快原生定制建站 &",
+        hero_title_2: "安心靠谱的网站维护。",
+        hero_desc: "我们专注于高性能纯静态网页开发、将易崩溃的 WordPress 老站重构成秒开的 HTML、协助部署 AI 网页代码，并提供实实在在的日常维护与突发排障。",
+        hero_cta_wa: "WhatsApp 快速咨询",
+        hero_cta_services: "浏览服务项目",
+        about_title: "认识 Nextravox 背后的开发者",
+        about_desc: "你好，我是 Kai，常驻马来西亚槟城的全栈网页开发者。不同于传统建站公司将项目层层分包或套用臃肿模板，我坚持手写纯净原生代码并亲自调优服务器。在这里，您直接与技术开发者沟通，享有秒级加载速度、零模板包袱以及真正省心的网站技术保障。",
+        section_title: "服务与技术方案",
+        card1_title: "全栈深度定制建站",
+        card1_desc: "采用原生 HTML、CSS、JS 与轻量后端，杜绝臃肿模板插件。网页加载迅速、手机端完美自适应，并针对 Google 马来西亚进行深度优化。",
+        card2_title: "WordPress 迁移纯静态",
+        card2_desc: "厌倦了频繁的插件冲突、PHP 过期卡顿与安全漏洞？我们将老旧 WP 整站重构为轻快的纯静态 HTML。零数据库漏洞，大幅降低服务器续费开销。",
+        card3_title: "AI 网页落地与上线托管",
+        card3_desc: "用 ChatGPT、Claude 或 v0 试做了网页却不知道如何上线？我们包办域名解析、表单后端、SSL 证书配置与全球高速 CDN 托管。",
+        card4_title: "网站日常维护与突发排障",
+        card4_desc: "省去聘请全职程序员的开支。我们协助定期内容更新、域名与证书续费，并在网站遭遇突发故障或打不开时第一时间介入抢修。",
+        card5_title: "技术性 SEO 与极致速度",
+        card5_desc: "深度调优 Google Core Web Vitals、Schema 结构化数据与元标签，让您的企业在 Google 马来西亚本地搜索中更容易被潜在客户找到。",
+        card6_title: "智能轻量分流客服",
+        card6_desc: "零第三方插件绑定的原生轻量客服（正如本站右下角！），在凌晨3点自动解答基础咨询，并将高意向客户直接引导至您的 WhatsApp。",
+        process_title: "合作流程",
+        step1_title: "需求沟通与评估",
+        step1_desc: "探讨您的技术痛点，无论是定制建站、老站静态化迁移还是日常托管维护。",
+        step2_title: "原生构建与调优",
+        step2_desc: "严谨编写纯净代码，调优服务器缓存与安全设置，确保各设备显示完美。",
+        step3_title: "上线交付与长期支持",
+        step3_desc: "系统顺畅交付运行。我们随时提供后续更新支持与突发技术故障排查。",
         trust_badge: "实在靠谱的技术支持",
-        trust_title: "为本地商家与企业提供轻快建站与安心维护",
-        trust_desc: "我们打造轻量秒开的纯静态网页，帮您妥善打理 WordPress 避免出错，并在发生故障或宕机时第一时间介入排障。沟通直接，做事靠谱。",
+        trust_title: "为本地商家与企业提供轻快建站与突发排障",
+        trust_desc: "我们打造轻量秒开的纯静态网页，协助老旧系统迁移重构，并在网站发生故障或宕机时快速介入排障抢修。做事直接，不夸大承诺。",
         portfolioTitle: "精选合作案例",
-        client1Name: "Aessence", client1Sub: "医学美容与皮肤专科",
-        client2Name: "Antara Spa & Wellness", client2Sub: "奢华水疗与身心健康中心",
-        client3Name: "Cantiq Clinic", client3Sub: "医美皮肤护理诊所",
-        client4Name: "Klinik Medipulih", client4Sub: "全科家庭综合诊所",
-        client5Name: "Klinik Gigi Tulen", client5Sub: "专业牙科诊所",
-        client6Name: "Kheng Dental", client6Sub: "综合牙科诊所",
-        client7Name: "Joy Dental", client7Sub: "专业牙科门诊",
-        client8Name: "Tria Dental Specialist", client8Sub: "专科牙科医疗中心",
-        client9Name: "Wong & Sim Dental Clinic", client9Sub: "牙科手术与种植专科",
-        client10Name: "Derm Define", client10Sub: "医学级护肤品商城",
-        client11Name: "Bloom Healthcare", client11Sub: "医疗控股集团门户",
+        faq_badge: "常见疑问",
+        faq_heading: "客户常见问题解答",
+        faq_subheading: "关于网页定制、日常维护与老站迁移的常见解答。",
+        faq_q1: "为什么建议将 WordPress 网站迁移为纯静态 HTML？",
+        faq_a1: "WordPress 经常因为插件过多、PHP 变老和数据库冗余而越来越卡。迁移为纯静态 HTML 后，网站几乎秒开，服务器成本极低，且完全没有数据库可供黑客攻击。",
+        faq_q2: "我用 AI (ChatGPT / v0) 做好了网页草稿，你们能帮忙部署上线吗？",
+        faq_a2: "完全可以！AI 能生成视觉代码，但无法处理域名绑定、邮件表单提交、安全证书配置。我们帮您把代码完善为可商用的正规网站并发布上线。",
+        faq_q3: "网站维护服务具体包含哪些内容？",
+        faq_a3: "包括日常内容修改（换活动图、更新文字与价格）、域名与 SSL 证书维护，以及当网站遭遇打不开或服务器报错时快速排查抢修。",
+        faq_q4: "我需要每月支付昂贵的中介或外包公司费用吗？",
+        faq_a4: "不需要。传统建站公司每月收费动辄数千令吉且流程繁琐。在 Nextravox，您直接与技术专员对接，价格透明灵活，适合中小商家。",
+        faq_view_all: "查看完整问答与实用排障指南",
         contact_title: "聊聊吧。别怕，我们不咬人。我们只会端着咖啡，凶狠地盯着屏幕，直到代码跑通。💻",
         contact_desc: "不喜欢打电话？喜欢打字？没关系，我们完全理解。直接发 WhatsApp 消息或邮件即可。",
         contact_wa: "WhatsApp 联络我们 (014-288 0514)",
-        footer: "© Nextravox Tech. 马来西亚 IT 与数字技术服务。"
+        footer: "© Nextravox Tech. 马来西亚网页定制与数字技术服务。"
       },
       bm: {
-        navAbout: "Tentang", navServices: "Servis", navProcess: "Proses", navPortfolio: "Portfolio",
+        navAbout: "Tentang", navServices: "Servis", navProcess: "Proses", navPortfolio: "Portfolio", navFAQ: "Soalan Lazim",
         toast_success: "Penukaran Bahasa Berjaya!",
         toast_title: "Berminat dengan fungsi ini?",
         toast_desc: "Kami membina sistem pelbagai bahasa (i18n) ini. Nak laman web anda bercakap pelbagai bahasa dengan lancar? Hubungi kami dan kami boleh kodkan untuk projek anda!",
-        hero_badge: "Sistem Dalam Talian. Kod dikompilasi, kopi dibancuh. ☕",
-        hero_title_1: "Perkhidmatan Digital &",
-        hero_title_2: "IT Generasi Baharu di Malaysia.",
-        hero_desc: "Kami membina laman web berprestasi tinggi dan menyelesaikan masalah IT pejabat. Dari laman web tersuai, migrasi WordPress lama ke HTML statik, pelancaran kod AI hingga bantuan IT di tapak, Nextravox sedia membantu.",
-        about_title: "Kenali Pakar IT Anda",
-        about_desc: "Hai, saya Kai. Bermula sebagai pembangun web bebas, pelanggan saya cepat sedar saya adalah <b>pakar IT serba boleh</b>—bukan sekadar kod web, saya juga urus pelayan hosting, tampal kelemahan keselamatan, dan baiki perkakasan pejabat. Untuk menampung perkembangan pelanggan korporat dan klinik, Nextravox kini berkembang sebagai rakan teknologi berdedikasi. Komunikasi masih terus dan telus, tetapi kuasa teknikal lebih mantap.",
-        section_title: "Perkhidmatan & Kemahiran",
-        card1_title: "Pembangunan Web Penuh",
-        card1_desc: "Kami membina backend kukuh dan frontend kemas. Pembangunan web tersuai mengikut sistem perniagaan anda, tanpa templat yang lembap, dan sedia berkembang mengikut keperluan.",
+        hero_badge: "Pembangunan & Penyelenggaraan Laman Web Malaysia ☕",
+        hero_title_1: "Laman Web Pantas &",
+        hero_title_2: "Servis Jaga Website Boleh Diharap.",
+        hero_desc: "Kami pakar membina laman web statik yang sangat pantas, menukar WordPress lama ke HTML bersih, melancarkan kod AI, dan menyediakan servis penyelenggaraan web berkala.",
+        hero_cta_wa: "WhatsApp Sekarang",
+        hero_cta_services: "Lihat Servis",
+        about_title: "Kenali Pembangun Web Nextravox",
+        about_desc: "Hai, saya Kai, jurutera web bebas berpangkalan di Pulau Pinang, Malaysia. Tanpa kerenah agensi besar atau templat berat yang mudah rosak, saya menulis kod native yang pantas dan menguruskan pelayan anda secara terus. Anda berhubung terus dengan pembangun web untuk kelajuan maksimum dan sokongan teknikal yang jujur.",
+        section_title: "Perkhidmatan Web Kami",
+        card1_title: "Pembangunan Web Tersuai",
+        card1_desc: "Kod native HTML, CSS, JavaScript dan backend ringan mengikut perniagaan anda. Pantas dibuka pada telefon pintar dan mudah diindeks oleh carian Google Malaysia.",
         card2_title: "Migrasi WP ke HTML Statik",
-        card2_desc: "Bosan dengan plugin yang selalu bermasalah, pelayan PHP yang perlahan, dan risiko laman web digodam? Kami tukar laman WordPress lama ke HTML statik yang sangat laju dan kalis ancaman pangkalan data.",
-        card3_title: "Pelancaran Web AI & Hosting",
-        card3_desc: "Bina kod web guna ChatGPT, Claude, atau v0 tapi tak tahu cara siapkan untuk dilancarkan? Kami uruskan semuanya: sambungan domain, borang pesanan selamat, sijil SSL, dan hosting CDN global terpantas.",
-        card4_title: "SEO Teknikal & Kelajuan",
-        card4_desc: "Bina laman web sahaja tidak cukup jika Google tidak jumpa anda. Kami optimumkan Core Web Vitals, metadata, dan data tersusun agar perniagaan anda menduduki tempat teratas carian Google tempatan.",
-        card5_title: "Meja Pembaikan Teknikal",
-        card5_desc: "Anda tak semestinya perlu bina semula semuanya. Kami selesaikan tugasan teknikal: persediaan sistem pelbagai bahasa (i18n), betulkan paparan telefon, dan integrasi API pihak ketiga.",
-        card6_title: "Alat Automasi Pintar",
-        card6_desc: "Dapatkan prospek semasa anda tidur. Kami bina chatbot dan borang interaktif pintar untuk layan pertanyaan pelanggan pada jam 3 pagi dan hantar prospek terus ke WhatsApp anda.",
-        card7_title: "Sokongan IT Pejabat di Tapak",
-        card7_desc: "PC bermasalah? Internet perlahan? Pencetak kerap rosak? Kami bertindak sebagai jabatan IT khusus syarikat anda—lawatan mingguan untuk Pulau Pinang, dan bulanan untuk seluruh Malaysia. Jimat kos gaji pekerja IT tetap.",
+        card2_desc: "Bosan dengan plugin yang sering rosak, PHP lembap dan isu sekuriti? Kami tukar WordPress lama ke HTML statik yang sangat laju dan kalis ancaman pangkalan data.",
+        card3_title: "Pelancaran Kod Web AI",
+        card3_desc: "Dah guna ChatGPT, Claude atau v0 untuk reka web tapi tersekat cara nak lancarkan? Kami uruskan sambungan domain, borang mesej selamat, SSL, dan hosting CDN.",
+        card4_title: "Penyelenggaraan & Jaga Web",
+        card4_desc: "Servis berkala kemas kini banner/teks, perbaharui domain & SSL, serta pantas bertindak menyelesaikan masalah jika berlaku gangguan 'website down'.",
+        card5_title: "SEO Teknikal & Kelajuan",
+        card5_desc: "Kami optimumkan kelajuan Core Web Vitals dan struktur data supaya perniagaan anda berada di kedudukan teratas carian Google tempatan.",
+        card6_title: "Chatbot Router Pintar",
+        card6_desc: "Bot interaktif tanpa plugin pihak ketiga untuk menjawab soalan asas pada jam 3 pagi dan terus menyalurkan prospek ke WhatsApp perniagaan anda.",
         process_title: "Cara Kami Bekerja",
-        step1_title: "Sembang & Analisis",
-        step1_desc: "Kita bincang keperluan teknikal anda, sama ada laman web AI, migrasi WP lama, atau servis IT pejabat.",
-        step2_title: "Bina & Baiki",
-        step2_desc: "Kami masuk ke kod dan konfigurasi pelayan (atau lawat pejabat anda) untuk siapkan kerja tanpa gangguan operasi.",
-        step3_title: "Penyerahan & Sokongan",
-        step3_desc: "Sistem anda siap beroperasi dengan selamat. Kami kekal ada untuk sokongan penyelenggaraan berterusan.",
+        step1_title: "Sembang & Bincang",
+        step1_desc: "Kita bincangkan keperluan web anda sama ada nak bina baru, migrasi laman lama, atau servis jaga website.",
+        step2_title: "Bina & Optimum",
+        step2_desc: "Kami selesaikan kod, pasang borang selamat, dan uji kelajuan pada semua jenis telefon.",
+        step3_title: "Pelancaran & Sokongan",
+        step3_desc: "Laman web anda sedia berfungsi. Kami kekal ada untuk sebarang kemas kini kandungan dan bantuan teknikal.",
         trust_badge: "Sokongan IT Praktikal",
-        trust_title: "Laman Web Pantas & Penyelenggaraan Boleh Diharap",
-        trust_desc: "Kami bina laman web HTML yang ringan dan pantas, jaga WordPress anda supaya lancar tanpa pening kepala, serta pantas bertindak membaiki jika berlaku gangguan atau 'downtime'.",
+        trust_title: "Laman Web Pantas & Bantuan Teknikal Bila Berlaku Masalah",
+        trust_desc: "Kami bina laman web HTML statik yang pantas dan ringan, bantu migrasi dari sistem lama, serta pantas bertindak menyelesaikan masalah jika berlaku gangguan atau 'downtime'.",
         portfolioTitle: "Portfolio Kami",
-        client1Name: "Aessence", client1Sub: "Klinik Estetik Perubatan",
-        client2Name: "Antara Spa & Wellness", client2Sub: "Spa & Kesejahteraan Mewah",
-        client3Name: "Cantiq Clinic", client3Sub: "Klinik Kulit & Estetik",
-        client4Name: "Klinik Medipulih", client4Sub: "Klinik Perubatan Am",
-        client5Name: "Klinik Gigi Tulen", client5Sub: "Klinik Pergigian",
-        client6Name: "Kheng Dental", client6Sub: "Klinik Pergigian",
-        client7Name: "Joy Dental", client7Sub: "Klinik Pergigian",
-        client8Name: "Tria Dental Specialist", client8Sub: "Klinik Pakar Pergigian",
-        client9Name: "Wong & Sim Dental Clinic", client9Sub: "Klinik Pergigian & Surgeri",
-        client10Name: "Derm Define", client10Sub: "Kedai Penjagaan Kulit Perubatan",
-        client11Name: "Bloom Healthcare", client11Sub: "Portal Kumpulan Penjagaan Kesihatan",
+        faq_badge: "Soalan Lazim",
+        faq_heading: "Soalan Yang Kerap Ditanya",
+        faq_subheading: "Jawapan ringkas mengenai pembangunan web, servis jaga website dan migrasi.",
+        faq_q1: "Kenapa perlu tukar WordPress kepada HTML statik?",
+        faq_a1: "Laman WordPress mudah perlahan kerana banyak plugin dan PHP lama. Dengan HTML statik, laman dibuka bawah 1 saat, kos hosting hampir percuma, dan tiada pangkalan data yang boleh digodam.",
+        faq_q2: "Saya buat draf web guna AI (ChatGPT / v0). Boleh tolong lancarkan?",
+        faq_a2: "Boleh! AI hasilkan reka bentuk kod tetapi tidak uruskan sambungan domain, borang emel selamat, dan sijil SSL. Kami sambungkan semuanya sehingga sedia dilayari.",
+        faq_q3: "Apa yang diliputi dalam servis penyelenggaraan website?",
+        faq_a3: "Kami bantu kemas kini kandungan (tukar gambar, teks, harga), perbaharui SSL & domain, serta pantas membaiki jika laman mengalami gangguan teknikal atau 'downtime'.",
+        faq_q4: "Adakah saya perlu bayar kos agensi bulanan yang mahal?",
+        faq_a4: "Tidak. Agensi biasa mengenakan RM 1,500 - RM 3,000 sebulan. Di Nextravox, anda berurusan terus dengan pemaju web dengan kadar yang fleksibel dan telus.",
+        faq_view_all: "Lihat Semua Soalan & Tips Baiki Web",
         contact_title: "Mari Berbincang. Jangan takut, kami tak gigit. Kami cuma tenung skrin secara agresif dengan kopi sampai kod berfungsi. 💻",
         contact_desc: "Tak suka panggilan telefon? Lebih suka menaip? Tak apa, kami faham. Hantar sahaja teks WhatsApp atau e-mel.",
         contact_wa: "WhatsApp Kami (014-288 0514)",
-        footer: "© Nextravox Tech. Perkhidmatan IT & Digital di Malaysia."
+        footer: "© Nextravox Tech. Pembangunan & Solusi Digital di Malaysia."
       }
     };
 
@@ -963,37 +1114,51 @@
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Portfolio Data & Render
+    // FAQ Accordion Toggle
+    function toggleFaq(num) {
+      const answer = document.getElementById(`faq-ans-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      const isOpen = answer.classList.contains('open');
+
+      // Close any open answers
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.classList.remove('rotate-180'));
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Portfolio Data - Client names and descriptions remain consistent and never translated
     const portfolioItems = [
-      { id: 1, nameKey: 'client1Name', subKey: 'client1Sub', image: 'images/portfolio/portfolio_aessence.webp', tags: ['Web Development', 'Web Maintenance', 'SEO'] },
-      { id: 2, nameKey: 'client2Name', subKey: 'client2Sub', image: 'images/portfolio/portfolio_antara.webp', tags: ['Web Maintenance', 'SEO'] },
-      { id: 3, nameKey: 'client3Name', subKey: 'client3Sub', image: 'images/portfolio/portfolio_cantiq.webp', tags: ['Web Maintenance', 'SEO'] },
-      { id: 4, nameKey: 'client4Name', subKey: 'client4Sub', image: 'images/portfolio/portfolio_medipulih.webp', tags: ['Web Maintenance', 'SEO'] },
-      { id: 5, nameKey: 'client5Name', subKey: 'client5Sub', image: 'images/portfolio/portfolio_tulen.webp', tags: ['Web Maintenance', 'SEO'] },
-      { id: 6, nameKey: 'client6Name', subKey: 'client6Sub', image: 'images/portfolio/portfolio_kheng.webp', tags: ['Web Maintenance', 'SEO'] },
-      { id: 7, nameKey: 'client7Name', subKey: 'client7Sub', image: 'images/portfolio/portfolio_joydental.webp', tags: ['Web Development', 'Web Maintenance', 'SEO'] },
-      { id: 8, nameKey: 'client8Name', subKey: 'client8Sub', image: 'images/portfolio/portfolio_triadental.webp', tags: ['Web Development', 'Web Maintenance', 'SEO'] },
-      { id: 9, nameKey: 'client9Name', subKey: 'client9Sub', image: 'images/portfolio/portfolio_wongandsim.webp', tags: ['Web Development', 'Web Maintenance', 'SEO'] },
-      { id: 10, nameKey: 'client10Name', subKey: 'client10Sub', image: 'images/portfolio/portfolio_derm.webp', tags: ['Web Development', 'Web Maintenance', 'SEO'] },
-      { id: 11, nameKey: 'client11Name', subKey: 'client11Sub', image: 'images/portfolio/portfolio_bloomhealthcare.webp', tags: ['Web Development', 'Web Maintenance'] }
+      { id: 1, name: "Aessence", sub: "Medical Aesthetic Clinic", image: "images/portfolio/portfolio_aessence.webp", tags: ["Web Development", "Web Maintenance", "SEO"] },
+      { id: 2, name: "Antara Spa & Wellness", sub: "Luxury Spa and Wellness", image: "images/portfolio/portfolio_antara.webp", tags: ["Web Maintenance", "SEO"] },
+      { id: 3, name: "Cantiq Clinic", sub: "Medical Aesthetic Skin", image: "images/portfolio/portfolio_cantiq.webp", tags: ["Web Maintenance", "SEO"] },
+      { id: 4, name: "Klinik Medipulih", sub: "General Practitioner Clinic", image: "images/portfolio/portfolio_medipulih.webp", tags: ["Web Maintenance", "SEO"] },
+      { id: 5, name: "Klinik Gigi Tulen", sub: "Dental Clinic", image: "images/portfolio/portfolio_tulen.webp", tags: ["Web Maintenance", "SEO"] },
+      { id: 6, name: "Kheng Dental", sub: "Dental Clinic", image: "images/portfolio/portfolio_kheng.webp", tags: ["Web Maintenance", "SEO"] },
+      { id: 7, name: "Joy Dental", sub: "Dental Clinic", image: "images/portfolio/portfolio_joydental.webp", tags: ["Web Development", "Web Maintenance", "SEO"] },
+      { id: 8, name: "Tria Dental Specialist", sub: "Dental Specialist Clinic", image: "images/portfolio/portfolio_triadental.webp", tags: ["Web Development", "Web Maintenance", "SEO"] },
+      { id: 9, name: "Wong & Sim Dental Clinic", sub: "Dental Surgery Clinic", image: "images/portfolio/portfolio_wongandsim.webp", tags: ["Web Development", "Web Maintenance", "SEO"] },
+      { id: 10, name: "Derm Define", sub: "Medical Skincare Store", image: "images/portfolio/portfolio_derm.webp", tags: ["Web Development", "Web Maintenance", "SEO"] },
+      { id: 11, name: "Bloom Healthcare", sub: "Healthcare Group Portal", image: "images/portfolio/portfolio_bloomhealthcare.webp", tags: ["Web Development", "Web Maintenance"] }
     ];
 
     function renderPortfolio() {
       const grid = document.getElementById('portfolio-grid');
       grid.innerHTML = '';
       portfolioItems.forEach(item => {
-        const name = translations[currentLang][item.nameKey];
-        const sub = translations[currentLang][item.subKey];
         const card = document.createElement('div');
         card.className = 'group relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 transition-all hover:border-accent/30 shadow-lg';
         card.innerHTML = `
           <div class="aspect-video overflow-hidden relative">
             <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-transparent opacity-90 z-10"></div>
-            <img src="${item.image}" alt="${name}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </div>
           <div class="p-6 relative z-20">
-            <h3 class="text-2xl font-bold text-white mb-2 opacity-90">${name}</h3>
-            <p class="text-slate-400 text-base mb-4 italic">${sub}</p>
+            <h3 class="text-2xl font-bold text-white mb-2 opacity-90">${item.name}</h3>
+            <p class="text-slate-400 text-base mb-4 italic">${item.sub}</p>
             <div class="flex flex-wrap gap-2">
               ${item.tags.map(tag => `<span class="px-4 py-1.5 rounded-full bg-white/10 text-xs font-bold text-slate-300 border border-white/10">${tag}</span>`).join('')}
             </div>
@@ -1004,7 +1169,7 @@
     }
     renderPortfolio();
 
-    // Custom Chatbot Logic
+    // Custom Chatbot Logic (100% Web & Maintenance Focused)
     const chatBox = document.getElementById('chatBox');
     const chatBody = document.getElementById('chatBody');
 
@@ -1013,93 +1178,96 @@
       return {
         en: {
           start: { 
-            text: "Beep boop. 🤖 Hi! I'm the Nextravox Smart Router.\n\nOur engineers are either writing clean code or out fixing hardware. What can we build or solve for you?", 
+            text: "Beep boop. 🤖 Hi! I'm the Nextravox Smart Router.\n\nI'm handling the front desk while Kai is coding or optimizing websites. What can we help you build or fix?", 
             options: [
-              { label: "🌐 Web Dev / AI Launch", next: "webdev" }, 
-              { label: "⚡ WP to Static Migration", next: "migration" },
-              { label: "🔌 Local Office IT", next: "localit" }, 
-              { label: "🤖 Get a Bot", next: "promo_bot" }
+              { label: "🌐 Custom Web Development", next: "webdev" }, 
+              { label: "⚡ WP to Static HTML", next: "migration" },
+              { label: "🛠️ Website Maintenance", next: "maintenance" },
+              { label: "🚀 Launch AI Web Draft", next: "ai_launch" }
             ] 
           },
           webdev: { 
-            text: "We build custom native web apps and take AI-generated drafts (ChatGPT, v0, Claude) straight into production with custom domains, forms, and edge CDN hosting.\n\nReady to get started?", 
-            options: [{ label: "Contact Us on WhatsApp", next: "wa_admin" }, { label: "⬅️ Back", next: "start" }] 
+            text: "We build clean native HTML/JS sites that load in under 1 second without slow page builders.\n\nWant to discuss your web project?", 
+            options: [{ label: "Chat on WhatsApp", next: "wa_admin" }, { label: "⬅️ Back", next: "start" }] 
           },
           migration: { 
-            text: "Stuck with an old, vulnerable WordPress setup or high hosting bills? We convert legacy WP sites into unhackable, sub-second static HTML.\n\nWant to evaluate your site?", 
+            text: "Is your WordPress slow, bloated with plugins, or costly to host? We convert existing WP websites into ultra-fast, unhackable static HTML.\n\nWant to explore migrating?", 
             options: [{ label: "Discuss Migration", next: "wa_migration" }, { label: "⬅️ Back", next: "start" }] 
           },
-          localit: { 
-            text: "Office PCs slow? Network or printer issues? We provide scheduled on-site troubleshooting (weekly in Penang, monthly across Malaysia).\n\nNeed technical support?", 
-            options: [{ label: "Request On-Site Help", next: "wa_admin" }, { label: "⬅️ Back", next: "start" }] 
+          maintenance: { 
+            text: "Need someone reliable to handle text/image updates, SSL renewals, or troubleshoot when your website errors out?\n\nLet's keep your site healthy.", 
+            options: [{ label: "Request Maintenance Help", next: "wa_maintenance" }, { label: "⬅️ Back", next: "start" }] 
           },
-          promo_bot: { 
-            text: "Smart choice! 😎\n\nI qualify leads and route inquiries 24/7 without demanding overtime pay.\n\nInterested in adding an automated router like me?", 
-            options: [{ label: "Yes! Let's build one", next: "wa_promo" }, { label: "⬅️ Back", next: "start" }] 
+          ai_launch: { 
+            text: "Used ChatGPT, Claude, or v0 to generate HTML code, but need help linking a custom domain, forms, and SSL?\n\nWe can deploy it today.", 
+            options: [{ label: "Deploy My AI Site", next: "wa_ai" }, { label: "⬅️ Back", next: "start" }] 
           },
-          wa_admin: { type: "link", url: `${waLink}?text=Hi! I saw the Nextravox website and would like to discuss Web Development / IT Support.`, msg: "Opening WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=Hi! I am interested in migrating an existing WordPress website to fast, secure static HTML.`, msg: "Opening WhatsApp..." },
-          wa_promo: { type: "link", url: `${waLink}?text=Hi! I tested your Smart Router bot on Nextravox and want to inquire about a custom chatbot.`, msg: "Awesome! Opening WhatsApp..." }
+          wa_admin: { type: "link", url: `${waLink}?text=Hi! I am interested in building a custom website with Nextravox.`, msg: "Opening WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=Hi! I want to inquire about converting an existing WordPress site to fast static HTML.`, msg: "Opening WhatsApp..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=Hi! I need website maintenance or troubleshooting support for my website.`, msg: "Opening WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=Hi! I have AI-generated web code that I want to launch with custom domain and hosting.`, msg: "Opening WhatsApp..." }
         },
         cn: {
           start: { 
-            text: "滴滴 🤖 你好！我是 Nextravox 智能分流客服。\n\n我们的工程师正在敲代码或处理硬件排障，请告诉我您需要什么服务？", 
+            text: "滴滴 🤖 你好！我是 Nextravox 智能接待助手。\n\nKai 正在敲代码优化网页，所以由我来为您服务。您今天需要哪方面的技术支持？", 
             options: [
-              { label: "🌐 网页开发 / AI落地", next: "webdev" }, 
+              { label: "🌐 纯手写定制建站", next: "webdev" }, 
               { label: "⚡ WP 迁移纯静态", next: "migration" },
-              { label: "🔌 本地办公 IT", next: "localit" }, 
-              { label: "🤖 定制同款机器人", next: "promo_bot" }
+              { label: "🛠️ 网站日常维护与排障", next: "maintenance" },
+              { label: "🚀 AI 网页代码上线", next: "ai_launch" }
             ] 
           },
           webdev: { 
-            text: "我们承接全栈定制开发，并帮您将 AI (ChatGPT, v0, Claude) 生成的代码直接上线，配置自定义域名、安全表单与高速 CDN。\n\n想聊聊您的项目吗？", 
+            text: "我们编写纯净原生 HTML 代码，秒开不卡顿，绝不套用臃肿模板。\n\n想聊聊您的建站想法吗？", 
             options: [{ label: "通过 WhatsApp 详谈", next: "wa_admin" }, { label: "⬅️ 返回", next: "start" }] 
           },
           migration: { 
-            text: "您的 WordPress 网站常年卡顿、插件漏洞多或服务器太贵？我们将老旧 WP 整站转化为极速、零安全漏洞的纯静态 HTML。\n\n想评估迁移方案吗？", 
+            text: "您的 WordPress 网站常年卡顿、插件漏洞多或主机太贵？我们将老站整站重构为秒开、零漏洞的纯静态 HTML。\n\n想评估迁移吗？", 
             options: [{ label: "咨询网站迁移", next: "wa_migration" }, { label: "⬅️ 返回", next: "start" }] 
           },
-          localit: { 
-            text: "办公室电脑卡机、网络不稳定或打印机罢工？我们提供上门排障（槟城每周，全马其他州属每月）。\n\n需要技术支持吗？", 
-            options: [{ label: "预约上门支持", next: "wa_admin" }, { label: "⬅️ 返回", next: "start" }] 
+          maintenance: { 
+            text: "需要专人帮您打理网站内容更新、证书续期，或在网站报错打不开时抢修？\n\n我们提供靠谱的技术维护。", 
+            options: [{ label: "咨询网站维护", next: "wa_maintenance" }, { label: "⬅️ 返回", next: "start" }] 
           },
-          promo_bot: { 
-            text: "眼光不错！😎\n\n我 24 小时全天候筛选意向客户，直接对接 WhatsApp，从不要求加班。\n\n有兴趣定制一个吗？", 
-            options: [{ label: "是的，我想定制！", next: "wa_promo" }, { label: "⬅️ 返回", next: "start" }] 
+          ai_launch: { 
+            text: "用 AI (ChatGPT / v0) 生成了网页代码，却卡在域名绑定、表单发送或 SSL 证书？\n\n我们可以帮您直接上线。", 
+            options: [{ label: "部署 AI 网页代码", next: "wa_ai" }, { label: "⬅️ 返回", next: "start" }] 
           },
-          wa_admin: { type: "link", url: `${waLink}?text=你好！我浏览了 Nextravox 网站，想咨询网页开发与 IT 技术支持。`, msg: "正在打开 WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=你好！我想咨询将 WordPress 网站迁移为纯静态 HTML 的服务。`, msg: "正在打开 WhatsApp..." },
-          wa_promo: { type: "link", url: `${waLink}?text=你好！我对 Nextravox 的智能客服机器人很感兴趣，想了解定制详情。`, msg: "太棒了！正在打开 WhatsApp..." }
+          wa_admin: { type: "link", url: `${waLink}?text=你好！我想咨询 Nextravox 的原生网页定制开发服务。`, msg: "正在打开 WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=你好！我想咨询将 WordPress 网站重构迁移为纯静态 HTML。`, msg: "正在打开 WhatsApp..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=你好！我想了解网站日常维护或突发排障服务。`, msg: "正在打开 WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=你好！我有一些 AI 生成的网页代码，想找你们协助部署上线。`, msg: "正在打开 WhatsApp..." }
         },
         bm: {
           start: { 
-            text: "Beep boop. 🤖 Hai! Saya Nextravox Smart Router.\n\nJurutera kami sedang mengekod atau membaiki perkakasan. Apa yang boleh kami bantu hari ini?", 
+            text: "Beep boop. 🤖 Hai! Saya Nextravox Smart Router.\n\nKai sedang fokus mengekod laman web, jadi saya jaga kaunter depan. Apa yang boleh kami bantu hari ini?", 
             options: [
-              { label: "🌐 Web Dev / Kod AI", next: "webdev" }, 
+              { label: "🌐 Pembangunan Web Tersuai", next: "webdev" }, 
               { label: "⚡ Migrasi WP ke Statik", next: "migration" },
-              { label: "🔌 IT Pejabat Tempatan", next: "localit" }, 
-              { label: "🤖 Dapatkan Bot", next: "promo_bot" }
+              { label: "🛠️ Penyelenggaraan / Jaga Web", next: "maintenance" },
+              { label: "🚀 Lancar Kod AI Web", next: "ai_launch" }
             ] 
           },
           webdev: { 
-            text: "Kami bina laman web tersuai dan bantu anda lancarkan kod AI (ChatGPT, v0, Claude) ke pelayan sebenar dengan domain dan sijil SSL lengkap.\n\nBerminat untuk mula?", 
-            options: [{ label: "Hubungi Melalui WhatsApp", next: "wa_admin" }, { label: "⬅️ Kembali", next: "start" }] 
+            text: "Kami bina laman web HTML native yang pantas dibuka tanpa plugin atau templat yang lembap.\n\nNak bincang projek web anda?", 
+            options: [{ label: "WhatsApp Kami", next: "wa_admin" }, { label: "⬅️ Kembali", next: "start" }] 
           },
           migration: { 
-            text: "Laman WordPress anda perlahan, banyak plugin bermasalah, atau bayaran pelayan mahal? Kami tukar ke HTML statik yang pantas dan kalis godam.\n\nIngin nilai laman web anda?", 
+            text: "Laman WordPress anda perlahan, banyak plugin bermasalah, atau bayaran pelayan mahal? Kami tukar ke HTML statik yang pantas dan kalis godam.\n\nBerminat untuk migrasi?", 
             options: [{ label: "Bincang Migrasi Laman", next: "wa_migration" }, { label: "⬅️ Kembali", next: "start" }] 
           },
-          localit: { 
-            text: "PC bermasalah? Rangkaian atau pencetak pejabat gagal berfungsi? Kami sediakan sokongan di tapak pejabat (mingguan di Pulau Pinang, bulanan seluruh Malaysia).\n\nPerlukan bantuan teknikal?", 
-            options: [{ label: "Mohon Bantuan IT", next: "wa_admin" }, { label: "⬅️ Kembali", next: "start" }] 
+          maintenance: { 
+            text: "Perlukan bantuan berkala kemas kini banner/teks, perbaharui SSL, atau baiki web bila berlaku 'down'?\n\nBiar kami bantu jaga web anda.", 
+            options: [{ label: "Servis Jaga Website", next: "wa_maintenance" }, { label: "⬅️ Kembali", next: "start" }] 
           },
-          promo_bot: { 
-            text: "Pilihan bijak! 😎\n\nSaya bekerja 24/7 menapis pertanyaan pelanggan terus ke WhatsApp tanpa cuti atau OT.\n\nBerminat nak letak bot seperti saya?", 
-            options: [{ label: "Ya! Beritahu saya", next: "wa_promo" }, { label: "⬅️ Kembali", next: "start" }] 
+          ai_launch: { 
+            text: "Dah reka kod guna AI tapi sangkut bab sambung domain, borang mesej, atau SSL?\n\nKami boleh lancarkan untuk anda.", 
+            options: [{ label: "Lancarkan Kod AI Saya", next: "wa_ai" }, { label: "⬅️ Kembali", next: "start" }] 
           },
-          wa_admin: { type: "link", url: `${waLink}?text=Hai! Saya berminat dengan servis pembangunan web dan sokongan IT Nextravox.`, msg: "Membuka WhatsApp..." },
+          wa_admin: { type: "link", url: `${waLink}?text=Hai! Saya berminat untuk bina laman web tersuai dengan Nextravox.`, msg: "Membuka WhatsApp..." },
           wa_migration: { type: "link", url: `${waLink}?text=Hai! Saya ingin bertanya tentang servis migrasi WordPress ke HTML statik.`, msg: "Membuka WhatsApp..." },
-          wa_promo: { type: "link", url: `${waLink}?text=Hai! Saya berminat untuk menambah bot interaktif pada laman web perniagaan saya.`, msg: "Hebat! Membuka WhatsApp..." }
+          wa_maintenance: { type: "link", url: `${waLink}?text=Hai! Saya perlukan servis penyelenggaraan atau pembaikan laman web saya.`, msg: "Membuka WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=Hai! Saya ada kod web dari AI dan ingin bantuan melancarkannya ke pelayan.`, msg: "Membuka WhatsApp..." }
         }
       }[currentLang];
     }
@@ -1170,7 +1338,7 @@
     function addMessage(text, sender) {
       const div = document.createElement('div');
       div.className = `message ${sender}`;
-      div.innerHTML = text.replace(/\\n/g, '<br>');
+      div.innerHTML = text.replace(/\n/g, '<br>');
       chatBody.appendChild(div);
       scrollToBottom();
     }
