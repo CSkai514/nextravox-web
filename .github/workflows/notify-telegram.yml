@@ -11,15 +11,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Telegram Message
+        env:
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          AUTHOR: ${{ github.actor }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
-          MESSAGE="🚀 *Nextravox Web*%0A"
-          MESSAGE+="🚀 *Nextravox website: New Update on GitHub*%0A"
-          MESSAGE+="📦 Repo: *${{ github.repository }}*%0A"
-          MESSAGE+="🌿 Branch: *${{ github.ref_name }}*%0A"
-          MESSAGE+="👤 Author: *${{ github.actor }}*%0A"
-          MESSAGE+="📝 Commit: ${{ github.event.head_commit.message }}"
+          # 1. Escape HTML special characters (<, >, &) from dynamic input so they don't break HTML parsing
+          SAFE_COMMIT=$(echo "$COMMIT_MSG" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+          SAFE_AUTHOR=$(echo "$AUTHOR" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
 
-          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-            -d text="$MESSAGE" \
-            -d parse_mode=Markdown
+          # 2. Build the message with HTML formatting (supports standard symbols and real newlines)
+          MESSAGE="🚀 <b>Nextravox Web</b>
+          🚀 <b>Nextravox website: New Update on GitHub</b>
+          📦 Repo: <b>${REPO}</b>
+          🌿 Branch: <b>${BRANCH}</b>
+          👤 Author: <b>${SAFE_AUTHOR}</b>
+          📝 Commit: ${SAFE_COMMIT}"
+
+          # 3. Construct a safe JSON payload and send via curl
+          jq -n \
+            --arg chat_id "$CHAT_ID" \
+            --arg text "$MESSAGE" \
+            --arg parse_mode "HTML" \
+            '{chat_id: $chat_id, text: $text, parse_mode: $parse_mode}' \
+          | curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d @-
