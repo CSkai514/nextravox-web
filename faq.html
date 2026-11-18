@@ -15,13 +15,103 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Rich SEO Meta Data -->
-  <title>Website FAQ & Technical Troubleshooting Guides | Nextravox Malaysia</title>
+  <!-- Rich SEO & AEO Meta Data -->
+  <title>Website FAQ & Technical Troubleshooting Guides | Nextravox Tech Malaysia</title>
   <meta name="description"
-    content="Common questions about web development, website maintenance, legacy WordPress problems, slow website troubleshooting, and AI code deployment in Malaysia." />
+    content="Honest answers about monthly website maintenance for pure HTML and WordPress, deploying AI vibe-coding pages, section-based & multi-page website pricing, and WordPress troubleshooting in Malaysia." />
   <meta name="keywords"
-    content="why wordpress is slow, fix broken wordpress website, website maintenance malaysia, upah jaga website, wordpress to static html, how to deploy ai website, website troubleshooting penang" />
+    content="why wordpress is slow, fix broken wordpress website, website maintenance malaysia, pure html maintenance, deploy ai vibe coding website, one page landing page malaysia, wordpress to static html, website troubleshooting penang" />
   <link rel="canonical" href="https://nextravox.com/faq.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextravox.com/faq.html" />
+  <meta property="og:title" content="Website FAQ & Technical Troubleshooting Guides | Nextravox Tech" />
+  <meta property="og:description" content="Practical answers on pure HTML vs. WordPress, AI web deployment, monthly maintenance plans, and fixing broken sites in Malaysia." />
+  <meta property="og:image" content="https://nextravox.com/images/Nextravox_logo_white_resized.png" />
+
+  <!-- Complete FAQPage Structured Data (Schema JSON-LD) for AEO / AI Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "dateModified": "2026-11-18",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you use pre-made bloated templates or code from scratch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nextravox codes websites from scratch using clean native HTML, CSS, JavaScript, and lightweight PHP backends rather than pre-made WordPress templates. Avoiding bloated themes eliminates 50+ unnecessary scripts and heavy database queries, keeping page loads under 1 second."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you take care of a website built by another agency or developer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Nextravox offers monthly maintenance for both pure HTML (from RM 200++/mo 1-year agreement or RM 240++/mo month-to-month) and WordPress websites (from RM 250++/mo 1-year agreement or RM 290++/mo month-to-month), covering 10-15 minor content/image edits per month, SSL/domain renewals, backups, and troubleshooting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you host and deploy websites I built with AI (vibe coding tools like ChatGPT, Claude, v0, or Bolt)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We take raw AI-generated or vibe-coded HTML/CSS/JS files, fix mobile responsive bugs, configure custom domain DNS and SSL certificates, connect spam-protected PHP contact forms, and deploy the site onto fast production hosting starting from RM 250++."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you price one-page landing pages and multi-page website builds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One-off builds carry no mandatory monthly fee. Single-page builds are itemized from RM 100++ each for Header and Footer plus RM 125++/section for core sections (from RM 110++/section for 6+ sections). Multi-page sites (4-5 sections/page) start from RM 550++/page (2-4 pages) or RM 450++/page (5+ pages)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does your chatbot router work? Do I have to pay monthly SaaS fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Smart Router chatbot is coded directly in native JavaScript without third-party tracking scripts or monthly SaaS subscriptions, loading in milliseconds and routing pre-qualified leads straight to your WhatsApp or inquiry form."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my WordPress website getting slower and slower over time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WordPress slows down over time because every page visit executes dozens of PHP scripts and queries a MySQL database bloated by post revisions, expired transients, and overlapping plugin CSS/JS files. Pruning unused assets or migrating to static HTML resolves the bottleneck."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do WordPress websites suddenly show a blank white screen or critical error after updates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A blank white screen after updating WordPress plugins or themes occurs when a newly updated plugin calls a deprecated PHP function or conflicts with another plugin hook, triggering a fatal PHP error. Always back up off-site and test updates before applying them to a live site."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can't AI tools (ChatGPT / Claude / v0) fully handle my website deployment on their own?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI tools generate frontend layouts well, but they cannot access your domain registrar to configure DNS (A/CNAME/MX) records, set up SPF/DKIM email deliverability, build rate-limited PHP form backends, or test real mobile viewports."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my website look fine on laptop but broken or unclickable on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mobile layout breakage happens when elements use fixed pixel widths, unconstrained absolute positioning, or tap targets smaller than 48px. Rebuilding with responsive flex/grid containers and relative units fixes mobile usability across phones."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,6 +143,62 @@
     }
   </script>
 
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .nxv-swal-popup {
+      background: #0f172a !important;
+      color: #f8fafc !important;
+      border: 1px solid rgba(6, 182, 212, 0.35) !important;
+      border-radius: 1.5rem !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75) !important;
+      font-family: 'Space Grotesk', sans-serif !important;
+    }
+    .nxv-swal-title {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+    }
+    .nxv-swal-confirm {
+      background: linear-gradient(135deg, #135bec, #06b6d4) !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      border-radius: 9999px !important;
+      padding: 0.75rem 1.75rem !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35) !important;
+    }
+    .nxv-swal-cancel {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: #cbd5e1 !important;
+      font-weight: 600 !important;
+      border-radius: 9999px !important;
+      padding: 0.75rem 1.5rem !important;
+    }
+    .nxv-input {
+      width: 100%;
+      background: #020617;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #f8fafc;
+      border-radius: 0.75rem;
+      padding: 0.7rem 0.95rem;
+      font-size: 0.925rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nxv-input:focus {
+      border-color: #06b6d4;
+    }
+    .nxv-hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  </style>
+
   <style>
     body {
       color: #f9fafb;
@@ -73,7 +219,7 @@
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .faq-answer.open {
-      max-height: 600px;
+      max-height: 750px;
     }
 
     /* --- Chatbot Styles --- */
@@ -99,9 +245,26 @@
       justify-content: center;
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
     }
     .fab-button:hover { transform: scale(1.1); }
-    .fab-button svg { width: 35px; height: 35px; fill: white; }
+
+    .badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background-color: #ff3b30;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #020617;
+    }
 
     .chat-box {
       width: 360px;
@@ -128,8 +291,31 @@
     .message.bot { background: rgba(255, 255, 255, 0.1); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; }
     .message.user { background: #06b6d4; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
     .options-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
-    .option-btn { background: transparent; border: 1px solid #06b6d4; color: #06b6d4; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .option-btn { background: transparent; border: 1px solid #06b6d4; color: #06b6d4; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
     .option-btn:hover { background: #06b6d4; color: #020617; }
+    .typing-indicator {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 15px;
+      border-radius: 20px;
+      border-bottom-left-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+    }
+    .typing-text { font-size: 12px; color: #aaa; font-style: italic; }
+    .typing-dots span {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background-color: #06b6d4;
+      border-radius: 50%;
+      animation: wave 1.3s linear infinite;
+      margin-right: 2px;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: -1.1s; }
+    .typing-dots span:nth-child(3) { animation-delay: -0.9s; margin-right: 0; }
+    @keyframes wave { 0%, 60%, 100% { transform: initial; } 30% { transform: translateY(-5px); } }
   </style>
 </head>
 
@@ -143,23 +329,61 @@
   <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-darker/80 border-b border-white/10" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
-        <a href="index.html" class="w-36 md:w-48 lg:w-60 flex items-center justify-center">
+        <a href="index.html" class="w-32 md:w-44 lg:w-52 flex items-center justify-center flex-shrink-0">
           <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox Logo">
         </a>
-        <div class="flex-shrink-0 flex items-center gap-2">
-          <div class="hidden md:flex items-center space-x-8">
+        <div class="flex items-center gap-2 lg:gap-4">
+          <div class="hidden lg:flex items-center space-x-6">
             <a href="index.html#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navAbout">About</a>
             <a href="index.html#services" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navServices">Services</a>
             <a href="index.html#portfolio" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navPortfolio">Portfolio</a>
-            <a href="faq.html" class="text-sm font-bold text-accent transition-colors" data-i18n="navFAQ">FAQ & Tips</a>
+            <a href="pricing.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-i18n="navPricing">Pricing</a>
+            <a href="faq.html" class="text-sm font-bold text-accent transition-colors" data-i18n="navFAQ">FAQ &amp; Tips</a>
 
-            <div class="flex items-center gap-2 bg-white/5 rounded-full p-1 border border-white/10">
-              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium bg-primary text-white" data-lang="en">EN</button>
-              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white" data-lang="cn">中文</button>
-              <button class="lang-btn px-3 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white" data-lang="bm">BM</button>
+            <div class="flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10">
+              <button type="button" class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium bg-primary text-white transition-colors cursor-pointer" data-lang="en">EN</button>
+              <button type="button" class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-colors cursor-pointer" data-lang="sc">简中</button>
+              <button type="button" class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-colors cursor-pointer" data-lang="tc">繁中</button>
+              <button type="button" class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-colors cursor-pointer" data-lang="bm">BM</button>
             </div>
+
+            <button type="button" onclick="openContactModal(0)"
+              class="px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-white text-xs font-bold hover:opacity-95 hover:scale-105 transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span data-i18n="navQuote">Get a Quote</span>
+            </button>
           </div>
-          <a href="index.html" class="md:hidden text-xs px-3 py-1.5 rounded-full bg-white/10 text-white font-medium">← Home</a>
+
+          <!-- Mobile Controls -->
+          <div class="lg:hidden flex items-center gap-2">
+            <div class="flex items-center gap-0.5 bg-white/5 rounded-full p-1 border border-white/10">
+              <button type="button" class="lang-btn px-2 py-1 rounded-full text-[11px] font-medium bg-primary text-white cursor-pointer" data-lang="en">EN</button>
+              <button type="button" class="lang-btn px-2 py-1 rounded-full text-[11px] font-medium text-slate-400 cursor-pointer" data-lang="sc">简</button>
+              <button type="button" class="lang-btn px-2 py-1 rounded-full text-[11px] font-medium text-slate-400 cursor-pointer" data-lang="tc">繁</button>
+              <button type="button" class="lang-btn px-2 py-1 rounded-full text-[11px] font-medium text-slate-400 cursor-pointer" data-lang="bm">BM</button>
+            </div>
+            <button type="button" id="mobile-menu-btn" class="text-slate-300 hover:text-white p-1" aria-label="Toggle Menu">
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-darker border-b border-white/10">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+          <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navHome">Home</a>
+          <a href="index.html#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navServices">Services</a>
+          <a href="index.html#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navPortfolio">Portfolio</a>
+          <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navPricing">Pricing</a>
+          <a href="faq.html" class="block px-3 py-2 rounded-md text-base font-bold text-accent bg-white/5" data-i18n="navFAQ">FAQ &amp; Tips</a>
+          <div class="pt-2">
+            <button type="button" onclick="openContactModal(0)"
+              class="w-full py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-sm font-bold flex items-center justify-center gap-2 cursor-pointer">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span data-i18n="navQuote">Get a Quote</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -169,14 +393,14 @@
   <section class="relative pt-36 pb-16 lg:pt-44 lg:pb-20 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-darker to-darker -z-10"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-6">
-        Knowledge Base & FAQ
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-6" data-i18n="page_badge">
+        Knowledge Base &amp; FAQ
       </div>
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6" data-i18n="page_title">
-        Web FAQs & Troubleshooting Guides
+        Web FAQs &amp; Troubleshooting Guides
       </h1>
       <p class="text-slate-400 text-lg md:text-xl leading-relaxed" data-i18n="page_desc">
-        Honest answers, common website mistakes to avoid, and why bloated systems crash—explained by a practical web developer.
+        Honest answers about pure HTML vs. WordPress, deploying AI vibe-coding pages, monthly maintenance, and why bloated systems crash—explained by a practical web developer.
       </p>
     </div>
   </section>
@@ -188,60 +412,78 @@
     <div class="mb-14">
       <div class="flex items-center gap-3 mb-6">
         <i data-lucide="help-circle" class="w-6 h-6 text-accent"></i>
-        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat1_title">1. Services & Working Together</h2>
+        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat1_title">1. Services, Pricing &amp; Working Together</h2>
       </div>
 
       <div class="space-y-4">
 
         <!-- Cat 1 - Q1 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('s1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+          <button type="button" onclick="toggleFaq('s1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg font-bold text-white pr-4" data-i18n="s1_q">Do you use pre-made bloated templates or code from scratch?</span>
             <i data-lucide="chevron-down" id="icon-s1" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-s1" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
-            <p data-i18n="s1_a">
-              We build with clean native HTML, CSS, JavaScript, and lightweight backends. Pre-made WordPress themes usually come with 50+ unnecessary scripts, bulky visual builders, and heavy SQL queries that slow your website down. By coding directly, your site stays clean, loads quickly, and gives you total control over the layout.
-            </p>
+            <div data-i18n="s1_a">
+              <p class="font-semibold text-white mb-2">We code from scratch using native HTML, CSS, JavaScript, and lightweight PHP backends rather than pre-made templates.</p>
+              <p>Commercial WordPress themes usually pack 50+ unnecessary scripts, heavy visual page builders, and slow SQL queries that drag down mobile loading speeds. Direct coding keeps your website lightweight, fast, and completely under your control.</p>
+            </div>
           </div>
         </div>
 
         <!-- Cat 1 - Q2 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('s2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
-            <span class="text-lg font-bold text-white pr-4" data-i18n="s2_q">Can you take care of a website that was built by another agency or developer?</span>
+          <button type="button" onclick="toggleFaq('s2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s2_q">Can you take care of a website built by another agency or developer?</span>
             <i data-lucide="chevron-down" id="icon-s2" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-s2" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
-            <p data-i18n="s2_a">
-              Yes, provided the website is reasonably stable. We conduct a preliminary check to inspect how the site and server are configured. We then take over routine content updates, domain/SSL management, and emergency error troubleshooting. If an older site is severely corrupted or built on end-of-life PHP, we will honestly recommend migrating key pages to static HTML rather than billing you endless hours for band-aid fixes.
-            </p>
+            <div data-i18n="s2_a">
+              <p class="font-semibold text-white mb-2">Yes—we provide monthly maintenance for both pure HTML (from RM 200++/mo 1-yr or RM 240++/mo monthly) and WordPress websites (from RM 250++/mo 1-yr or RM 290++/mo monthly).</p>
+              <p>We start with a quick inspection of your files, DNS, and server setup, then take over routine content edits (10 edits/month standard or 15 edits/month with a 1-year agreement), SSL/domain renewals, backups, and emergency recovery.</p>
+            </div>
           </div>
         </div>
 
         <!-- Cat 1 - Q3 -->
-        <!-- <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('s3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
-            <span class="text-lg font-bold text-white pr-4" data-i18n="s3_q">How long does it take to convert WordPress into static HTML?</span>
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button type="button" onclick="toggleFaq('s3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s3_q">Can you host and deploy websites I built with AI ("vibe coding" tools like ChatGPT, Claude, v0, or Bolt)?</span>
             <i data-lucide="chevron-down" id="icon-s3" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-s3" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
-            <p data-i18n="s3_a">
-              For typical corporate, clinic, and SME brochure sites (5 to 15 pages), conversion typically takes 3 to 7 business days. We recreate the clean layout, optimize all image assets into WebP, wire up secure form endpoints (so inquiry emails deliver straight to your inbox without spam), and link your domain on a lightning-fast edge CDN.
-            </p>
+            <div data-i18n="s3_a">
+              <p class="font-semibold text-white mb-2">Yes—starting from RM 250++, we take your raw AI-generated frontend code and handle full production deployment, domain linking, SSL, and backend forms.</p>
+              <p>Vibe-coding tools create great visual layouts, but real-world launches require fixing mobile viewport bugs, connecting custom domain DNS records, installing SSL certificates, and wiring up spam-protected PHP email forms.</p>
+            </div>
           </div>
-        </div> -->
+        </div>
 
         <!-- Cat 1 - Q4 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('s4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
-            <span class="text-lg font-bold text-white pr-4" data-i18n="s4_q">How does your chatbot router work? Do I have to pay monthly SaaS fees?</span>
+          <button type="button" onclick="toggleFaq('s4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s4_q">How do you price one-page landing pages and multi-page website builds?</span>
             <i data-lucide="chevron-down" id="icon-s4" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-s4" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
-            <p data-i18n="s4_a">
-              Our Smart Router chatbot is coded directly in native JavaScript—exactly like the one running in the bottom right corner of this website! Unlike generic SaaS chat widgets (which charge $29 to $99 every month and slow your site with external tracking cookies), our bot is lightweight, loads in milliseconds, requires zero subscriptions, and routes pre-qualified customer inquiries straight to your WhatsApp.
-            </p>
+            <div data-i18n="s4_a">
+              <p class="font-semibold text-white mb-2">One-off builds carry no mandatory monthly fee. Single-page sites are priced per section (from RM 125++/section), while multi-page sites enjoy discounted per-page bundle rates.</p>
+              <p>Single-page builds start from RM 100++ each for Header &amp; Footer plus RM 125++/section (discounted to RM 110++/section for 6+ sections). Multi-page sites (4–5 sections/page) start from RM 550++/page (2–4 pages) or RM 450++/page (5+ pages). Check our <a href="pricing.html" class="text-accent underline font-semibold">Pricing page</a> for full details.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cat 1 - Q5 -->
+        <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+          <button type="button" onclick="toggleFaq('s5')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
+            <span class="text-lg font-bold text-white pr-4" data-i18n="s5_q">How does your chatbot router work? Do I have to pay monthly SaaS fees?</span>
+            <i data-lucide="chevron-down" id="icon-s5" class="w-5 h-5 text-accent transition-transform duration-300"></i>
+          </button>
+          <div id="ans-s5" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
+            <div data-i18n="s5_a">
+              <p class="font-semibold text-white mb-2">Our Smart Router chatbot is coded in native JavaScript with zero monthly SaaS subscriptions or third-party tracking bloat.</p>
+              <p>Unlike external chat widgets that charge USD 29–99/month and slow your site with external cookies, our native widget (like the one in the bottom-right corner of this page) loads in milliseconds and routes visitors directly to your WhatsApp or inquiry form.</p>
+            </div>
           </div>
         </div>
 
@@ -252,63 +494,63 @@
     <div>
       <div class="flex items-center gap-3 mb-6">
         <i data-lucide="alert-triangle" class="w-6 h-6 text-primary"></i>
-        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat2_title">2. Website Troubleshooting & Free Tech Insights</h2>
+        <h2 class="text-2xl font-bold text-white tracking-tight" data-i18n="cat2_title">2. Website Troubleshooting &amp; Free Tech Insights</h2>
       </div>
 
       <div class="space-y-4">
 
         <!-- Cat 2 - T1 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('t1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+          <button type="button" onclick="toggleFaq('t1')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg font-bold text-white pr-4" data-i18n="t1_q">Why is my WordPress website getting slower and slower over time?</span>
             <i data-lucide="chevron-down" id="icon-t1" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-t1" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
             <div data-i18n="t1_a">
-              <p class="mb-3"><b class="text-white">The Technical Cause:</b> Every time a visitor clicks a page on WordPress, the server executes dozens of PHP files and queries a MySQL database. Over months and years, post revisions, spam transients, and uninstalled plugin tables bloat your database. Add 20+ plugins each loading their own CSS/JS files, and your server's CPU maxes out.</p>
-              <p><b class="text-accent">The Solution:</b> Regularly prune your database transients and revisions, disable unused plugin assets from loading globally, or convert to pure static HTML so no database queries are needed at all.</p>
+              <p class="mb-3"><b class="text-white">Direct Answer:</b> WordPress slows down over time because every page visit executes dozens of PHP scripts and queries a MySQL database accumulated with post revisions, expired transients, and overlapping plugin CSS/JS files.</p>
+              <p><b class="text-accent">Practical Fix:</b> Regularly prune database revisions and transients, prevent unused plugins from loading assets globally, or migrate brochure pages to pure static HTML so zero database queries are needed.</p>
             </div>
           </div>
         </div>
 
         <!-- Cat 2 - T2 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('t2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+          <button type="button" onclick="toggleFaq('t2')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg font-bold text-white pr-4" data-i18n="t2_q">Why do WordPress websites suddenly show a blank white screen or critical error after updates?</span>
             <i data-lucide="chevron-down" id="icon-t2" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-t2" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
             <div data-i18n="t2_a">
-              <p class="mb-3"><b class="text-white">The Technical Cause:</b> WordPress core, PHP, themes, and plugins are built by hundreds of different authors. When you click "Update All", a newer plugin might call a function deprecated in your server's PHP version, or conflict with your page builder hook, causing a fatal PHP error (the infamous "White Screen of Death").</p>
-              <p><b class="text-accent">Practical Tip:</b> Never click "Update All" on a live production server. Always run off-site backups first, or test plugin updates on a staging subdomain before applying them to your live website.</p>
+              <p class="mb-3"><b class="text-white">Direct Answer:</b> A blank white screen after clicking "Update All" happens when a newly updated plugin calls a function deprecated in your server's PHP version or conflicts with your theme/page-builder hook, causing a fatal PHP error.</p>
+              <p><b class="text-accent">Practical Tip:</b> Never run bulk updates on a live site without an off-site backup first—or let a maintenance engineer test and apply updates safely.</p>
             </div>
           </div>
         </div>
 
         <!-- Cat 2 - T3 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('t3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+          <button type="button" onclick="toggleFaq('t3')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg font-bold text-white pr-4" data-i18n="t3_q">Why can't AI tools (ChatGPT / Claude / v0) fully handle my website deployment on their own?</span>
             <i data-lucide="chevron-down" id="icon-t3" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-t3" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
             <div data-i18n="t3_a">
-              <p class="mb-3"><b class="text-white">The Reality:</b> AI is exceptional at generating frontend code snippets, but it cannot touch the real world. It cannot log into your domain registrar to configure DNS records (A, CNAME, MX records), manage your email deliverability SPF/DKIM keys, wire a secure serverless form backend, or resolve mobile screen viewport bugs across real physical devices.</p>
-              <p><b class="text-accent">How We Help:</b> You bring the AI-generated layout or ideas, and we execute the real engineering work to turn it into an active, secure, and Google-indexed website.</p>
+              <p class="mb-3"><b class="text-white">Direct Answer:</b> AI tools generate frontend code snippets well, but they cannot log into your domain registrar to configure DNS records (A, CNAME, MX), set up SPF/DKIM email deliverability, build rate-limited PHP form backends, or test real mobile devices.</p>
+              <p><b class="text-accent">How We Help:</b> Bring your AI-generated layout or code, and we handle the server, security, domain, and form engineering to launch it cleanly.</p>
             </div>
           </div>
         </div>
 
         <!-- Cat 2 - T4 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
-          <button onclick="toggleFaq('t4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none">
+          <button type="button" onclick="toggleFaq('t4')" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg font-bold text-white pr-4" data-i18n="t4_q">Why does my website look fine on laptop but broken or unclickable on mobile?</span>
             <i data-lucide="chevron-down" id="icon-t4" class="w-5 h-5 text-accent transition-transform duration-300"></i>
           </button>
           <div id="ans-t4" class="faq-answer px-6 pb-6 text-slate-300 text-base leading-relaxed border-t border-white/5 pt-4">
             <div data-i18n="t4_a">
-              <p class="mb-3"><b class="text-white">The Technical Cause:</b> Fixed widths (`width: 1200px`), unconstrained absolute positioning, and heavy background images that aren't wrapped in proper media queries or flex/grid containers. Furthermore, touch targets smaller than 48px fail Google mobile usability guidelines.</p>
-              <p><b class="text-accent">Practical Tip:</b> Always develop mobile-first with relative units (`rem`, `%`, `vw`). If your website has mobile glitches, we can diagnose and clean up the responsive CSS without having to rebuild the entire site.</p>
+              <p class="mb-3"><b class="text-white">Direct Answer:</b> Mobile layout breakage occurs when elements rely on fixed pixel widths (e.g., <code>width: 1200px</code>), unconstrained absolute positioning, or touch targets smaller than 48px that overlap on narrow phone screens.</p>
+              <p><b class="text-accent">Practical Tip:</b> Developing mobile-first with responsive flex/grid containers and relative units (<code>rem</code>, <code>%</code>, <code>vw</code>) keeps layouts crisp across every smartphone.</p>
             </div>
           </div>
         </div>
@@ -320,13 +562,20 @@
     <div class="mt-16 glass-card p-8 md:p-12 rounded-3xl border border-accent/20 text-center">
       <h3 class="text-2xl md:text-3xl font-bold text-white mb-4" data-i18n="cta_title">Have a Website Problem or Need a Fresh Build?</h3>
       <p class="text-slate-400 text-base md:text-lg mb-8 max-w-2xl mx-auto" data-i18n="cta_desc">
-        Skip the frustrating guesswork. Send us a message and we'll look at your site directly.
+        Skip the frustrating guesswork. Send us an inquiry or message us directly on WhatsApp.
       </p>
-      <a href="https://wa.me/60142880514?text=Hi! I was reading your FAQ & Tips page and have a question about my website." target="_blank"
-        class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-lg">
-        <i data-lucide="message-circle" class="w-6 h-6"></i>
-        <span data-i18n="cta_wa">Chat Directly on WhatsApp</span>
-      </a>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button type="button" onclick="openContactModal(0)"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-bold text-lg hover:scale-105 transition-all shadow-lg cursor-pointer">
+          <i data-lucide="send" class="w-6 h-6"></i>
+          <span data-i18n="cta_form">Send Inquiry Form</span>
+        </button>
+        <a href="https://wa.me/60142880514?text=Hi! I was reading your FAQ & Tips page and have a question about my website." target="_blank"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold text-lg hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-lg">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+          <span data-i18n="cta_wa">Chat Directly on WhatsApp</span>
+        </a>
+      </div>
     </div>
 
   </main>
@@ -337,13 +586,15 @@
       <div class="w-36 md:w-48 flex items-center justify-center">
         <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox logo">
       </div>
-      <div class="flex gap-6 text-sm text-slate-400 my-2">
-        <a href="index.html" class="hover:text-white transition-colors">Home</a>
-        <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
-        <a href="index.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
-        <a href="faq.html" class="text-accent font-bold">FAQ & Tips</a>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-400 my-2">
+        <a href="index.html" class="hover:text-white transition-colors" data-i18n="navHome">Home</a>
+        <a href="index.html#services" class="hover:text-white transition-colors" data-i18n="navServices">Services</a>
+        <a href="index.html#portfolio" class="hover:text-white transition-colors" data-i18n="navPortfolio">Portfolio</a>
+        <a href="pricing.html" class="hover:text-white transition-colors" data-i18n="navPricing">Pricing</a>
+        <a href="faq.html" class="text-accent font-bold" data-i18n="navFAQ">FAQ &amp; Tips</a>
+        <button type="button" onclick="openContactModal(0)" class="hover:text-white transition-colors cursor-pointer" data-i18n="navContact">Contact</button>
       </div>
-      <p class="text-slate-500 text-sm">© Nextravox Tech. Web Development & Digital Solutions in Malaysia.</p>
+      <p class="text-slate-500 text-sm" data-i18n="footer">© <span id="current-year"></span> Nextravox Tech (SSM: 202603194703). Web Development &amp; Maintenance in Penang, Malaysia.</p>
     </div>
   </footer>
 
@@ -353,21 +604,26 @@
       <div class="chat-header">
         <h3 id="botHeaderTitle">Nextravox Bot 🤖</h3>
         <p id="botHeaderDesc">I don't sleep. Ask me anything.</p>
-        <button class="close-btn" onclick="toggleChat()">×</button>
+        <button type="button" class="close-btn" onclick="toggleChat()">×</button>
       </div>
       <div class="chat-body" id="chatBody"></div>
     </div>
     <div class="fab-button" onclick="toggleChat()">
+      <div class="badge">1</div>
       <i data-lucide="message-square" class="w-8 h-8 text-white"></i>
     </div>
   </div>
 
   <script>
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+    const yearStr = new Date().getFullYear();
 
     function toggleFaq(id) {
       const answer = document.getElementById(`ans-${id}`);
       const icon = document.getElementById(`icon-${id}`);
+      if (!answer || !icon) return;
       const isOpen = answer.classList.contains('open');
 
       document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
@@ -381,79 +637,147 @@
 
     const faqTranslations = {
       en: {
-        navAbout: "About", navServices: "Services", navPortfolio: "Portfolio", navFAQ: "FAQ & Tips",
+        navHome: "Home", navAbout: "About", navServices: "Services", navPortfolio: "Portfolio", navPricing: "Pricing", navFAQ: "FAQ & Tips", navQuote: "Get a Quote", navContact: "Contact",
+        page_badge: "Knowledge Base & FAQ",
         page_title: "Web FAQs & Troubleshooting Guides",
-        page_desc: "Honest answers, common website mistakes to avoid, and why bloated systems crash—explained by a practical web developer.",
-        cat1_title: "1. Services & Working Together",
+        page_desc: "Honest answers about pure HTML vs. WordPress, deploying AI vibe-coding pages, monthly maintenance, and why bloated systems crash—explained by a practical web developer.",
+        cat1_title: "1. Services, Pricing & Working Together",
         s1_q: "Do you use pre-made bloated templates or code from scratch?",
-        s1_a: "We build with clean native HTML, CSS, JavaScript, and lightweight backends. Pre-made WordPress themes usually come with 50+ unnecessary scripts, bulky visual builders, and heavy SQL queries that slow your website down. By coding directly, your site stays clean, loads quickly, and gives you total control over the layout.",
-        s2_q: "Can you take care of a website that was built by another agency or developer?",
-        s2_a: "Yes, provided the website is reasonably stable. We conduct a preliminary check to inspect how the site and server are configured. We then take over routine content updates, domain/SSL management, and emergency error troubleshooting. If an older site is severely corrupted or built on end-of-life PHP, we will honestly recommend migrating key pages to static HTML rather than billing you endless hours for band-aid fixes.",
-        s3_q: "How long does it take to convert WordPress into static HTML?",
-        s3_a: "For typical corporate, clinic, and SME brochure sites (5 to 15 pages), conversion typically takes 3 to 7 business days. We recreate the clean layout, optimize all image assets into WebP, wire up secure form endpoints (so inquiry emails deliver straight to your inbox without spam), and link your domain on a lightning-fast edge CDN.",
-        s4_q: "How does your chatbot router work? Do I have to pay monthly SaaS fees?",
-        s4_a: "Our Smart Router chatbot is coded directly in native JavaScript—exactly like the one running in the bottom right corner of this website! Unlike generic SaaS chat widgets (which charge $29 to $99 every month and slow your site with external tracking cookies), our bot is lightweight, loads in milliseconds, requires zero subscriptions, and routes pre-qualified customer inquiries straight to your WhatsApp.",
+        s1_a: "<p class='font-semibold text-white mb-2'>We code from scratch using native HTML, CSS, JavaScript, and lightweight PHP backends rather than pre-made templates.</p><p>Commercial WordPress themes usually pack 50+ unnecessary scripts, heavy visual page builders, and slow SQL queries that drag down mobile loading speeds. Direct coding keeps your website lightweight, fast, and completely under your control.</p>",
+        s2_q: "Can you take care of a website built by another agency or developer?",
+        s2_a: "<p class='font-semibold text-white mb-2'>Yes—we provide monthly maintenance for both pure HTML (from RM 200++/mo 1-yr or RM 240++/mo monthly) and WordPress websites (from RM 250++/mo 1-yr or RM 290++/mo monthly).</p><p>We start with a quick inspection of your files, DNS, and server setup, then take over routine content edits (10 edits/month standard or 15 edits/month with a 1-year agreement), SSL/domain renewals, backups, and emergency recovery.</p>",
+        s3_q: "Can you host and deploy websites I built with AI (\"vibe coding\" tools like ChatGPT, Claude, v0, or Bolt)?",
+        s3_a: "<p class='font-semibold text-white mb-2'>Yes—starting from RM 250++, we take your raw AI-generated frontend code and handle full production deployment, domain linking, SSL, and backend forms.</p><p>Vibe-coding tools create great visual layouts, but real-world launches require fixing mobile viewport bugs, connecting custom domain DNS records, installing SSL certificates, and wiring up spam-protected PHP email forms.</p>",
+        s4_q: "How do you price one-page landing pages and multi-page website builds?",
+        s4_a: "<p class='font-semibold text-white mb-2'>One-off builds carry no mandatory monthly fee. Single-page sites are priced per section (from RM 125++/section), while multi-page sites enjoy discounted per-page bundle rates.</p><p>Single-page builds start from RM 100++ each for Header &amp; Footer plus RM 125++/section (discounted to RM 110++/section for 6+ sections). Multi-page sites (4–5 sections/page) start from RM 550++/page (2–4 pages) or RM 450++/page (5+ pages). Check our <a href='pricing.html' class='text-accent underline font-semibold'>Pricing page</a> for full details.</p>",
+        s5_q: "How does your chatbot router work? Do I have to pay monthly SaaS fees?",
+        s5_a: "<p class='font-semibold text-white mb-2'>Our Smart Router chatbot is coded in native JavaScript with zero monthly SaaS subscriptions or third-party tracking bloat.</p><p>Unlike external chat widgets that charge USD 29–99/month and slow your site with external cookies, our native widget (like the one in the bottom-right corner of this page) loads in milliseconds and routes visitors directly to your WhatsApp or inquiry form.</p>",
         cat2_title: "2. Website Troubleshooting & Free Tech Insights",
         t1_q: "Why is my WordPress website getting slower and slower over time?",
+        t1_a: "<p class='mb-3'><b class='text-white'>Direct Answer:</b> WordPress slows down over time because every page visit executes dozens of PHP scripts and queries a MySQL database accumulated with post revisions, expired transients, and overlapping plugin CSS/JS files.</p><p><b class='text-accent'>Practical Fix:</b> Regularly prune database revisions and transients, prevent unused plugins from loading assets globally, or migrate brochure pages to pure static HTML so zero database queries are needed.</p>",
         t2_q: "Why do WordPress websites suddenly show a blank white screen or critical error after updates?",
+        t2_a: "<p class='mb-3'><b class='text-white'>Direct Answer:</b> A blank white screen after clicking \"Update All\" happens when a newly updated plugin calls a function deprecated in your server's PHP version or conflicts with your theme/page-builder hook, causing a fatal PHP error.</p><p><b class='text-accent'>Practical Tip:</b> Never run bulk updates on a live site without an off-site backup first—or let a maintenance engineer test and apply updates safely.</p>",
         t3_q: "Why can't AI tools (ChatGPT / Claude / v0) fully handle my website deployment on their own?",
+        t3_a: "<p class='mb-3'><b class='text-white'>Direct Answer:</b> AI tools generate frontend code snippets well, but they cannot log into your domain registrar to configure DNS records (A, CNAME, MX), set up SPF/DKIM email deliverability, build rate-limited PHP form backends, or test real mobile devices.</p><p><b class='text-accent'>How We Help:</b> Bring your AI-generated layout or code, and we handle the server, security, domain, and form engineering to launch it cleanly.</p>",
         t4_q: "Why does my website look fine on laptop but broken or unclickable on mobile?",
+        t4_a: "<p class='mb-3'><b class='text-white'>Direct Answer:</b> Mobile layout breakage occurs when elements rely on fixed pixel widths (e.g., <code>width: 1200px</code>), unconstrained absolute positioning, or touch targets smaller than 48px that overlap on narrow phone screens.</p><p><b class='text-accent'>Practical Tip:</b> Developing mobile-first with responsive flex/grid containers and relative units (<code>rem</code>, <code>%</code>, <code>vw</code>) keeps layouts crisp across every smartphone.</p>",
         cta_title: "Have a Website Problem or Need a Fresh Build?",
-        cta_desc: "Skip the frustrating guesswork. Send us a message and we'll look at your site directly.",
-        cta_wa: "Chat Directly on WhatsApp"
+        cta_desc: "Skip the frustrating guesswork. Send us an inquiry or message us directly on WhatsApp.",
+        cta_form: "Send Inquiry Form",
+        cta_wa: "Chat Directly on WhatsApp",
+        footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). Web Development & Maintenance in Penang, Malaysia.`
       },
-      cn: {
-        navAbout: "关于", navServices: "服务", navPortfolio: "作品集", navFAQ: "常见问答与技巧",
+      sc: {
+        navHome: "首页", navAbout: "关于", navServices: "服务", navPortfolio: "作品集", navPricing: "收费标准", navFAQ: "常见问答与技巧", navQuote: "立即咨询", navContact: "联系我们",
+        page_badge: "知识库与常见问答",
         page_title: "网站问答与实用排障指南",
-        page_desc: "解答关于定制建站、WordPress老站卡顿原因，以及为什么臃肿系统总是频繁报错—来自一线开发者的诚恳分享。",
-        cat1_title: "1. 合作模式与建站服务",
-        s1_q: "你们是套用臃肿的模板还是纯代码手写定制？",
-        s1_a: "我们坚持使用原生 HTML、CSS、JS 和轻量后端编写代码。市面上现成的 WordPress 商业主题往往强行塞入 50 多个没用的脚本和沉重的可视化编辑器，导致网页奇慢无比。手写纯净代码能保证网页秒开，且日后没有任何臃肿依赖。",
-        s2_q: "别人或上一家公司做好的网站，你们愿意接手维护吗？",
-        s2_a: "只要网站基础架构相对正常，我们完全可以接手。我们会先做初步检查，接手日常图文修改、域名证书管理以及突发报错排障。如果老网站已经深度损坏或使用早已淘汰的 PHP 5.x，我们会坦白建议您迁移部分页面至纯静态 HTML，而不是无休止地收取修补费用。",
-        s3_q: "将 WordPress 迁移到纯静态 HTML 需要多长时间？",
-        s3_a: "普通展示型企业、诊所或商家网站（5-15个页面），通常只需 3 到 7 个工作日。我们重建纯净页面，将图片转化为现代 WebP 格式，接通防垃圾邮件的安全表单，并接入全球边缘 CDN 节点。",
-        s4_q: "你们的智能客服机器人怎么运作？需要每月付软件月费吗？",
-        s4_a: "我们的智能客服完全由原生 JavaScript 编写（就像您在当前页面右下角看到的这个机器人！）。市面上的 SaaS 客服插件每个月要收几百令吉还会拖慢网页速度，而我们的轻量代码零月费、秒级响应，直接帮您将意向客户无缝引导至 WhatsApp。",
-        cat2_title: "2. 实用排障干货与技术内幕",
+        page_desc: "关于纯静态 HTML 与 WordPress 对比、AI 网页（Vibe Coding）部署、月度维护以及老站卡顿报错原因的诚恳解答。",
+        cat1_title: "1. 服务内容、计价模式与合作方式",
+        s1_q: "你们是套用臃肿的现成模板还是纯代码手写开发？",
+        s1_a: "<p class='font-semibold text-white mb-2'>我们坚持使用原生 HTML、CSS、JavaScript 与轻量 PHP 后端手写代码，绝不套用臃肿商业模板。</p><p>市面上现成的 WordPress 主题往往塞入 50 多个无用脚本与沉重可视化编辑器，拖慢手机加载速度。直接编写干净代码能让网站 1 秒内秒开，且架构完全可控。</p>",
+        s2_q: "别人或上一家公司制作的网站，你们愿意接手月度维护吗？",
+        s2_a: "<p class='font-semibold text-white mb-2'>可以——我们同时提供纯 HTML（1年协议 RM 200++/月起，按月 RM 240++/月起）与 WordPress（1年协议 RM 250++/月起，按月 RM 290++/月起）月度维护服务。</p><p>我们会先初步检查您的代码、DNS 与服务器配置，随后接手日常图文小修改（按月付含 10 次/月，签 1 年协议享 15 次/月）、SSL 与域名续期、定期备份及突发抢修。</p>",
+        s3_q: "我用 AI（ChatGPT / Claude / v0 / Bolt 等 Vibe Coding 工具）生成的网页，你们能帮忙部署托管吗？",
+        s3_a: "<p class='font-semibold text-white mb-2'>完全可以——RM 250++ 起，我们接收您用 AI 生成的前端代码，完成手机端适配、域名绑定、SSL 证书配置及 PHP 表单部署上线。</p><p>AI 工具擅长生成视觉界面，但真实商用上线还需要修复手机端排版 Bug、配置域名 DNS 解析、安装安全证书并接通防垃圾邮件的表单后端。</p>",
+        s4_q: "单页式落地页与多页官网如何收费？",
+        s4_a: "<p class='font-semibold text-white mb-2'>一次性建站项目没有强制月费。单页支持按板块计价（RM 125++/板块起），多页官网享打包单价优惠。</p><p>单页建站导航与页脚各 RM 100++ 起，核心板块 RM 125++/板块起（6 个及以上享 RM 110++/板块起优惠）；多页网站（每页 4–5 个板块）2–4 页为 RM 550++/页起，5 页及以上为 RM 450++/页起。详情请查看<a href='pricing.html' class='text-accent underline font-semibold'>收费标准页面</a>。</p>",
+        s5_q: "你们的智能客服机器人怎么运作？需要每月付 SaaS 软件费吗？",
+        s5_a: "<p class='font-semibold text-white mb-2'>我们的智能分流客服完全由原生 JavaScript 编写，零月费、零第三方追踪代码负担。</p><p>不同于每月收费数十美元且拖慢网页速度的商业客服插件，我们的轻量机器人（正如本页右下角）毫秒级加载，直接将意向客户引导至您的 WhatsApp 或咨询表单。</p>",
+        cat2_title: "2. 网站排障干货与技术内幕",
         t1_q: "为什么 WordPress 网站随着时间推移会越来越卡？",
-        t2_q: "为什么 WordPress 点了更新插件后，网站突然白屏报错？",
-        t3_q: "为什么 AI (ChatGPT / v0) 无法完全自己搞定网站发布上线？",
+        t1_a: "<p class='mb-3'><b class='text-white'>直接结论：</b>WordPress 越来越慢，是因为每次访客打开页面都要执行几十个 PHP 文件，并查询积压了大量文章修订版本、过期缓存与冗余插件表的 MySQL 数据库。</p><p><b class='text-accent'>解决建议：</b>定期清理数据库冗余数据、限制未使用插件全局加载脚本，或直接将展示型官网迁移为纯静态 HTML。</p>",
+        t2_q: "为什么 WordPress 点了更新插件后，网站突然出现白屏或致命错误？",
+        t2_a: "<p class='mb-3'><b class='text-white'>直接结论：</b>点击“全部更新”后出现白屏，通常是因为新版插件调用了当前服务器 PHP 版本已废弃的函数，或与主题编辑器钩子发生冲突，导致 PHP 致命报错。</p><p><b class='text-accent'>实用建议：</b>切勿在没有异地备份的情况下直接在正式生产环境批量更新插件。</p>",
+        t3_q: "为什么 AI 工具（ChatGPT / Claude / v0）无法完全自己搞定网站部署上线？",
+        t3_a: "<p class='mb-3'><b class='text-white'>直接结论：</b>AI 擅长编写前端代码片段，但无法登录您的域名注册商配置 DNS 解析（A、CNAME、MX 记录）、配置企业邮箱 SPF/DKIM 防垃圾信验证，也无法搭建带频率限制的 PHP 后端。</p><p><b class='text-accent'>我们如何协助：</b>您提供 AI 生成的页面代码，我们负责域名、服务器、安全证书与表单工程落地。</p>",
         t4_q: "为什么网站在电脑上看很正常，用手机打开却排版错乱甚至点不动？",
+        t4_a: "<p class='mb-3'><b class='text-white'>直接结论：</b>手机端错乱通常是因为代码使用了固定像素宽度（如 <code>width: 1200px</code>）、未约束的绝对定位，或小于 48px 的按钮在窄屏上互相遮挡。</p><p><b class='text-accent'>实用建议：</b>采用移动优先的 Flex/Grid 弹性布局与相对单位（<code>rem</code>、<code>%</code>、<code>vw</code>）可确保各型号手机完美显示。</p>",
         cta_title: "遇到了网站棘手问题，或打算搭建一个极速新站？",
-        cta_desc: "省去繁杂的技术试错。直接发消息给我们，我们为您直接检查诊断。",
-        cta_wa: "通过 WhatsApp 直接咨询"
+        cta_desc: "省去繁杂的技术试错。在线填写咨询表单或直接通过 WhatsApp 联系我们。",
+        cta_form: "填写咨询表单",
+        cta_wa: "通过 WhatsApp 直接咨询",
+        footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). 马来西亚槟城网页开发与维护服务。`
+      },
+      tc: {
+        navHome: "首頁", navAbout: "關於", navServices: "服務", navPortfolio: "作品集", navPricing: "收費標準", navFAQ: "常見問答與技巧", navQuote: "立即諮詢", navContact: "聯繫我們",
+        page_badge: "知識庫與常見問答",
+        page_title: "網站問答與實用排障指南",
+        page_desc: "關於純靜態 HTML 與 WordPress 對比、AI 網頁（Vibe Coding）部署、月度維護以及老站卡頓報錯原因的誠懇解答。",
+        cat1_title: "1. 服務內容、計價模式與合作方式",
+        s1_q: "你們是套用臃腫的現成模板還是純程式碼手寫開發？",
+        s1_a: "<p class='font-semibold text-white mb-2'>我們堅持使用原生 HTML、CSS、JavaScript 與輕量 PHP 後端手寫程式碼，絕不套用臃腫商業模板。</p><p>市面上現成的 WordPress 主題往往塞入 50 多個無用腳本與沉重視覺化編輯器，拖慢手機載入速度。直接編寫乾淨程式碼能讓網站 1 秒內秒開，且架構完全可控。</p>",
+        s2_q: "別人或上一家公司製作的網站，你們願意接手月度維護嗎？",
+        s2_a: "<p class='font-semibold text-white mb-2'>可以——我們同時提供純 HTML（1年協議 RM 200++/月起，按月 RM 240++/月起）與 WordPress（1年協議 RM 250++/月起，按月 RM 290++/月起）月度維護服務。</p><p>我們會先初步檢查您的程式碼、DNS 與伺服器配置，隨後接手日常圖文小修改（按月付含 10 次/月，簽 1 年協議享 15 次/月）、SSL 與網域續期、定期備份及突發搶修。</p>",
+        s3_q: "我用 AI（ChatGPT / Claude / v0 / Bolt 等 Vibe Coding 工具）生成的網頁，你們能幫忙部署託管嗎？",
+        s3_a: "<p class='font-semibold text-white mb-2'>完全可以——RM 250++ 起，我們接收您用 AI 生成的前端程式碼，完成手機端適配、網域綁定、SSL 憑證配置及 PHP 表單部署上線。</p><p>AI 工具擅長生成視覺介面，但真實商用上線還需要修復手機端排版 Bug、配置網域 DNS 解析、安裝安全憑證並接通防垃圾郵件的表單後端。</p>",
+        s4_q: "單頁式著陸頁與多頁官網如何收費？",
+        s4_a: "<p class='font-semibold text-white mb-2'>一次性建站專案沒有強制月費。單頁支援按板塊計價（RM 125++/板塊起），多頁官網享打包單價優惠。</p><p>單頁建站導覽與頁尾各 RM 100++ 起，核心板塊 RM 125++/板塊起（6 個及以上享 RM 110++/板塊起優惠）；多頁網站（每頁 4–5 個板塊）2–4 頁為 RM 550++/頁起，5 頁及以上為 RM 450++/頁起。詳情請查看<a href='pricing.html' class='text-accent underline font-semibold'>收費標準頁面</a>。</p>",
+        s5_q: "你們的智能客服機器人怎麼運作？需要每月付 SaaS 軟體費嗎？",
+        s5_a: "<p class='font-semibold text-white mb-2'>我們的智能分流客服完全由原生 JavaScript 編寫，零月費、零第三方追蹤程式碼負擔。</p><p>不同於每月收費數十美元且拖慢網頁速度的商業客服外掛，我們的輕量機器人（正如本頁右下角）毫秒級載入，直接將意向客戶引導至您的 WhatsApp 或諮詢表單。</p>",
+        cat2_title: "2. 網站排障乾貨與技術內幕",
+        t1_q: "為什麼 WordPress 網站隨著時間推移會越來越卡？",
+        t1_a: "<p class='mb-3'><b class='text-white'>直接結論：</b>WordPress 越來越慢，是因為每次訪客打開頁面都要執行幾十個 PHP 檔案，並查詢積壓了大量文章修訂版本、過期快取與冗餘外掛表的 MySQL 資料庫。</p><p><b class='text-accent'>解決建議：</b>定期清理資料庫冗餘資料、限制未使用外掛全域載入腳本，或直接將展示型官網遷移為純靜態 HTML。</p>",
+        t2_q: "為什麼 WordPress 點了更新外掛後，網站突然出現白屏或致命錯誤？",
+        t2_a: "<p class='mb-3'><b class='text-white'>直接結論：</b>點擊「全部更新」後出現白屏，通常是因為新版外掛呼叫了當前伺服器 PHP 版本已廢棄的函數，或與主題編輯器鉤子發生衝突，導致 PHP 致命報錯。</p><p><b class='text-accent'>實用建議：</b>切勿在沒有異地備份的情況下直接在正式生產環境批量更新外掛。</p>",
+        t3_q: "為什麼 AI 工具（ChatGPT / Claude / v0）無法完全自己搞定網站部署上線？",
+        t3_a: "<p class='mb-3'><b class='text-white'>直接結論：</b>AI 擅長編寫前端程式碼片段，但無法登入您的網域註冊商配置 DNS 解析（A、CNAME、MX 記錄）、配置企業郵箱 SPF/DKIM 防垃圾信驗證，也無法搭建帶頻率限制的 PHP 後端。</p><p><b class='text-accent'>我們如何協助：</b>您提供 AI 生成的頁面程式碼，我們負責網域、伺服器、安全憑證與表單工程落地。</p>",
+        t4_q: "為什麼網站在電腦上看很正常，用手機打開卻排版錯亂甚至點不動？",
+        t4_a: "<p class='mb-3'><b class='text-white'>直接結論：</b>手機端錯亂通常是因為程式碼使用了固定像素寬度（如 <code>width: 1200px</code>）、未約束的絕對定位，或小於 48px 的按鈕在窄屏上互相遮擋。</p><p><b class='text-accent'>實用建議：</b>採用行動優先的 Flex/Grid 彈性佈局與相對單位（<code>rem</code>、<code>%</code>、<code>vw</code>）可確保各型號手機完美顯示。</p>",
+        cta_title: "遇到了網站棘手問題，或打算搭建一個極速新站？",
+        cta_desc: "省去繁雜的技術試錯。線上填寫諮詢表單或直接透過 WhatsApp 聯繫我們。",
+        cta_form: "填寫諮詢表單",
+        cta_wa: "透過 WhatsApp 直接諮詢",
+        footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). 馬來西亞檳城網頁開發與維護服務。`
       },
       bm: {
-        navAbout: "Tentang", navServices: "Servis", navPortfolio: "Portfolio", navFAQ: "Soalan & Tips",
+        navHome: "Utama", navAbout: "Tentang", navServices: "Servis", navPortfolio: "Portfolio", navPricing: "Harga", navFAQ: "Soalan & Tips", navQuote: "Minta Sebut Harga", navContact: "Hubungi",
+        page_badge: "Pangkalan Ilmu & Soalan Lazim",
         page_title: "Soalan Lazim & Tips Baiki Laman Web",
-        page_desc: "Jawapan jujur, kesilapan biasa laman web, dan punca sebenar sistem WordPress sering perlahan—dikongsi oleh jurutera web.",
-        cat1_title: "1. Servis & Cara Bekerjasama",
-        s1_q: "Adakah anda guna templat siap yang lembap atau tulis kod tersuai?",
-        s1_a: "Kami membina laman menggunakan kod native HTML, CSS, JavaScript yang bersih. Kebanyakan templat WordPress sedia ada sarat dengan puluhan skrip yang tidak perlu sehingga memperlahankan web. Kod tersuai memastikan laman anda dibuka bawah 1 saat.",
-        s2_q: "Bolehkah anda jaga website yang dibuat oleh syarikat atau pemaju lain?",
-        s2_a: "Boleh, asalkan struktur laman masih boleh diselamatkan. Kami akan buat semakan ringkas terlebih dahulu sebelum mengambil alih kerja kemas kini teks, urusan domain/SSL, dan bantuan jika berlaku ralat 'down'.",
-        s3_q: "Berapa lama masa diambil untuk tukar WordPress ke HTML statik?",
-        s3_a: "Bagi laman web syarikat dan klinik biasa (5 ke 15 muka surat), proses mengambil masa 3 hingga 7 hari bekerja. Laman akan lebih laju, jimat pelayan, dan bebas daripada ancaman godaman.",
-        s4_q: "Bagaimana chatbot router ini berfungsi? Perlu bayar yuran langganan bulanan?",
-        s4_a: "Bot Nextravox dikodkan secara natif menggunakan JavaScript (seperti di penjuru kanan bawah ini!). Tiada yuran langganan bulanan mahal seperti perisian pihak ketiga, sangat ringan dan terus menyalurkan pelanggan ke WhatsApp anda.",
+        page_desc: "Jawapan jujur mengenai HTML statik vs. WordPress, pelancaran halaman AI vibe-coding, penyelenggaraan bulanan dan punca sistem lembap—dikongsi oleh pembangun web.",
+        cat1_title: "1. Servis, Harga & Cara Bekerjasama",
+        s1_q: "Adakah anda guna templat siap yang lembap atau tulis kod dari awal?",
+        s1_a: "<p class='font-semibold text-white mb-2'>Kami menulis kod dari awal menggunakan HTML, CSS, JavaScript dan backend PHP yang ringan berbanding templat siap sedia.</p><p>Tema WordPress komersial biasanya sarat dengan 50+ skrip tidak perlu dan pertanyaan SQL berat yang memperlahankan paparan telefon. Kod langsung memastikan laman dibuka bawah 1 saat.</p>",
+        s2_q: "Bolehkah anda jaga laman web yang dibina oleh agensi atau pembangun lain?",
+        s2_a: "<p class='font-semibold text-white mb-2'>Boleh—kami menyediakan penyelenggaraan bulanan untuk Pure HTML (dari RM 200++/bln 1-tahun atau RM 240++/bln bulanan) dan WordPress (dari RM 250++/bln 1-tahun atau RM 290++/bln bulanan).</p><p>Kami mulakan dengan semakan ringkas fail, DNS dan pelayan anda, kemudian menguruskan suntingan kandungan (10 suntingan/bln biasa atau 15 suntingan/bln dengan perjanjian 1 tahun), pembaharuan SSL/domain, sandaran dan pembaikan kecemasan.</p>",
+        s3_q: "Bolehkah anda hos dan lancarkan laman web yang saya bina guna AI (alat vibe coding seperti ChatGPT, Claude, v0, atau Bolt)?",
+        s3_a: "<p class='font-semibold text-white mb-2'>Boleh—bermula dari RM 250++, kami ambil kod frontend janaan AI anda dan uruskan pelancaran penuh, sambungan domain, SSL serta borang backend.</p><p>Alat vibe-coding menghasilkan reka bentuk visual yang baik, tetapi pelancaran sebenar memerlukan pembaikan paparan telefon, tetapan rekod DNS domain, sijil SSL dan borang e-mel PHP anti-spam.</p>",
+        s4_q: "Bagaimana harga dikira untuk landing page satu halaman dan laman web berbilang halaman?",
+        s4_a: "<p class='font-semibold text-white mb-2'>Projek sekali bayar tiada yuran bulanan wajib. Laman satu halaman dikira mengikut bahagian (dari RM 125++/bahagian), manakala laman banyak halaman mendapat kadar pakej lebih murah.</p><p>Pembinaan satu halaman bermula RM 100++ setiap satu untuk Header &amp; Footer ditambah RM 125++/bahagian (diskaun RM 110++/bahagian untuk 6+ bahagian). Laman banyak halaman (4–5 bahagian/halaman) bermula RM 550++/halaman (2–4 halaman) atau RM 450++/halaman (5+ halaman). Semak halaman <a href='pricing.html' class='text-accent underline font-semibold'>Harga kami</a>.</p>",
+        s5_q: "Bagaimana chatbot router ini berfungsi? Perlu bayar yuran langganan bulanan SaaS?",
+        s5_a: "<p class='font-semibold text-white mb-2'>Chatbot Smart Router kami dikodkan dalam JavaScript natif tanpa langganan bulanan SaaS atau skrip penjejak pihak ketiga.</p><p>Berbeza dengan widget sembang luar yang mengenakan caj USD 29–99/bulan dan memperlahankan laman, widget natif kami (seperti di penjuru kanan bawah) dibuka dalam milisaat dan menyalurkan pelanggan terus ke WhatsApp atau borang pertanyaan anda.</p>",
         cat2_title: "2. Tips Masalah Teknikal & Panduan Percuma",
         t1_q: "Kenapa laman WordPress semakin lama semakin perlahan?",
-        t2_q: "Kenapa WordPress tiba-tiba keluar skrin putih atau 'critical error' lepas kemas kini plugin?",
-        t3_q: "Kenapa alat AI (ChatGPT / v0) tidak boleh lancarkan laman web sepenuhnya sendiri?",
-        t4_q: "Kenapa laman web elok di komputer tetapi berterabur pada telefon pintar?",
+        t1_a: "<p class='mb-3'><b class='text-white'>Jawapan Terus:</b> WordPress menjadi perlahan dari semasa ke semasa kerana setiap lawatan halaman menjalankan puluhan skrip PHP dan menyemak pangkalan data MySQL yang penuh dengan semakan artikel lama dan fail CSS/JS plugin bertindih.</p><p><b class='text-accent'>Penyelesaian Praktikal:</b> Bersihkan pangkalan data secara berkala, matikan aset plugin yang tidak digunakan, atau tukar halaman profil kepada HTML statik.</p>",
+        t2_q: "Kenapa laman WordPress tiba-tiba keluar skrin putih atau ralat kritikal lepas kemas kini?",
+        t2_a: "<p class='mb-3'><b class='text-white'>Jawapan Terus:</b> Skrin putih kosong selepas menekan \"Update All\" berlaku apabila plugin baharu memanggil fungsi yang tidak lagi disokong versi PHP pelayan anda atau bercanggah dengan tema, menyebabkan ralat PHP kritikal.</p><p><b class='text-accent'>Tips Praktikal:</b> Jangan buat kemas kini pukal pada laman aktif tanpa sandaran luar terlebih dahulu.</p>",
+        t3_q: "Kenapa alat AI (ChatGPT / Claude / v0) tidak boleh uruskan pelancaran laman web sepenuhnya sendiri?",
+        t3_a: "<p class='mb-3'><b class='text-white'>Jawapan Terus:</b> Alat AI mahir menjana kod frontend, tetapi tidak boleh log masuk ke pendaftar domain anda untuk menetapkan rekod DNS (A, CNAME, MX), menetapkan pengesahan e-mel SPF/DKIM, atau membina backend PHP dengan had kadar anti-spam.</p><p><b class='text-accent'>Cara Kami Bantu:</b> Bawa kod janaan AI anda, dan kami uruskan pelayan, keselamatan, domain serta borang hingga siap dilayari.</p>",
+        t4_q: "Kenapa laman web elok di komputer riba tetapi berterabur atau tidak boleh ditekan pada telefon?",
+        t4_a: "<p class='mb-3'><b class='text-white'>Jawapan Terus:</b> Kerosakan paparan mudah alih berlaku apabila elemen menggunakan lebar piksel tetap (contohnya <code>width: 1200px</code>), kedudukan mutlak tanpa had, atau butang sentuh lebih kecil daripada 48px.</p><p><b class='text-accent'>Tips Praktikal:</b> Membina dengan bekas flex/grid responsif dan unit relatif (<code>rem</code>, <code>%</code>, <code>vw</code>) memastikan paparan kemas pada semua telefon pintar.</p>",
         cta_title: "Ada Masalah Website Atau Ingin Bina Laman Baru?",
-        cta_desc: "Elakkan buang masa dengan masalah teknikal rumit. Hubungi kami untuk bantuan terus.",
-        cta_wa: "Hubungi Melalui WhatsApp"
+        cta_desc: "Elakkan buang masa dengan tekaan teknikal. Hantar borang pertanyaan atau mesej kami terus di WhatsApp.",
+        cta_form: "Isi Borang Pertanyaan",
+        cta_wa: "Hubungi Melalui WhatsApp",
+        footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). Pembangunan & Penyelenggaraan Web di Pulau Pinang, Malaysia.`
       }
     };
 
-    let currentLang = 'en';
+    let currentLang = localStorage.getItem('nextravox_lang') || 'en';
+    if (!faqTranslations[currentLang]) currentLang = 'en';
+    let isChatOpen = false;
+
+    const htmlLangMap = { en: 'en', sc: 'zh-Hans', tc: 'zh-Hant', bm: 'ms' };
+
     function changeLanguage(lang) {
       currentLang = lang;
+      localStorage.setItem('nextravox_lang', lang);
+      document.documentElement.lang = htmlLangMap[lang] || 'en';
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (faqTranslations[lang][key]) el.innerHTML = faqTranslations[lang][key];
+        if (faqTranslations[lang] && faqTranslations[lang][key]) {
+          el.innerHTML = faqTranslations[lang][key];
+        }
       });
 
       document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -465,34 +789,563 @@
           btn.classList.remove('bg-primary', 'text-white');
         }
       });
+
+      const botTitles = {
+        en: "Nextravox Bot 🤖",
+        sc: "Nextravox 机器人 🤖",
+        tc: "Nextravox 機器人 🤖",
+        bm: "Bot Nextravox 🤖"
+      };
+      const botDescs = {
+        en: "I don't sleep. Ask me anything.",
+        sc: "我不需要睡觉。随便问。",
+        tc: "我不需要睡覺。隨便問。",
+        bm: "Saya tak tidur. Tanyalah apa-apa."
+      };
+      const botHeaderTitle = document.getElementById('botHeaderTitle');
+      const botHeaderDesc = document.getElementById('botHeaderDesc');
+      if (botHeaderTitle) botHeaderTitle.innerText = botTitles[lang];
+      if (botHeaderDesc) botHeaderDesc.innerText = botDescs[lang];
+
+      if (isChatOpen) {
+        document.getElementById('chatBody').innerHTML = '';
+        showTypingAndMessage('start', 400);
+      }
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        changeLanguage(e.target.getAttribute('data-lang'));
+        const targetLang = e.currentTarget.getAttribute('data-lang');
+        if (targetLang) changeLanguage(targetLang);
       });
     });
 
-    // Chatbot minimal integration
+    changeLanguage(currentLang);
+
+    // Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Smart Router Chatbot (4 Languages)
     const chatBox = document.getElementById('chatBox');
     const chatBody = document.getElementById('chatBody');
-    let isChatOpen = false;
+
+    function getBotLogic() {
+      const waLink = "https://wa.me/60142880514";
+      return {
+        en: {
+          start: {
+            text: "Beep boop. 🤖 Hi! Have a question after reading our FAQ?\n\nHow can we help you today?",
+            options: [
+              { label: "🛠️ Monthly Maintenance (HTML/WP)", next: "maintenance" },
+              { label: "🚀 Deploy AI Vibe-Coding Page", next: "ai_launch" },
+              { label: "📄 Build New Website (1-Page/Multi)", next: "landing" },
+              { label: "⚡ WP to Static HTML", next: "migration" }
+            ]
+          },
+          maintenance: {
+            text: "Pure HTML care starts from RM 200++/mo (1-yr) or RM 240++/mo (monthly); WordPress starts from RM 250++/mo (1-yr) or RM 290++/mo (monthly).",
+            options: [{ label: "📝 Open Inquiry Form", next: "open_form_0" }, { label: "💬 WhatsApp Us", next: "wa_maintenance" }, { label: "⬅️ Back", next: "start" }]
+          },
+          ai_launch: {
+            text: "We turn AI-generated drafts into live, mobile-responsive websites with custom domains, SSL, and PHP contact forms (from RM 250++).",
+            options: [{ label: "📝 Open Inquiry Form", next: "open_form_2" }, { label: "💬 WhatsApp Us", next: "wa_ai" }, { label: "⬅️ Back", next: "start" }]
+          },
+          landing: {
+            text: "Custom hand-coded websites priced per section (from RM 125++/section) or multi-page bundles (from RM 450++–550++/page)—no mandatory monthly fee.",
+            options: [{ label: "📝 Request Custom Quote", next: "open_form_3" }, { label: "💬 WhatsApp Us", next: "wa_landing" }, { label: "⬅️ Back", next: "start" }]
+          },
+          migration: {
+            text: "Migrate slow WordPress brochure websites into sub-1-second static HTML with zero database security risks (from RM 500++).",
+            options: [{ label: "📝 Request Migration Quote", next: "open_form_5" }, { label: "💬 WhatsApp Us", next: "wa_migration" }, { label: "⬅️ Back", next: "start" }]
+          },
+          open_form_0: { type: "modal", serviceIndex: 0, msg: "Opening inquiry form..." },
+          open_form_2: { type: "modal", serviceIndex: 2, msg: "Opening inquiry form..." },
+          open_form_3: { type: "modal", serviceIndex: 3, msg: "Opening inquiry form..." },
+          open_form_5: { type: "modal", serviceIndex: 5, msg: "Opening inquiry form..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=Hi! I read your FAQ and want to ask about monthly website maintenance.`, msg: "Opening WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=Hi! I read your FAQ and want to deploy my AI-generated web page.`, msg: "Opening WhatsApp..." },
+          wa_landing: { type: "link", url: `${waLink}?text=Hi! I read your FAQ and want a quote to build a new website.`, msg: "Opening WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=Hi! I read your FAQ and want to migrate my WordPress site to static HTML.`, msg: "Opening WhatsApp..." }
+        },
+        sc: {
+          start: {
+            text: "滴滴 🤖 你好！看完常见问答后还有疑问吗？\n\n请问您需要哪方面的服务？",
+            options: [
+              { label: "🛠️ 网站月度维护 (HTML/WP)", next: "maintenance" },
+              { label: "🚀 AI 网页代码部署托管", next: "ai_launch" },
+              { label: "📄 定制开发新网站 (单页/多页)", next: "landing" },
+              { label: "⚡ WP 迁移纯静态 HTML", next: "migration" }
+            ]
+          },
+          maintenance: {
+            text: "纯 HTML 维护 RM 200++/月起（1年协议）或 RM 240++/月起（按月）；WordPress RM 250++/月起（1年协议）或 RM 290++/月起（按月）。",
+            options: [{ label: "📝 填写咨询表单", next: "open_form_0" }, { label: "💬 WhatsApp 咨询", next: "wa_maintenance" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          ai_launch: {
+            text: "帮您将 AI 生成的网页代码完善为手机自适应、带域名 SSL 与防垃圾邮件表单的正式网站（RM 250++ 起）。",
+            options: [{ label: "📝 填写咨询表单", next: "open_form_2" }, { label: "💬 WhatsApp 咨询", next: "wa_ai" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          landing: {
+            text: "纯手写极速网站，单页按板块计价（RM 125++/板块起），多页官网享打包单价优惠，无强制月费。",
+            options: [{ label: "📝 获取精准报价", next: "open_form_3" }, { label: "💬 WhatsApp 咨询", next: "wa_landing" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          migration: {
+            text: "将缓慢的 WordPress 展示网站重构成 1 秒内加载的纯静态 HTML（RM 500++ 起）。",
+            options: [{ label: "📝 咨询迁移报价", next: "open_form_5" }, { label: "💬 WhatsApp 咨询", next: "wa_migration" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          open_form_0: { type: "modal", serviceIndex: 0, msg: "正在打开咨询表单..." },
+          open_form_2: { type: "modal", serviceIndex: 2, msg: "正在打开咨询表单..." },
+          open_form_3: { type: "modal", serviceIndex: 3, msg: "正在打开咨询表单..." },
+          open_form_5: { type: "modal", serviceIndex: 5, msg: "正在打开咨询表单..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=你好！我在看你们的常见问答页面，想咨询网站月度维护服务。`, msg: "正在打开 WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=你好！我想咨询将 AI 生成的网页部署上线。`, msg: "正在打开 WhatsApp..." },
+          wa_landing: { type: "link", url: `${waLink}?text=你好！我想咨询定制开发新网站的报价。`, msg: "正在打开 WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=你好！我想咨询将 WordPress 迁移至纯静态 HTML。`, msg: "正在打开 WhatsApp..." }
+        },
+        tc: {
+          start: {
+            text: "滴滴 🤖 你好！看完常見問答後還有疑問嗎？\n\n請問您需要哪方面的服務？",
+            options: [
+              { label: "🛠️ 網站月度維護 (HTML/WP)", next: "maintenance" },
+              { label: "🚀 AI 網頁程式碼部署託管", next: "ai_launch" },
+              { label: "📄 客製開發新網站 (單頁/多頁)", next: "landing" },
+              { label: "⚡ WP 遷移純靜態 HTML", next: "migration" }
+            ]
+          },
+          maintenance: {
+            text: "純 HTML 維護 RM 200++/月起（1年協議）或 RM 240++/月起（按月）；WordPress RM 250++/月起（1年協議）或 RM 290++/月起（按月）。",
+            options: [{ label: "📝 填寫諮詢表單", next: "open_form_0" }, { label: "💬 WhatsApp 諮詢", next: "wa_maintenance" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          ai_launch: {
+            text: "幫您將 AI 生成的網頁程式碼完善為手機自適應、帶網域 SSL 與防垃圾郵件表單的正式網站（RM 250++ 起）。",
+            options: [{ label: "📝 填寫諮詢表單", next: "open_form_2" }, { label: "💬 WhatsApp 諮詢", next: "wa_ai" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          landing: {
+            text: "純手寫極速網站，單頁按板塊計價（RM 125++/板塊起），多頁官網享打包單價優惠，無強制月費。",
+            options: [{ label: "📝 獲取精準報價", next: "open_form_3" }, { label: "💬 WhatsApp 諮詢", next: "wa_landing" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          migration: {
+            text: "將緩慢的 WordPress 展示網站重構成 1 秒內載入的純靜態 HTML（RM 500++ 起）。",
+            options: [{ label: "📝 諮詢遷移報價", next: "open_form_5" }, { label: "💬 WhatsApp 諮詢", next: "wa_migration" }, { label: "⬅️ 返回", next: "start" }]
+          },
+          open_form_0: { type: "modal", serviceIndex: 0, msg: "正在開啟諮詢表單..." },
+          open_form_2: { type: "modal", serviceIndex: 2, msg: "正在開啟諮詢表單..." },
+          open_form_3: { type: "modal", serviceIndex: 3, msg: "正在開啟諮詢表單..." },
+          open_form_5: { type: "modal", serviceIndex: 5, msg: "正在開啟諮詢表單..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=你好！我在看你們的常見問答頁面，想諮詢網站月度維護服務。`, msg: "正在開啟 WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=你好！我想諮詢將 AI 生成的網頁部署上線。`, msg: "正在開啟 WhatsApp..." },
+          wa_landing: { type: "link", url: `${waLink}?text=你好！我想諮詢客製開發新網站的報價。`, msg: "正在開啟 WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=你好！我想諮詢將 WordPress 遷移至純靜態 HTML。`, msg: "正在開啟 WhatsApp..." }
+        },
+        bm: {
+          start: {
+            text: "Beep boop. 🤖 Hai! Ada soalan selepas membaca panduan FAQ kami?\n\nApa yang boleh kami bantu hari ini?",
+            options: [
+              { label: "🛠️ Penyelenggaraan Bulanan (HTML/WP)", next: "maintenance" },
+              { label: "🚀 Hos & Lancar Halaman AI", next: "ai_launch" },
+              { label: "📄 Bina Laman Baharu (1-Halaman/Banyak)", next: "landing" },
+              { label: "⚡ Migrasi WP ke HTML Statik", next: "migration" }
+            ]
+          },
+          maintenance: {
+            text: "Penjagaan Pure HTML bermula RM 200++/bln (1-tahun) atau RM 240++/bln (bulanan); WordPress bermula RM 250++/bln (1-tahun) atau RM 290++/bln (bulanan).",
+            options: [{ label: "📝 Isi Borang Pertanyaan", next: "open_form_0" }, { label: "💬 WhatsApp Kami", next: "wa_maintenance" }, { label: "⬅️ Kembali", next: "start" }]
+          },
+          ai_launch: {
+            text: "Kami tukar draf kod AI menjadi laman web responsif dengan domain tersuai, SSL dan borang PHP anti-spam (dari RM 250++).",
+            options: [{ label: "📝 Isi Borang Pertanyaan", next: "open_form_2" }, { label: "💬 WhatsApp Kami", next: "wa_ai" }, { label: "⬅️ Kembali", next: "start" }]
+          },
+          landing: {
+            text: "Laman web berkod tangan mengikut bahagian (dari RM 125++/bahagian) atau pakej banyak halaman lebih murah—tiada yuran bulanan wajib.",
+            options: [{ label: "📝 Minta Sebut Harga", next: "open_form_3" }, { label: "💬 WhatsApp Kami", next: "wa_landing" }, { label: "⬅️ Kembali", next: "start" }]
+          },
+          migration: {
+            text: "Migrasi laman WordPress yang perlahan kepada HTML statik pantas tanpa risiko pangkalan data (dari RM 500++).",
+            options: [{ label: "📝 Minta Sebut Harga Migrasi", next: "open_form_5" }, { label: "💬 WhatsApp Kami", next: "wa_migration" }, { label: "⬅️ Kembali", next: "start" }]
+          },
+          open_form_0: { type: "modal", serviceIndex: 0, msg: "Membuka borang pertanyaan..." },
+          open_form_2: { type: "modal", serviceIndex: 2, msg: "Membuka borang pertanyaan..." },
+          open_form_3: { type: "modal", serviceIndex: 3, msg: "Membuka borang pertanyaan..." },
+          open_form_5: { type: "modal", serviceIndex: 5, msg: "Membuka borang pertanyaan..." },
+          wa_maintenance: { type: "link", url: `${waLink}?text=Hai! Saya baca halaman FAQ anda dan ingin bertanya tentang penyelenggaraan bulanan.`, msg: "Membuka WhatsApp..." },
+          wa_ai: { type: "link", url: `${waLink}?text=Hai! Saya ingin melancarkan halaman web janaan AI saya.`, msg: "Membuka WhatsApp..." },
+          wa_landing: { type: "link", url: `${waLink}?text=Hai! Saya ingin sebut harga untuk membina laman web baharu.`, msg: "Membuka WhatsApp..." },
+          wa_migration: { type: "link", url: `${waLink}?text=Hai! Saya ingin bertanya tentang migrasi WordPress ke HTML statik.`, msg: "Membuka WhatsApp..." }
+        }
+      }[currentLang];
+    }
 
     function toggleChat() {
       isChatOpen = !isChatOpen;
       if (isChatOpen) {
         chatBox.classList.add('open');
-        if (chatBody.innerHTML.trim() === "") {
-          chatBody.innerHTML = `
-            <div class="message bot">Hi! 👋 Looking to build a fast custom website, migrate from WordPress, or need troubleshooting?</div>
-            <div class="options-container">
-              <a href="https://wa.me/60142880514?text=Hi! I have a question about web development/maintenance." target="_blank" class="option-btn">WhatsApp Us Directly</a>
-            </div>
-          `;
-        }
+        if (chatBody.innerHTML.trim() === "") showTypingAndMessage('start', 600);
       } else {
         chatBox.classList.remove('open');
       }
+    }
+
+    function showTypingAndMessage(stepId, delay = 900) {
+      const activeLogic = getBotLogic();
+      const step = activeLogic[stepId];
+      const typingTexts = {
+        en: "Bot is typing",
+        sc: "机器人正在输入",
+        tc: "機器人正在輸入",
+        bm: "Bot sedang menaip"
+      };
+
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.id = 'typing';
+      typingDiv.innerHTML = `<span class="typing-text">${typingTexts[currentLang]}</span><div class="typing-dots"><span></span><span></span><span></span></div>`;
+      chatBody.appendChild(typingDiv);
+      scrollToBottom();
+
+      setTimeout(() => {
+        const existingTyping = document.getElementById('typing');
+        if (existingTyping) existingTyping.remove();
+        processStep(step, stepId, activeLogic);
+      }, delay);
+    }
+
+    function processStep(step, stepId, activeLogic) {
+      if (step.type === "link") {
+        addMessage(step.msg, 'bot');
+        setTimeout(() => window.open(step.url, '_blank'), 900);
+        setTimeout(() => showRestartButton(), 1200);
+        return;
+      }
+      if (step.type === "modal") {
+        addMessage(step.msg, 'bot');
+        setTimeout(() => openContactModal(step.serviceIndex || 0), 500);
+        setTimeout(() => showRestartButton(), 900);
+        return;
+      }
+      addMessage(step.text, 'bot');
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'options-container';
+      step.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = opt.label;
+        btn.onclick = () => { optionsDiv.remove(); addMessage(opt.label, 'user'); showTypingAndMessage(opt.next, 700); };
+        optionsDiv.appendChild(btn);
+      });
+      chatBody.appendChild(optionsDiv);
+      scrollToBottom();
+    }
+
+    function showRestartButton() {
+      const restartTexts = {
+        en: "🔄 Start Over",
+        sc: "🔄 重新开始",
+        tc: "🔄 重新開始",
+        bm: "🔄 Mula Semula"
+      };
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'options-container';
+      const restartBtn = document.createElement('button');
+      restartBtn.className = 'option-btn';
+      restartBtn.innerText = restartTexts[currentLang];
+      restartBtn.onclick = () => { optionsDiv.remove(); addMessage(restartTexts[currentLang], 'user'); showTypingAndMessage('start', 400); };
+      optionsDiv.appendChild(restartBtn);
+      chatBody.appendChild(optionsDiv);
+      scrollToBottom();
+    }
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      chatBody.appendChild(div);
+      scrollToBottom();
+    }
+
+    function scrollToBottom() { chatBody.scrollTop = chatBody.scrollHeight; }
+
+    // =========================================================================
+    // SWEETALERT2 CONTACT MODAL (4 LANGUAGES + HONEYPOT + PHP ENDPOINT)
+    // =========================================================================
+    const modalI18n = {
+      en: {
+        title: "Send an Inquiry",
+        subtitle: "Tell us about your website size, section count, or maintenance needs. We'll reply via email or WhatsApp.",
+        labelName: "Your Name *",
+        phName: "e.g. Alex Tan",
+        labelEmail: "Email Address *",
+        phEmail: "e.g. alex@company.com",
+        labelPhone: "WhatsApp / Phone Number *",
+        phPhone: "e.g. +6012-345 6789",
+        labelService: "Service Needed *",
+        services: [
+          "Monthly Maintenance — Pure HTML (From RM 200++/mo 1-Yr or RM 240++/mo Monthly)",
+          "Monthly Maintenance — WordPress (From RM 250++/mo 1-Yr or RM 290++/mo Monthly)",
+          "Host & Deploy AI-Generated (Vibe Coding) Page (From RM 250++)",
+          "Build New Website — Single-Page / Landing Page (From RM 125++/section)",
+          "Build New Website — Multi-Page Business Site (From RM 450++–550++/page)",
+          "WordPress-to-Static HTML Migration (From RM 500++)",
+          "Emergency Website Fix & Troubleshooting (From RM 150++)",
+          "Technical SEO & Speed Optimization",
+          "Other / General Inquiry"
+        ],
+        labelMsg: "Project Details / Message *",
+        phMsg: "Share your current website URL (if any), number of pages/sections needed, or questions...",
+        btnSend: "Send Inquiry",
+        btnCancel: "Cancel",
+        errRequired: "Please fill in all required fields.",
+        errEmail: "Please enter a valid email address.",
+        successTitle: "Inquiry Sent!",
+        rateLimitTitle: "Rate Limit Reached",
+        errorTitle: "Submission Issue",
+        waFallbackBtn: "Message on WhatsApp Instead"
+      },
+      sc: {
+        title: "发送项目咨询",
+        subtitle: "请告诉我们您的网站规模、板块数量或维护需求，我们将通过邮件或 WhatsApp 尽快回复您。",
+        labelName: "您的称呼 *",
+        phName: "例如：陈先生 / Alex Tan",
+        labelEmail: "电子邮箱 *",
+        phEmail: "例如：alex@company.com",
+        labelPhone: "WhatsApp / 联系电话 *",
+        phPhone: "例如：+6012-345 6789",
+        labelService: "所需服务 *",
+        services: [
+          "网站月度维护 — 纯静态 HTML (1年协议 RM 200++/月起 或 按月 RM 240++/月起)",
+          "网站月度维护 — WordPress (1年协议 RM 250++/月起 或 按月 RM 290++/月起)",
+          "AI 生成网页 (Vibe Coding) 部署与托管 (RM 250++ 起)",
+          "定制建站 — 单页式落地页 (RM 125++/板块起)",
+          "定制建站 — 多页商业官网 (RM 450++–550++/页起)",
+          "WordPress 迁移至纯静态 HTML (RM 500++ 起)",
+          "网站突发故障抢修与技术排查 (RM 150++ 起)",
+          "技术性 SEO 与加载速度优化",
+          "其他 / 一般咨询"
+        ],
+        labelMsg: "项目详情 / 留言内容 *",
+        phMsg: "请附上您现有的网址（如有）、预计页面或板块数量及具体需求...",
+        btnSend: "提交咨询",
+        btnCancel: "取消",
+        errRequired: "请完整填写所有必填项目。",
+        errEmail: "请输入有效的电子邮箱地址。",
+        successTitle: "发送成功！",
+        rateLimitTitle: "提交次数已达上限",
+        errorTitle: "发送失败",
+        waFallbackBtn: "改用 WhatsApp 直接联系"
+      },
+      tc: {
+        title: "發送專案諮詢",
+        subtitle: "請告訴我們您的網站規模、板塊數量或維護需求，我們將透過電郵或 WhatsApp 盡快回覆您。",
+        labelName: "您的稱呼 *",
+        phName: "例如：陳先生 / Alex Tan",
+        labelEmail: "電子郵箱 *",
+        phEmail: "例如：alex@company.com",
+        labelPhone: "WhatsApp / 聯絡電話 *",
+        phPhone: "例如：+6012-345 6789",
+        labelService: "所需服務 *",
+        services: [
+          "網站月度維護 — 純靜態 HTML (1年協議 RM 200++/月起 或 按月 RM 240++/月起)",
+          "網站月度維護 — WordPress (1年協議 RM 250++/月起 或 按月 RM 290++/月起)",
+          "AI 生成網頁 (Vibe Coding) 部署與託管 (RM 250++ 起)",
+          "客製建站 — 單頁式著陸頁 (RM 125++/板塊起)",
+          "客製建站 — 多頁商業官網 (RM 450++–550++/頁起)",
+          "WordPress 遷移至純靜態 HTML (RM 500++ 起)",
+          "網站突發故障搶修與技術排查 (RM 150++ 起)",
+          "技術性 SEO 與載入速度優化",
+          "其他 / 一般諮詢"
+        ],
+        labelMsg: "專案詳情 / 留言內容 *",
+        phMsg: "請附上您現有的網址（如有）、預計頁面或板塊數量及具體需求...",
+        btnSend: "提交諮詢",
+        btnCancel: "取消",
+        errRequired: "請完整填寫所有必填項目。",
+        errEmail: "請輸入有效的電子郵箱地址。",
+        successTitle: "發送成功！",
+        rateLimitTitle: "提交次數已達上限",
+        errorTitle: "發送失敗",
+        waFallbackBtn: "改用 WhatsApp 直接聯繫"
+      },
+      bm: {
+        title: "Hantar Pertanyaan",
+        subtitle: "Beritahu kami saiz laman web, bilangan bahagian, atau keperluan penjagaan anda untuk sebut harga tepat.",
+        labelName: "Nama Anda *",
+        phName: "cth. Ahmad / Alex Tan",
+        labelEmail: "Alamat E-mel *",
+        phEmail: "cth. alex@syarikat.com",
+        labelPhone: "Nombor WhatsApp / Telefon *",
+        phPhone: "cth. +6012-345 6789",
+        labelService: "Servis Diperlukan *",
+        services: [
+          "Penyelenggaraan Bulanan — Pure HTML (Dari RM 200++/bln 1-Tahun atau RM 240++/bln Bulanan)",
+          "Penyelenggaraan Bulanan — WordPress (Dari RM 250++/bln 1-Tahun atau RM 290++/bln Bulanan)",
+          "Hos & Lancar Halaman AI (Vibe Coding) (Dari RM 250++)",
+          "Bina Laman Web Baharu — Satu Halaman (Dari RM 125++/bahagian)",
+          "Bina Laman Web Baharu — Banyak Halaman (Dari RM 450++–550++/halaman)",
+          "Migrasi WordPress ke HTML Statik (Dari RM 500++)",
+          "Pembaikan Kecemasan & Masalah Teknikal Web (Dari RM 150++)",
+          "SEO Teknikal & Pengoptimuman Kelajuan",
+          "Lain-lain / Pertanyaan Umum"
+        ],
+        labelMsg: "Butiran Projek / Mesej *",
+        phMsg: "Sertakan pautan laman web sedia ada (jika ada), anggaran halaman/bahagian, atau soalan anda...",
+        btnSend: "Hantar Pertanyaan",
+        btnCancel: "Batal",
+        errRequired: "Sila lengkapkan semua ruangan wajib.",
+        errEmail: "Sila masukkan alamat e-mel yang sah.",
+        successTitle: "Berjaya Dihantar!",
+        rateLimitTitle: "Had Hantaran Dicapai",
+        errorTitle: "Masalah Penghantaran",
+        waFallbackBtn: "Hubungi Melalui WhatsApp"
+      }
+    };
+
+    function openContactModal(preselectedIndex = 0) {
+      if (typeof Swal === 'undefined') {
+        window.open('https://wa.me/60142880514?text=Hi! I would like to inquire about Nextravox Tech web services.', '_blank');
+        return;
+      }
+      const t = modalI18n[currentLang] || modalI18n.en;
+      const renderedTimestamp = Math.floor(Date.now() / 1000);
+
+      const optionsHtml = t.services.map((srv, idx) =>
+        `<option value="${srv}" ${idx === preselectedIndex ? 'selected' : ''}>${srv}</option>`
+      ).join('');
+
+      Swal.fire({
+        title: t.title,
+        html: `
+          <p class="text-slate-400 text-sm mb-4 text-left">${t.subtitle}</p>
+          <form id="nxvContactForm" class="space-y-3 text-left" novalidate>
+            <div class="nxv-hp-field" aria-hidden="true">
+              <label for="nxv_company_website">Company Website</label>
+              <input type="text" id="nxv_company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
+            </div>
+            <input type="hidden" id="nxv_form_ts" name="form_ts" value="${renderedTimestamp}" />
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">${t.labelName}</label>
+              <input type="text" id="nxv_name" class="nxv-input" placeholder="${t.phName}" maxlength="100" required />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">${t.labelEmail}</label>
+                <input type="email" id="nxv_email" class="nxv-input" placeholder="${t.phEmail}" maxlength="150" required />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">${t.labelPhone}</label>
+                <input type="tel" id="nxv_phone" class="nxv-input" placeholder="${t.phPhone}" maxlength="40" required />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">${t.labelService}</label>
+              <select id="nxv_service" class="nxv-input">${optionsHtml}</select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">${t.labelMsg}</label>
+              <textarea id="nxv_message" rows="3" class="nxv-input" placeholder="${t.phMsg}" maxlength="3000" required></textarea>
+            </div>
+          </form>
+        `,
+        showCancelButton: true,
+        confirmButtonText: t.btnSend,
+        cancelButtonText: t.btnCancel,
+        focusConfirm: false,
+        customClass: {
+          popup: 'nxv-swal-popup',
+          title: 'nxv-swal-title',
+          confirmButton: 'nxv-swal-confirm',
+          cancelButton: 'nxv-swal-cancel'
+        },
+        preConfirm: async () => {
+          const name = document.getElementById('nxv_name').value.trim();
+          const email = document.getElementById('nxv_email').value.trim();
+          const phone = document.getElementById('nxv_phone').value.trim();
+          const service = document.getElementById('nxv_service').value.trim();
+          const message = document.getElementById('nxv_message').value.trim();
+          const honeypot = document.getElementById('nxv_company_website').value;
+          const formTs = document.getElementById('nxv_form_ts').value;
+
+          if (!name || !email || !phone || !service || !message) {
+            Swal.showValidationMessage(t.errRequired);
+            return false;
+          }
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            Swal.showValidationMessage(t.errEmail);
+            return false;
+          }
+
+          try {
+            const response = await fetch('contact.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name,
+                email,
+                phone,
+                service,
+                message,
+                company_website: honeypot,
+                form_ts: formTs,
+                lang: currentLang
+              })
+            });
+
+            const result = await response.json();
+            if (!response.ok) {
+              return { ok: false, status: response.status, message: result.message || 'Server error.' };
+            }
+            return { ok: true, message: result.message };
+          } catch (err) {
+            return {
+              ok: false,
+              status: 500,
+              message: 'Network error connecting to server. Please contact us directly via WhatsApp.'
+            };
+          }
+        }
+      }).then((swalResult) => {
+        if (!swalResult.isConfirmed || !swalResult.value) return;
+
+        const res = swalResult.value;
+        if (res.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: t.successTitle,
+            text: res.message,
+            customClass: {
+              popup: 'nxv-swal-popup',
+              title: 'nxv-swal-title',
+              confirmButton: 'nxv-swal-confirm'
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: res.status === 429 ? 'warning' : 'error',
+            title: res.status === 429 ? t.rateLimitTitle : t.errorTitle,
+            text: res.message,
+            showCancelButton: true,
+            confirmButtonText: t.waFallbackBtn,
+            cancelButtonText: t.btnCancel,
+            customClass: {
+              popup: 'nxv-swal-popup',
+              title: 'nxv-swal-title',
+              confirmButton: 'nxv-swal-confirm',
+              cancelButton: 'nxv-swal-cancel'
+            }
+          }).then((fallback) => {
+            if (fallback.isConfirmed) {
+              window.open('https://wa.me/60142880514?text=Hi! I tried submitting the website form and would like to inquire about your services.', '_blank');
+            }
+          });
+        }
+      });
     }
   </script>
 </body>
