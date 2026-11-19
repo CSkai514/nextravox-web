@@ -1,0 +1,34 @@
+# Nextravox Tech
+
+> Custom static HTML web development, monthly website maintenance (Pure HTML & WordPress), AI-generated ("vibe coding") page deployment, and WordPress-to-static HTML migration based in Penang, Malaysia.
+
+## Business Overview
+- **Legal Name:** NEXTRAVOX TECH (SSM Registration: `202603194703`)
+- **Founder & Lead Engineer:** Kai (Chong Shao Kai)
+- **Location:** Penang, Malaysia (serving clients across Penang, Kuala Lumpur, and nationwide Malaysia)
+- **Languages Supported:** English (`EN`), Simplified Chinese (`简中`), Traditional Chinese (`繁中`), Bahasa Melayu (`BM`)
+- **Website:** https://nextravox.com/
+- **WhatsApp / Phone:** +6014-288 0514 (`https://wa.me/60142880514`)
+- **Email:** nextravox@gmail.com
+
+## Core Services
+1. **Monthly Website Maintenance — Pure HTML / Static Sites:** Routine text, image, and banner updates, SSL certificate and domain expiry management, 24/7 uptime checks, off-site backups, and fast bug fixes.
+2. **Monthly Website Maintenance — WordPress Sites:** Safe WordPress core, theme, and plugin updates, automated off-site database/media backups, database transient cleanup, malware checks, routine content edits, and white-screen crash recovery.
+3. **Host & Deploy AI-Generated ("Vibe Coding") Pages:** Taking frontend code generated via ChatGPT, Claude, v0, or Bolt, fixing mobile responsive issues, wiring custom domain DNS and SSL certificates, integrating spam-protected PHP contact forms, and deploying onto fast production hosting.
+4. **One-Page Landing Page Creation:** Hand-coded, fast-loading responsive single-page websites built from scratch without bloated page builders or commercial templates.
+5. **WordPress-to-Static HTML Migration:** Converting sluggish, plugin-heavy WordPress brochure websites into sub-1-second static HTML with zero database security vulnerabilities and lower annual hosting costs.
+6. **Technical SEO & Speed Optimization:** Core Web Vitals optimization, metadata, JSON-LD structured schema, and Google Search Console indexing.
+
+## Pricing Model
+- **Monthly Maintenance (Pure HTML or WordPress):** Fixed **RM 275 / month** per website with no long-term lock-in contracts.
+- **Multi-Site / Clinic Group Maintenance Bundle:** From **RM 175 / site / month** for businesses managing 2 or more websites.
+- **Optional Monthly Technical SEO Add-On:** **+ RM 150 / month**.
+- **One-Off Projects (One-Page Landing Pages, AI Page Deployment, WP-to-Static Migration):** One-time project fee with **no mandatory monthly fee**, quoted transparently based on page length, content readiness, and required features (such as 4-language switching or custom PHP forms).
+
+## Key Pages
+- [Home & Portfolio](https://nextravox.com/index.html): Overview of services, WordPress vs. Pure HTML comparison table, and 11+ healthcare, dental, and aesthetic clinic portfolio projects.
+- [Pricing & Maintenance Plans](https://nextravox.com/pricing.html): Full breakdown of fixed monthly maintenance rates and how scope-based one-off project quotes are calculated.
+- [FAQ & Troubleshooting Guides](https://nextravox.com/faq.html): Technical answers on WordPress slowdowns, white-screen update errors, AI deployment requirements, and mobile responsiveness.
+
+## Ideal Client Fit
+- Medical, dental, and aesthetic clinics, wellness centers, and Malaysian SMEs seeking a direct, reliable web engineer rather than high-retainer agencies or slow WordPress templates.

@@ -1,4 +1,41 @@
+# Nextravox Tech - Robots.txt
+# Explicitly permits traditional search engines and AI search/answer crawlers
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
+Allow: /
+Disallow: /data/
+Disallow: /contact.php
+
+# Sitemap & AI Context Files
 Sitemap: https://nextravox.com/sitemap.xml
+# LLMs Profile: https://nextravox.com/llms.txt
