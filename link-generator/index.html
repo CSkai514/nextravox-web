@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR & Link Generator — Nextravox Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-base: #0a0a0f; --bg-card: #0f0f1a; --bg-surface: #14141f;
+      --border: rgba(255,255,255,0.07); --accent: #10b981; --accent-light: #34d399;
+      --text-primary: #f0f0f8; --text-sub: #8888aa; --text-dim: #44445a;
+      --font-mono: 'JetBrains Mono', monospace; --font-display: 'Syne', sans-serif;
+    }
+    body { background: var(--bg-base); color: var(--text-primary); font-family: var(--font-mono); min-height: 100vh; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px);
+      background-size: 40px 40px; pointer-events: none; z-index: 0;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+      background: rgba(10,10,15,0.9); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo .dot { color: var(--accent-light); }
+    .nav-back { font-size: 0.72rem; color: var(--text-sub); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--accent-light); }
+
+    .page-wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 100px 2rem 4rem; }
+
+    .page-header { margin-bottom: 2.5rem; }
+    .page-header .eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 0.75rem; }
+    .page-header p { font-size: 0.82rem; color: var(--text-sub); line-height: 1.75; max-width: 500px; }
+
+    .builder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 700px) { .builder-grid { grid-template-columns: 1fr; } }
+
+    .panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; }
+    .panel-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 1.5rem; }
+
+    .field { margin-bottom: 1.2rem; }
+    .field label { display: block; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--text-sub); text-transform: uppercase; margin-bottom: 6px; }
+    .field input, .field select, .field textarea {
+      width: 100%; background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px 12px; color: var(--text-primary);
+      font-family: var(--font-mono); font-size: 0.8rem; outline: none; transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent-light); }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field textarea { height: 80px; resize: none; }
+    .field select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238888aa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+    select option { background: #1a1a2e; }
+
+    .platform-toggle { display: flex; gap: 6px; margin-bottom: 1.5rem; }
+    .plat-btn { flex: 1; padding: 9px; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-sub); cursor: pointer; transition: all 0.2s; }
+    .plat-btn.active { border-color: var(--accent-light); color: var(--accent-light); background: rgba(16,185,129,0.1); }
+
+    .generate-btn { width: 100%; padding: 12px; background: var(--accent); border: none; color: #000; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+    .generate-btn:hover { opacity: 0.85; }
+
+    /* QR Output */
+    .qr-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .qr-frame {
+      width: 180px; height: 180px; background: #fff; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: #aaa; text-align: center; padding: 8px;
+    }
+    #qr-canvas { display: none; }
+    #qr-placeholder { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: #bbb; font-size: 0.65rem; text-align: center; line-height: 1.5; }
+
+    .link-out {
+      width: 100%; background: var(--bg-surface); border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 8px; padding: 1rem; margin-top: 0.5rem;
+    }
+    .link-out p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+    .link-out a { font-size: 0.72rem; color: var(--accent-light); word-break: break-all; line-height: 1.6; }
+
+    .embed-out {
+      width: 100%; background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem; margin-top: 1rem;
+    }
+    .embed-out p { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+    .embed-out code { font-size: 0.68rem; color: var(--accent-light); white-space: pre-wrap; word-break: break-all; line-height: 1.7; display: block; }
+
+    .output-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+    .action-btn { flex: 1; min-width: 110px; padding: 9px 12px; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; border-radius: 6px; border: 1px solid; cursor: pointer; transition: all 0.2s; text-align: center; background: transparent; }
+    .btn-dl  { border-color: var(--accent-light); color: var(--accent-light); }
+    .btn-dl:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+    .btn-copy-link { border-color: rgba(255,255,255,0.15); color: var(--text-sub); }
+    .btn-copy-link:hover { border-color: var(--accent-light); color: var(--accent-light); }
+    .btn-copy-embed { border-color: rgba(255,255,255,0.1); color: var(--text-dim); }
+    .btn-copy-embed:hover { border-color: var(--accent-light); color: var(--accent-light); }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">Nextravox<span class="dot">.</span></a>
+    <a href="../index.html" class="nav-back">← Back to Tools</a>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <p class="eyebrow">Tool 03 / 03</p>
+      <h1>🔗 Click-to-Chat Link<br>&amp; QR Generator</h1>
+      <p>Generate a WhatsApp or Telegram link with a pre-filled message. Download the QR code and paste it on your website, flyer, or social media instantly.</p>
+    </div>
+
+    <div class="builder-grid">
+      <!-- LEFT: Inputs -->
+      <div class="panel">
+        <div class="panel-title">⚙️ Your Setup</div>
+
+        <div class="platform-toggle">
+          <button class="plat-btn active" onclick="setPlatform('whatsapp', this)">💬 WhatsApp</button>
+          <button class="plat-btn" onclick="setPlatform('telegram', this)">✈️ Telegram</button>
+        </div>
+
+        <div class="field" id="field-phone">
+          <label id="num-label">WhatsApp Number</label>
+          <input type="text" id="phone" placeholder="e.g. 60123456789 (with country code)" />
+        </div>
+
+        <div class="field hidden" id="field-username">
+          <label>Telegram Username</label>
+          <input type="text" id="tg-username" placeholder="e.g. nextravox (no @)" />
+        </div>
+
+        <div class="field">
+          <label>Default Message (optional)</label>
+          <textarea id="default-msg" placeholder="e.g. Hi! I'm interested in your services."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Button Label (for embed)</label>
+          <input type="text" id="btn-label" placeholder="e.g. Chat With Us" value="Chat With Us" />
+        </div>
+
+        <button class="generate-btn" onclick="generate()">Generate Link + QR →</button>
+      </div>
+
+      <!-- RIGHT: Output -->
+      <div class="panel">
+        <div class="panel-title">📱 Your Output</div>
+
+        <div class="qr-wrap">
+          <div class="qr-frame" id="qr-frame">
+            <div id="qr-placeholder">Your QR code will<br>appear here</div>
+            <div id="qrcode" style="display:none;"></div>
+          </div>
+        </div>
+
+        <div class="link-out" id="link-out" style="display:none;">
+          <p>Your Click-to-Chat Link</p>
+          <a id="link-display" href="#" target="_blank">—</a>
+        </div>
+
+        <div class="embed-out" id="embed-out" style="display:none;">
+          <p>HTML Button Embed</p>
+          <code id="embed-code">—</code>
+        </div>
+
+        <div class="output-actions" id="output-actions" style="display:none;">
+          <button class="action-btn btn-dl" onclick="downloadQR()">⬇ Download QR</button>
+          <button class="action-btn btn-copy-link" id="copy-link-btn" onclick="copyLink()">Copy Link</button>
+          <button class="action-btn btn-copy-embed" id="copy-embed-btn" onclick="copyEmbed()">Copy Embed</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentPlatform = 'whatsapp';
+    let currentLink = '';
+    let currentEmbed = '';
+
+    function setPlatform(p, btn) {
+      currentPlatform = p;
+      document.querySelectorAll('.plat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (p === 'telegram') {
+        document.getElementById('field-phone').classList.add('hidden');
+        document.getElementById('field-username').classList.remove('hidden');
+      } else {
+        document.getElementById('field-phone').classList.remove('hidden');
+        document.getElementById('field-username').classList.add('hidden');
+      }
+    }
+
+    function generate() {
+      const msg = document.getElementById('default-msg').value.trim();
+      const btnLabel = document.getElementById('btn-label').value.trim() || 'Chat With Us';
+      let link = '';
+
+      if (currentPlatform === 'whatsapp') {
+        const phone = document.getElementById('phone').value.trim().replace(/[^0-9]/g, '');
+        if (!phone) { alert('Please enter your WhatsApp number.'); return; }
+        link = `https://wa.me/${phone}${msg ? '?text=' + encodeURIComponent(msg) : ''}`;
+      } else {
+        const username = document.getElementById('tg-username').value.trim().replace('@','');
+        if (!username) { alert('Please enter your Telegram username.'); return; }
+        link = `https://t.me/${username}${msg ? '?text=' + encodeURIComponent(msg) : ''}`;
+      }
+
+      currentLink = link;
+
+      // Generate QR
+      const qrDiv = document.getElementById('qrcode');
+      qrDiv.innerHTML = '';
+      new QRCode(qrDiv, {
+        text: link,
+        width: 164,
+        height: 164,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      document.getElementById('qr-placeholder').style.display = 'none';
+      qrDiv.style.display = 'block';
+
+      // Show link
+      document.getElementById('link-out').style.display = 'block';
+      const ld = document.getElementById('link-display');
+      ld.href = link;
+      ld.textContent = link.length > 60 ? link.substring(0, 60) + '...' : link;
+
+      // Generate embed
+      const icon = currentPlatform === 'whatsapp' ? '💬' : '✈️';
+      const color = currentPlatform === 'whatsapp' ? '#25d366' : '#2aabee';
+      const embed = `<a href="${link}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:${color};color:#fff;font-family:sans-serif;font-size:14px;font-weight:600;text-decoration:none;border-radius:8px;">${icon} ${btnLabel}</a>`;
+      currentEmbed = embed;
+      document.getElementById('embed-out').style.display = 'block';
+      document.getElementById('embed-code').textContent = embed;
+
+      document.getElementById('output-actions').style.display = 'flex';
+    }
+
+    function downloadQR() {
+      // Get the canvas from QRCode lib
+      const canvas = document.querySelector('#qrcode canvas');
+      if (!canvas) return;
+      const link = document.createElement('a');
+      link.download = 'nextravox-qr.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function copyLink() {
+      if (!currentLink) return;
+      navigator.clipboard.writeText(currentLink).then(() => {
+        const btn = document.getElementById('copy-link-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => btn.textContent = 'Copy Link', 2000);
+      });
+    }
+
+    function copyEmbed() {
+      if (!currentEmbed) return;
+      navigator.clipboard.writeText(currentEmbed).then(() => {
+        const btn = document.getElementById('copy-embed-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => btn.textContent = 'Copy Embed', 2000);
+      });
+    }
+  </script>
+</body>
+</html>

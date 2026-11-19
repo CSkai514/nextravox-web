@@ -18,16 +18,16 @@
   <!-- High-Converting SEO & AEO Meta Tags -->
   <title>Nextravox Tech | Custom Web Development, Website Maintenance & AI Web Deployment Malaysia</title>
   <meta name="description"
-    content="Nextravox Tech provides monthly website maintenance for pure HTML and WordPress, AI-generated vibe-coding page deployment, custom one-page & multi-page website builds, and WordPress-to-static HTML migration in Penang & across Malaysia." />
+    content="Nextravox Tech provides monthly website maintenance for pure HTML and WordPress, AI-generated vibe-coding page deployment, custom one-page & multi-page website builds, free SME WhatsApp & QR tools, and WordPress-to-static HTML migration in Penang & across Malaysia." />
   <meta name="keywords"
-    content="website developer penang, website maintenance malaysia, pure html maintenance, wordpress maintenance malaysia, deploy ai website, vibe coding deployment, one page landing page malaysia, wordpress to static html, upah jaga website, 网页制作 槟城, 网站维护 马来西亚, 網站維護 馬來西亞" />
+    content="website developer penang, website maintenance malaysia, pure html maintenance, wordpress maintenance malaysia, deploy ai website, vibe coding deployment, one page landing page malaysia, wordpress to static html, free whatsapp link generator malaysia, upah jaga website, 网页制作 槟城, 网站维护 马来西亚, 網站維護 馬來西亞" />
   <link rel="canonical" href="https://nextravox.com/" />
 
   <!-- Open Graph / WhatsApp Social Previews -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nextravox.com/" />
   <meta property="og:title" content="Nextravox Tech | Fast Static Websites & Reliable Website Care Malaysia" />
-  <meta property="og:description" content="Monthly maintenance for pure HTML & WordPress, AI vibe-coding page deployment, custom section-based & multi-page websites, and fast WordPress-to-HTML migration." />
+  <meta property="og:description" content="Monthly maintenance for pure HTML & WordPress, AI vibe-coding page deployment, custom section-based & multi-page websites, free SME WhatsApp & QR tools, and fast WordPress-to-HTML migration." />
   <meta property="og:image" content="https://nextravox.com/images/Nextravox_logo_white_resized.png" />
 
   <!-- Expanded Structured Data (Schema JSON-LD) for Local SEO & AEO/GEO -->
@@ -50,7 +50,7 @@
         "telephone": "+60142880514",
         "email": "nextravox@gmail.com",
         "priceRange": "RM",
-        "dateModified": "2026-11-18",
+        "dateModified": "2026-11-19",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Penang",
@@ -76,7 +76,8 @@
           "closes": "20:00"
         },
         "sameAs": [
-          "https://wa.me/60142880514"
+          "https://wa.me/60142880514",
+          "https://nextravox.com/tools.html"
         ],
         "knowsAbout": [
           "Custom Static HTML/CSS/JS Web Development",
@@ -84,7 +85,8 @@
           "AI-Generated Vibe Coding Web Deployment",
           "One-Page & Multi-Page Website Engineering",
           "WordPress to Static HTML Migration",
-          "Technical SEO & Core Web Vitals Optimization"
+          "Technical SEO & Core Web Vitals Optimization",
+          "Free SME Web Tools (WhatsApp Message & QR Link Generators)"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -201,7 +203,6 @@
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-    /* Custom Dark Glass Theme for SweetAlert2 */
     .nxv-swal-popup {
       background: #0f172a !important;
       color: #f8fafc !important;
@@ -244,7 +245,6 @@
     .nxv-input:focus {
       border-color: #06b6d4;
     }
-    /* Off-screen Honeypot Trap (Invisible to humans, enticing to bots) */
     .nxv-hp-field {
       position: absolute !important;
       left: -9999px !important;
@@ -357,14 +357,12 @@
       transform-origin: bottom right;
       transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
       pointer-events: none;
-      display: none;
     }
 
     .chat-box.open {
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: all;
-      display: block;
     }
 
     .chat-header {
@@ -511,14 +509,8 @@
     }
 
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -544,7 +536,7 @@
     class="fixed bottom-28 left-1/2 -translate-x-1/2 z-[10000] w-[90%] max-w-md lg:max-w-2xl transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none">
     <div
       class="glass-card p-6 md:p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative flex flex-col border border-accent/40 bg-[#0f172a]">
-      <button onclick="closePromoToast()"
+      <button type="button" onclick="closePromoToast()"
         class="absolute top-4 right-5 text-slate-400 hover:text-white font-bold text-3xl md:text-4xl leading-none pointer-events-auto cursor-pointer">&times;</button>
 
       <div class="flex items-center space-x-2 text-accent mb-3 md:mb-4">
@@ -560,7 +552,7 @@
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation (Free Tools placed behind FAQ with "Free" badge) -->
   <nav
     class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-darker/80 border-b border-white/10"
     id="navbar">
@@ -570,7 +562,7 @@
           <img src="images/Nextravox_logo_white_resized.png" class="img-fluid" alt="Nextravox Web Development Malaysia">
         </a>
         <div class="flex items-center gap-2 lg:gap-4">
-          <div class="hidden lg:flex items-center space-x-6">
+          <div class="hidden lg:flex items-center space-x-5">
             <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
               data-i18n="navAbout">About</a>
             <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
@@ -581,6 +573,10 @@
               data-i18n="navPricing">Pricing</a>
             <a href="faq.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
               data-i18n="navFAQ">FAQ</a>
+            <a href="tools.html" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors inline-flex items-center gap-1.5">
+              <span data-i18n="navTools">Free Tools</span>
+              <span class="px-1.5 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-wider">Free</span>
+            </a>
 
             <div class="flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10">
               <button type="button" class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium bg-primary text-white transition-colors cursor-pointer" data-lang="en">EN</button>
@@ -619,6 +615,10 @@
           <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navPortfolio">Portfolio</a>
           <a href="pricing.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navPricing">Pricing</a>
           <a href="faq.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5" data-i18n="navFAQ">FAQ</a>
+          <a href="tools.html" class="flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-accent hover:bg-white/5">
+            <span data-i18n="navTools">Free Tools</span>
+            <span class="px-2 py-0.5 rounded-full bg-accent/15 text-accent text-xs font-bold">Free</span>
+          </a>
           <div class="pt-2">
             <button type="button" onclick="openContactModal(0)"
               class="w-full py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-sm font-bold flex items-center justify-center gap-2 cursor-pointer">
@@ -828,15 +828,91 @@
     </div>
   </section>
 
+  <!-- Free SME Tools Spotlight Section (Promotes tools.html without Form Builder) -->
+  <section id="free-tools" class="py-20 bg-darker border-t border-white/5 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-accent/10 rounded-full blur-3xl -z-10"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4" data-i18n="tools_badge">
+          100% Free • No Login Required
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4" data-i18n="tools_title">
+          Free Browser Tools Built for Malaysian SMEs
+        </h2>
+        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="tools_desc">
+          Save daily admin time with our free web utilities—generate bilingual BM/EN WhatsApp templates and create click-to-chat links &amp; QR codes in seconds.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <!-- Mini Preview 1: WhatsApp Message Generator -->
+        <a href="tools.html"
+          class="glass-card p-7 rounded-3xl border border-accent/25 hover:border-accent transition-all group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-accent/15 flex items-center justify-center">
+                <i data-lucide="message-square-text" class="w-6 h-6 text-accent"></i>
+              </div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-3 py-1 rounded-full" data-i18n="tools_free_tag">Free Tool</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors" data-i18n="tool1_name">
+              WhatsApp Message Generator
+            </h3>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed" data-i18n="tool1_desc">
+              Generate ready-to-send BM &amp; English templates for clinics, property, F&amp;B, and retail—copy and send instantly.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs md:text-sm font-bold text-accent">
+            <span data-i18n="tools_try">Open in Free Tools</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- Mini Preview 2: QR & Link Generator -->
+        <a href="tools.html"
+          class="glass-card p-7 rounded-3xl border border-primary/30 hover:border-primary transition-all group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center">
+                <i data-lucide="qr-code" class="w-6 h-6 text-accent"></i>
+              </div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400 bg-primary/20 px-3 py-1 rounded-full" data-i18n="tools_free_tag">Free Tool</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors" data-i18n="tool2_name">
+              QR &amp; Link Generator
+            </h3>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed" data-i18n="tool2_desc">
+              Create WhatsApp &amp; Telegram click-to-chat links with pre-filled messages, downloadable QR codes, and website embed buttons.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs md:text-sm font-bold text-accent">
+            <span data-i18n="tools_try">Open in Free Tools</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="tools.html"
+          class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-bold text-base md:text-lg hover:scale-105 transition-all shadow-lg">
+          <i data-lucide="wrench" class="w-5 h-5"></i>
+          <span data-i18n="tools_cta_all">Explore All Free Tools</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- AEO / GEO Answer-First Comparison Section -->
-  <section id="why-static" class="py-20 bg-darker border-t border-white/5">
+  <section id="why-static" class="py-20 bg-dark border-t border-white/5">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <span class="text-accent font-bold tracking-widest uppercase text-sm mb-3 block" data-i18n="cmp_badge">Performance Comparison</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4" data-i18n="cmp_title">
           WordPress vs. Nextravox Pure HTML: Which Is Better for SMEs?
         </h2>
-        <!-- Answer-First Self-Contained Summary for AI Extraction -->
         <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed" data-i18n="cmp_answer">
           For Malaysian clinics, service businesses, and brochure websites that do not publish daily blog posts, pure static HTML outperforms bloated WordPress templates—delivering sub-1-second load times, zero database hacking risks, and lower annual hosting costs.
         </p>
@@ -881,7 +957,7 @@
   </section>
 
   <!-- How It Works Section -->
-  <section id="how-it-works" class="py-20 bg-dark relative overflow-hidden">
+  <section id="how-it-works" class="py-20 bg-darker relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <div class="text-center mb-16">
@@ -925,7 +1001,8 @@
     </div>
   </section>
 
-  <section id="portfolio" class="py-20 bg-darker">
+  <!-- Static Semantic HTML Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-16">
@@ -1113,8 +1190,8 @@
     </div>
   </section>
 
-
-  <section id="faq" class="py-20 bg-dark border-t border-white/10">
+  <!-- Homepage FAQ Section -->
+  <section id="faq" class="py-20 bg-darker border-t border-white/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-16">
@@ -1125,6 +1202,8 @@
       </div>
 
       <div class="space-y-4">
+
+        <!-- Question 1 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
           <button type="button" onclick="toggleFaq(1)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q1">Why should I convert my WordPress website to pure static HTML?</span>
@@ -1137,6 +1216,7 @@
           </div>
         </div>
 
+        <!-- Question 2 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
           <button type="button" onclick="toggleFaq(2)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q2">I created a website draft using AI (ChatGPT / v0 / Claude). Can you host and launch it?</span>
@@ -1149,6 +1229,7 @@
           </div>
         </div>
 
+        <!-- Question 3 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
           <button type="button" onclick="toggleFaq(3)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q3">What does your monthly website maintenance service cover for Pure HTML and WordPress?</span>
@@ -1161,6 +1242,7 @@
           </div>
         </div>
 
+        <!-- Question 4 -->
         <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
           <button type="button" onclick="toggleFaq(4)" class="w-full p-6 text-left flex justify-between items-center focus:outline-none cursor-pointer">
             <span class="text-lg md:text-xl font-bold text-white pr-4" data-i18n="faq_q4">How is pricing calculated for one-page landing pages and custom builds?</span>
@@ -1175,6 +1257,7 @@
 
       </div>
 
+      <!-- Link to Dedicated FAQ & Pricing Pages -->
       <div class="flex flex-wrap items-center justify-center gap-4 mt-12">
         <a href="faq.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/30 text-accent font-bold hover:bg-accent/20 hover:scale-105 transition-all text-sm md:text-base">
           <span data-i18n="faq_view_all">View All FAQs & Troubleshooting Tips</span>
@@ -1189,7 +1272,8 @@
     </div>
   </section>
 
-  <section id="contact" class="py-24 bg-darker relative">
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-dark relative">
     <div
       class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center glass-card p-10 md:p-16 rounded-3xl border-accent/20">
       <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight" data-i18n="contact_title">
@@ -1233,6 +1317,7 @@
         <a href="#portfolio" class="hover:text-white transition-colors" data-i18n="navPortfolio">Portfolio</a>
         <a href="pricing.html" class="hover:text-white transition-colors" data-i18n="navPricing">Pricing</a>
         <a href="faq.html" class="hover:text-white transition-colors" data-i18n="navFAQ">FAQ &amp; Tips</a>
+        <a href="tools.html" class="hover:text-accent transition-colors" data-i18n="navTools">Free Tools</a>
         <button type="button" onclick="openContactModal(0)" class="hover:text-white transition-colors cursor-pointer" data-i18n="navContact">Contact</button>
       </div>
       <p class="text-slate-500 text-sm" data-i18n="footer">© <span id="current-year"></span> Nextravox Tech (SSM: 202603194703). Web Development &amp; Maintenance in Penang, Malaysia.</p>
@@ -1254,17 +1339,16 @@
       <i data-lucide="message-square" class="w-8 h-8 text-white"></i>
     </div>
   </div>
-<script>
-    // Initialize Icons & Date
+
+  <script>
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
     const yearStr = new Date().getFullYear();
 
-    // Multilingual Translations Object (EN, Simplified Chinese SC, Traditional Chinese TC, Bahasa Melayu BM)
     const translations = {
       en: {
-        navAbout: "About", navServices: "Services", navPortfolio: "Portfolio", navPricing: "Pricing", navFAQ: "FAQ", navQuote: "Get a Quote", navContact: "Contact",
+        navAbout: "About", navServices: "Services", navPortfolio: "Portfolio", navPricing: "Pricing", navFAQ: "FAQ", navTools: "Free Tools", navQuote: "Get a Quote", navContact: "Contact",
         toast_success: "Language Switch Success!",
         toast_title: "Impressed by this feature?",
         toast_desc: "We built this 4-language (i18n) system. Want your website to speak multiple languages smoothly? Contact us and we can code this into your project!",
@@ -1292,6 +1376,16 @@
         card6_desc: "We optimize Core Web Vitals, structured JSON-LD schema, metadata, and mobile responsiveness so your business ranks higher on Google Malaysia and AI answer engines.",
         card_cta: "Inquire This Service",
         services_pricing_cta: "View Maintenance Plans & How Project Quotes Work",
+        tools_badge: "100% Free • No Login Required",
+        tools_title: "Free Browser Tools Built for Malaysian SMEs",
+        tools_desc: "Save daily admin time with our free web utilities—generate bilingual BM/EN WhatsApp templates and create click-to-chat links &amp; QR codes in seconds.",
+        tools_free_tag: "Free Tool",
+        tool1_name: "WhatsApp Message Generator",
+        tool1_desc: "Generate ready-to-send BM &amp; English templates for clinics, property, F&amp;B, and retail—copy and send instantly.",
+        tool2_name: "QR &amp; Link Generator",
+        tool2_desc: "Create WhatsApp &amp; Telegram click-to-chat links with pre-filled messages, downloadable QR codes, and website embed buttons.",
+        tools_try: "Open in Free Tools",
+        tools_cta_all: "Explore All Free Tools",
         cmp_badge: "Performance Comparison",
         cmp_title: "WordPress vs. Nextravox Pure HTML: Which Is Better for SMEs?",
         cmp_answer: "For Malaysian clinics, service businesses, and brochure websites that do not publish daily blog posts, pure static HTML outperforms bloated WordPress templates—delivering sub-1-second load times, zero database hacking risks, and lower annual hosting costs.",
@@ -1331,7 +1425,7 @@
         footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). Web Development & Maintenance in Penang, Malaysia.`
       },
       sc: {
-        navAbout: "关于", navServices: "服务", navPortfolio: "作品集", navPricing: "收费标准", navFAQ: "常见问答", navQuote: "立即咨询", navContact: "联系我们",
+        navAbout: "关于", navServices: "服务", navPortfolio: "作品集", navPricing: "收费标准", navFAQ: "常见问答", navTools: "免费工具", navQuote: "立即咨询", navContact: "联系我们",
         toast_success: "语言切换成功！",
         toast_title: "喜欢这个多语言切换功能吗？",
         toast_desc: "这是我们原生构建的四语言（i18n）系统。想让您的网站也能流畅支持多国语言吗？联系我们，我们可以直接为您写入项目代码！",
@@ -1359,6 +1453,16 @@
         card6_desc: "深度调优 Google Core Web Vitals、JSON-LD 结构化数据、元标签与移动端体验，让您的企业在 Google 马来西亚与 AI 搜索引擎中更容易被推荐。",
         card_cta: "咨询此项服务",
         services_pricing_cta: "查看月度维护方案与项目计价方式",
+        tools_badge: "100% 免费 • 无需注册登录",
+        tools_title: "专为马来西亚中小企业打造的免费小工具",
+        tools_desc: "用我们的轻量在线工具节省日常行政时间——几秒内生成中英双语 WhatsApp 话术模板，以及创建一键对话链接与高清二维码。",
+        tools_free_tag: "免费工具",
+        tool1_name: "WhatsApp 话术消息生成器",
+        tool1_desc: "一键生成马来语与英语常用客服模板，涵盖诊所、房产、餐饮与零售行业。",
+        tool2_name: "二维码 & 一键对话链接生成器",
+        tool2_desc: "生成带预设欢迎语的 WhatsApp 与 Telegram 跳转链接、可下载二维码及网页嵌入按钮。",
+        tools_try: "前往免费工具使用",
+        tools_cta_all: "浏览全部免费工具",
         cmp_badge: "技术架构对比",
         cmp_title: "WordPress 模板 vs Nextravox 纯静态 HTML：中小企业怎么选？",
         cmp_answer: "对于不需要每天发布大量新闻文章的马来西亚诊所、服务业与企业展示官网，纯静态 HTML 全面超越臃肿的 WordPress 模板——加载速度低于 1 秒、零数据库被黑风险，且每年主机维护成本更低。",
@@ -1398,7 +1502,7 @@
         footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). 马来西亚槟城网页开发与维护服务。`
       },
       tc: {
-        navAbout: "關於", navServices: "服務", navPortfolio: "作品集", navPricing: "收費標準", navFAQ: "常見問答", navQuote: "立即諮詢", navContact: "聯繫我們",
+        navAbout: "關於", navServices: "服務", navPortfolio: "作品集", navPricing: "收費標準", navFAQ: "常見問答", navTools: "免費工具", navQuote: "立即諮詢", navContact: "聯繫我們",
         toast_success: "語言切換成功！",
         toast_title: "喜歡這個多語言切換功能嗎？",
         toast_desc: "這是我們原生構建的四語言（i18n）系統。想讓您的網站也能流暢支援多國語言嗎？聯繫我們，我們可以直接為您寫入專案程式碼！",
@@ -1426,6 +1530,16 @@
         card6_desc: "深度調優 Google Core Web Vitals、JSON-LD 結構化資料、元標籤與行動端體驗，讓您的企業在 Google 馬來西亞與 AI 搜尋引擎中更容易被推薦。",
         card_cta: "諮詢此項服務",
         services_pricing_cta: "查看月度維護方案與專案計價方式",
+        tools_badge: "100% 免費 • 無需註冊登入",
+        tools_title: "專為馬來西亞中小企業打造的免費小工具",
+        tools_desc: "用我們的輕量線上工具節省日常行政時間——幾秒內生成馬來語/英語 WhatsApp 話術模板，以及創建一鍵對話連結與高清二維碼。",
+        tools_free_tag: "免費工具",
+        tool1_name: "WhatsApp 話術訊息生成器",
+        tool1_desc: "一鍵生成馬來語與英語常用客服模板，涵蓋診所、房產、餐飲與零售行業。",
+        tool2_name: "二維碼 & 一鍵對話連結生成器",
+        tool2_desc: "生成帶預設歡迎語的 WhatsApp 與 Telegram 跳轉連結、可下載二維碼及網頁嵌入按鈕。",
+        tools_try: "前往免費工具使用",
+        tools_cta_all: "瀏覽全部免費工具",
         cmp_badge: "技術架構對比",
         cmp_title: "WordPress 模板 vs Nextravox 純靜態 HTML：中小企業怎麼選？",
         cmp_answer: "對於不需要每天發布大量新聞文章的馬來西亞診所、服務業與企業展示官網，純靜態 HTML 全面超越臃腫的 WordPress 模板——載入速度低於 1 秒、零資料庫被駭風險，且每年主機維護成本更低。",
@@ -1465,7 +1579,7 @@
         footer: `© ${yearStr} Nextravox Tech (SSM: 202603194703). 馬來西亞檳城網頁開發與維護服務。`
       },
       bm: {
-        navAbout: "Tentang", navServices: "Servis", navPortfolio: "Portfolio", navPricing: "Harga", navFAQ: "Soalan Lazim", navQuote: "Minta Sebut Harga", navContact: "Hubungi",
+        navAbout: "Tentang", navServices: "Servis", navPortfolio: "Portfolio", navPricing: "Harga", navFAQ: "Soalan Lazim", navTools: "Alat Percuma", navQuote: "Minta Sebut Harga", navContact: "Hubungi",
         toast_success: "Penukaran Bahasa Berjaya!",
         toast_title: "Berminat dengan fungsi ini?",
         toast_desc: "Kami membina sistem 4-bahasa (i18n) ini. Nak laman web anda bercakap pelbagai bahasa dengan lancar? Hubungi kami dan kami boleh kodkan untuk projek anda!",
@@ -1493,6 +1607,16 @@
         card6_desc: "Kami optimumkan Core Web Vitals, schema berstruktur JSON-LD, metadata dan paparan mudah alih supaya perniagaan anda mudah ditemui di Google Malaysia dan carian AI.",
         card_cta: "Tanya Servis Ini",
         services_pricing_cta: "Lihat Pelan Penyelenggaraan & Cara Sebut Harga",
+        tools_badge: "100% Percuma • Tanpa Perlu Log Masuk",
+        tools_title: "Alat Pelayar Percuma untuk PKS Malaysia",
+        tools_desc: "Jimat masa urusan harian anda dengan utiliti web percuma kami—jana templat WhatsApp BM/EN dan cipta pautan klik-untuk-sembang serta kod QR dalam beberapa saat.",
+        tools_free_tag: "Alat Percuma",
+        tool1_name: "Penjana Mesej WhatsApp",
+        tool1_desc: "Jana templat mesej BM & Inggeris siap hantar untuk klinik, hartanah, F&B, dan runcit—salin dan hantar.",
+        tool2_name: "Penjana Kod QR & Pautan",
+        tool2_desc: "Cipta pautan klik-untuk-sembang WhatsApp & Telegram dengan mesej tersedia, kod QR muat turun, dan butang benam.",
+        tools_try: "Buka di Alat Percuma",
+        tools_cta_all: "Terokai Semua Alat Percuma",
         cmp_badge: "Perbandingan Prestasi",
         cmp_title: "WordPress vs. Nextravox Pure HTML: Mana Lebih Sesuai untuk PKS?",
         cmp_answer: "Bagi klinik, syarikat perkhidmatan dan laman web korporat di Malaysia yang tidak menerbitkan artikel blog setiap hari, HTML statik jauh lebih pantas daripada templat WordPress—memuatkan halaman bawah 1 saat, bebas risiko godaman pangkalan data, dan lebih jimat kos tahunan.",
@@ -1601,7 +1725,6 @@
       });
     });
 
-    // Apply saved language on initial load
     applyLanguage(currentLang, false);
 
     function showPromoToast() {
@@ -1620,7 +1743,6 @@
       toast.classList.add('translate-y-[150%]', 'opacity-0', 'pointer-events-none');
     }
 
-    // Navbar Scroll & Mobile Menu
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (!navbar) return;
@@ -1634,7 +1756,6 @@
       mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     }
 
-    // FAQ Accordion Toggle
     function toggleFaq(num) {
       const answer = document.getElementById(`faq-ans-${num}`);
       const icon = document.getElementById(`faq-icon-${num}`);
@@ -1650,7 +1771,7 @@
       }
     }
 
-    // Custom Chatbot Logic (4 Languages)
+    // Custom Chatbot Logic (Links to tools.html)
     const chatBox = document.getElementById('chatBox');
     const chatBody = document.getElementById('chatBody');
 
@@ -1664,7 +1785,7 @@
               { label: "🛠️ Monthly Maintenance (HTML/WP)", next: "maintenance" },
               { label: "🚀 Deploy AI Vibe-Coding Page", next: "ai_launch" },
               { label: "📄 Build New Website (1-Page/Multi)", next: "landing" },
-              { label: "⚡ WP to Static HTML", next: "migration" }
+              { label: "🧰 Free SME Tools", next: "tools_hub" }
             ]
           },
           maintenance: {
@@ -1679,18 +1800,17 @@
             text: "We hand-code ultra-fast static websites priced transparently per section (from RM 125++/section) or discounted multi-page bundles (from RM 450++–550++/page)—no mandatory monthly fees.",
             options: [{ label: "📝 Request Custom Quote", next: "open_form_3" }, { label: "💬 WhatsApp Us", next: "wa_landing" }, { label: "⬅️ Back", next: "start" }]
           },
-          migration: {
-            text: "We convert slow, plugin-heavy WordPress sites into pure static HTML that loads in under 1 second with zero database vulnerabilities (from RM 500++).",
-            options: [{ label: "📝 Request Migration Quote", next: "open_form_5" }, { label: "💬 WhatsApp Us", next: "wa_migration" }, { label: "⬅️ Back", next: "start" }]
+          tools_hub: {
+            text: "Try our free browser utilities: WhatsApp Message Generator (BM/EN) and QR & Link Generator—100% free, no login required!",
+            options: [{ label: "🚀 Open Free Tools", next: "go_tools" }, { label: "⬅️ Back", next: "start" }]
           },
+          go_tools: { type: "nav", url: "tools.html", msg: "Opening Free Tools..." },
           open_form_0: { type: "modal", serviceIndex: 0, msg: "Opening inquiry form..." },
           open_form_2: { type: "modal", serviceIndex: 2, msg: "Opening inquiry form..." },
           open_form_3: { type: "modal", serviceIndex: 3, msg: "Opening inquiry form..." },
-          open_form_5: { type: "modal", serviceIndex: 5, msg: "Opening inquiry form..." },
           wa_maintenance: { type: "link", url: `${waLink}?text=Hi! I am interested in monthly website maintenance (HTML/WordPress).`, msg: "Opening WhatsApp..." },
           wa_ai: { type: "link", url: `${waLink}?text=Hi! I have an AI-generated (vibe coding) page that I want to host and deploy.`, msg: "Opening WhatsApp..." },
-          wa_landing: { type: "link", url: `${waLink}?text=Hi! I would like a quote for building a new custom website.`, msg: "Opening WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=Hi! I want to inquire about migrating my WordPress site to static HTML.`, msg: "Opening WhatsApp..." }
+          wa_landing: { type: "link", url: `${waLink}?text=Hi! I would like a quote for building a new custom website.`, msg: "Opening WhatsApp..." }
         },
         sc: {
           start: {
@@ -1699,7 +1819,7 @@
               { label: "🛠️ 网站月度维护 (HTML/WP)", next: "maintenance" },
               { label: "🚀 AI 网页代码部署托管", next: "ai_launch" },
               { label: "📄 定制开发新网站 (单页/多页)", next: "landing" },
-              { label: "⚡ WP 迁移纯静态 HTML", next: "migration" }
+              { label: "🧰 免费 SME 商业工具", next: "tools_hub" }
             ]
           },
           maintenance: {
@@ -1714,18 +1834,17 @@
             text: "纯手写极速网站，单页支持按板块计价（RM 125++/板块起），多页官网享打包单价优惠（RM 450++–550++/页起），无强制月费。",
             options: [{ label: "📝 获取精准报价", next: "open_form_3" }, { label: "💬 WhatsApp 咨询", next: "wa_landing" }, { label: "⬅️ 返回", next: "start" }]
           },
-          migration: {
-            text: "将缓慢易报错的 WordPress 网站重构成 1 秒内加载的纯静态 HTML，零数据库漏洞（RM 500++ 起）。",
-            options: [{ label: "📝 咨询迁移报价", next: "open_form_5" }, { label: "💬 WhatsApp 咨询", next: "wa_migration" }, { label: "⬅️ 返回", next: "start" }]
+          tools_hub: {
+            text: "免费使用我们的在线工具：WhatsApp 话术生成器及二维码链接生成器——100% 免费免登录！",
+            options: [{ label: "🚀 打开免费工具", next: "go_tools" }, { label: "⬅️ 返回", next: "start" }]
           },
+          go_tools: { type: "nav", url: "tools.html", msg: "正在打开免费工具..." },
           open_form_0: { type: "modal", serviceIndex: 0, msg: "正在打开咨询表单..." },
           open_form_2: { type: "modal", serviceIndex: 2, msg: "正在打开咨询表单..." },
           open_form_3: { type: "modal", serviceIndex: 3, msg: "正在打开咨询表单..." },
-          open_form_5: { type: "modal", serviceIndex: 5, msg: "正在打开咨询表单..." },
           wa_maintenance: { type: "link", url: `${waLink}?text=你好！我想咨询网站月度维护服务（HTML / WordPress）。`, msg: "正在打开 WhatsApp..." },
           wa_ai: { type: "link", url: `${waLink}?text=你好！我有一个 AI 生成的网页想找你们部署托管上线。`, msg: "正在打开 WhatsApp..." },
-          wa_landing: { type: "link", url: `${waLink}?text=你好！我想咨询定制开发新网站的报价。`, msg: "正在打开 WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=你好！我想咨询将 WordPress 网站迁移至纯静态 HTML。`, msg: "正在打开 WhatsApp..." }
+          wa_landing: { type: "link", url: `${waLink}?text=你好！我想咨询定制开发新网站的报价。`, msg: "正在打开 WhatsApp..." }
         },
         tc: {
           start: {
@@ -1734,7 +1853,7 @@
               { label: "🛠️ 網站月度維護 (HTML/WP)", next: "maintenance" },
               { label: "🚀 AI 網頁程式碼部署託管", next: "ai_launch" },
               { label: "📄 客製開發新網站 (單頁/多頁)", next: "landing" },
-              { label: "⚡ WP 遷移純靜態 HTML", next: "migration" }
+              { label: "🧰 免費 SME 商業工具", next: "tools_hub" }
             ]
           },
           maintenance: {
@@ -1749,18 +1868,17 @@
             text: "純手寫極速網站，單頁支援按板塊計價（RM 125++/板塊起），多頁官網享打包單價優惠（RM 450++–550++/頁起），無強制月費。",
             options: [{ label: "📝 獲取精準報價", next: "open_form_3" }, { label: "💬 WhatsApp 諮詢", next: "wa_landing" }, { label: "⬅️ 返回", next: "start" }]
           },
-          migration: {
-            text: "將緩慢易報錯的 WordPress 網站重構成 1 秒內載入的純靜態 HTML，零資料庫漏洞（RM 500++ 起）。",
-            options: [{ label: "📝 諮詢遷移報價", next: "open_form_5" }, { label: "💬 WhatsApp 諮詢", next: "wa_migration" }, { label: "⬅️ 返回", next: "start" }]
+          tools_hub: {
+            text: "免費使用我們的線上工具：WhatsApp 話術生成器及二維碼連結生成器——100% 免費免登入！",
+            options: [{ label: "🚀 開啟免費工具", next: "go_tools" }, { label: "⬅️ 返回", next: "start" }]
           },
+          go_tools: { type: "nav", url: "tools.html", msg: "正在開啟免費工具..." },
           open_form_0: { type: "modal", serviceIndex: 0, msg: "正在開啟諮詢表單..." },
           open_form_2: { type: "modal", serviceIndex: 2, msg: "正在開啟諮詢表單..." },
           open_form_3: { type: "modal", serviceIndex: 3, msg: "正在開啟諮詢表單..." },
-          open_form_5: { type: "modal", serviceIndex: 5, msg: "正在開啟諮詢表單..." },
           wa_maintenance: { type: "link", url: `${waLink}?text=你好！我想諮詢網站月度維護服務（HTML / WordPress）。`, msg: "正在開啟 WhatsApp..." },
           wa_ai: { type: "link", url: `${waLink}?text=你好！我有一個 AI 生成的網頁想找你們部署託管上線。`, msg: "正在開啟 WhatsApp..." },
-          wa_landing: { type: "link", url: `${waLink}?text=你好！我想諮詢客製開發新網站的報價。`, msg: "正在開啟 WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=你好！我想諮詢將 WordPress 網站遷移至純靜態 HTML。`, msg: "正在開啟 WhatsApp..." }
+          wa_landing: { type: "link", url: `${waLink}?text=你好！我想諮詢客製開發新網站的報價。`, msg: "正在開啟 WhatsApp..." }
         },
         bm: {
           start: {
@@ -1769,7 +1887,7 @@
               { label: "🛠️ Penyelenggaraan Bulanan (HTML/WP)", next: "maintenance" },
               { label: "🚀 Hos & Lancar Halaman AI", next: "ai_launch" },
               { label: "📄 Bina Laman Baharu (1-Halaman/Banyak)", next: "landing" },
-              { label: "⚡ Migrasi WP ke HTML Statik", next: "migration" }
+              { label: "🧰 Alat Percuma PKS", next: "tools_hub" }
             ]
           },
           maintenance: {
@@ -1784,18 +1902,17 @@
             text: "Kami bina laman web statik pantas mengikut bahagian (dari RM 125++/bahagian) atau pakej banyak halaman lebih murah (dari RM 450++–550++/halaman)—tiada yuran bulanan wajib.",
             options: [{ label: "📝 Minta Sebut Harga", next: "open_form_3" }, { label: "💬 WhatsApp Kami", next: "wa_landing" }, { label: "⬅️ Kembali", next: "start" }]
           },
-          migration: {
-            text: "Kami tukar laman WordPress yang perlahan kepada HTML statik bersih yang dibuka bawah 1 saat tanpa risiko pangkalan data (dari RM 500++).",
-            options: [{ label: "📝 Minta Sebut Harga Migrasi", next: "open_form_5" }, { label: "💬 WhatsApp Kami", next: "wa_migration" }, { label: "⬅️ Kembali", next: "start" }]
+          tools_hub: {
+            text: "Cuba alat pelayar percuma kami: Penjana Mesej WhatsApp (BM/EN) dan Penjana Kod QR & Pautan—100% percuma tanpa log masuk!",
+            options: [{ label: "🚀 Buka Alat Percuma", next: "go_tools" }, { label: "⬅️ Kembali", next: "start" }]
           },
+          go_tools: { type: "nav", url: "tools.html", msg: "Membuka Alat Percuma..." },
           open_form_0: { type: "modal", serviceIndex: 0, msg: "Membuka borang pertanyaan..." },
           open_form_2: { type: "modal", serviceIndex: 2, msg: "Membuka borang pertanyaan..." },
           open_form_3: { type: "modal", serviceIndex: 3, msg: "Membuka borang pertanyaan..." },
-          open_form_5: { type: "modal", serviceIndex: 5, msg: "Membuka borang pertanyaan..." },
           wa_maintenance: { type: "link", url: `${waLink}?text=Hai! Saya berminat dengan servis penyelenggaraan bulanan laman web (HTML/WordPress).`, msg: "Membuka WhatsApp..." },
           wa_ai: { type: "link", url: `${waLink}?text=Hai! Saya ada halaman web dari AI dan ingin bantuan hos & pelancaran.`, msg: "Membuka WhatsApp..." },
-          wa_landing: { type: "link", url: `${waLink}?text=Hai! Saya ingin sebut harga untuk membina laman web baharu.`, msg: "Membuka WhatsApp..." },
-          wa_migration: { type: "link", url: `${waLink}?text=Hai! Saya ingin bertanya tentang migrasi WordPress ke HTML statik.`, msg: "Membuka WhatsApp..." }
+          wa_landing: { type: "link", url: `${waLink}?text=Hai! Saya ingin sebut harga untuk membina laman web baharu.`, msg: "Membuka WhatsApp..." }
         }
       }[currentLang];
     }
@@ -1835,6 +1952,11 @@
     }
 
     function processStep(step, stepId, activeLogic) {
+      if (step.type === "nav") {
+        addMessage(step.msg, 'bot');
+        setTimeout(() => { window.location.href = step.url; }, 700);
+        return;
+      }
       if (step.type === "link") {
         addMessage(step.msg, 'bot');
         setTimeout(() => window.open(step.url, '_blank'), 900);
@@ -1890,7 +2012,7 @@
     function scrollToBottom() { chatBody.scrollTop = chatBody.scrollHeight; }
 
     // =========================================================================
-    // SWEETALERT2 CONTACT MODAL (4 LANGUAGES + HONEYPOT + PHP ENDPOINT)
+    // SWEETALERT2 CONTACT MODAL
     // =========================================================================
     const modalI18n = {
       en: {
@@ -2040,7 +2162,6 @@
         html: `
           <p class="text-slate-400 text-sm mb-4 text-left">${t.subtitle}</p>
           <form id="nxvContactForm" class="space-y-3 text-left" novalidate>
-            <!-- Honeypot Spam Trap -->
             <div class="nxv-hp-field" aria-hidden="true">
               <label for="nxv_company_website">Company Website</label>
               <input type="text" id="nxv_company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
