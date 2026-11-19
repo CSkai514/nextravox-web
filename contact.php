@@ -1,8 +1,11 @@
 <?php
 /**
  * Nextravox Tech - Secure Contact Form Handler
+ * Configured Sender: automail@nextravox.com (Hostinger CyberPanel)
+ * Target Recipient:  nextravox@gmail.com
+ *
  * Features:
- * 1. Easy top-level email configuration (SMTP or native PHP mail fallback)
+ * 1. Top-level email configuration (Native Postfix mail() with -f envelope sender + optional SMTP)
  * 2. Off-screen CSS Honeypot spam trap
  * 3. Submission speed check (< 2 seconds blocked)
  * 4. IP-based rate limiting (Max 3 submissions per 1 hour, SHA-256 hashed IPs)
@@ -12,28 +15,22 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
-
-// ============================================================================
-// 1. CONFIGURATION (EDIT THESE VALUES LATER AS NEEDED)
-// ============================================================================
 $config = [
-    // Target inbox where lead notifications will be sent
     'to_email'          => 'nextravox@gmail.com',
     'to_name'           => 'Nextravox Tech',
 
-    // Sender address (Use a domain email like noreply@nextravox.com on your server for best deliverability)
-    'from_email'        => 'noreply@nextravox.com',
+    // Hostinger CyberPanel sender address
+    'from_email'        => 'automail@nextravox.com',
     'from_name'         => 'Nextravox Website Inquiry',
 
-    // Optional SMTP Settings (Recommended if PHPMailer is installed in /vendor or /phpmailer)
+    // Optional SMTP Settings (Set 'use_smtp' => true if you install PHPMailer)
     'use_smtp'          => false,
-    'smtp_host'         => 'smtp.gmail.com',
+    'smtp_host'         => 'mail.nextravox.com',
     'smtp_port'         => 587,
-    'smtp_username'     => 'nextravox@gmail.com',
-    'smtp_password'     => 'YOUR_APP_PASSWORD_HERE',
-    'smtp_encryption'   => 'tls', // 'tls' or 'ssl'
+    'smtp_username'     => 'automail@nextravox.com',
+    'smtp_password'     => 'IBe51OC#n5B5edbD',
+    'smtp_encryption'   => 'tls', // 'tls' (port 587) or 'ssl' (port 465)
 
-    // Rate Limiting Settings (Max 3 submissions per 3600 seconds / 1 hour)
     'rate_limit_max'    => 3,
     'rate_limit_window' => 3600,
     'rate_limit_salt'   => 'nxv_2026_penang_rate_salt_change_me',
@@ -70,7 +67,6 @@ if (empty($input)) {
 // ============================================================================
 $honeypot = trim((string)($input['company_website'] ?? ''));
 if ($honeypot !== '') {
-    // Pretend it succeeded so spam bots move on without retrying
     http_response_code(200);
     echo json_encode([
         'status'  => 'success',
@@ -98,7 +94,6 @@ if ($formRenderedAt <= 0 || ($now - $formRenderedAt) < $config['min_fill_seconds
 // ============================================================================
 function getClientIpAddress(): string
 {
-    // Trust Cloudflare header if present and valid, otherwise fallback to REMOTE_ADDR
     $candidates = [
         $_SERVER['HTTP_CF_CONNECTING_IP'] ?? '',
         $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0',
@@ -133,7 +128,6 @@ function checkAndRecordRateLimit(string $ip, array $config): array
     $logFile = $dataDir . '/rate_limit.json';
     $fp = @fopen($logFile, 'c+');
     if (!$fp) {
-        // Fail open if directory is temporarily not writable, rather than blocking legitimate clients
         return ['allowed' => true, 'retry_after' => 0];
     }
 
@@ -149,7 +143,7 @@ function checkAndRecordRateLimit(string $ip, array $config): array
     $maxRequests = (int)$config['rate_limit_max'];
     $ipHash = hash('sha256', $ip . $config['rate_limit_salt']);
 
-    // Purge expired timestamps across all IPs to keep file tiny
+    // Purge expired timestamps across all IPs
     foreach ($records as $hashKey => $timestamps) {
         if (!is_array($timestamps)) {
             unset($records[$hashKey]);
@@ -178,7 +172,6 @@ function checkAndRecordRateLimit(string $ip, array $config): array
         return ['allowed' => false, 'retry_after' => $retryAfter];
     }
 
-    // Record current attempt
     $currentTimestamps[] = $now;
     $records[$ipHash] = $currentTimestamps;
 
@@ -253,11 +246,12 @@ $safeEmail   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 $safePhone   = htmlspecialchars($phone, ENT_QUOTES, 'UTF-8');
 $safeService = htmlspecialchars($service, ENT_QUOTES, 'UTF-8');
 $safeLang    = htmlspecialchars(strtoupper($lang), ENT_QUOTES, 'UTF-8');
+$safeIp      = htmlspecialchars($clientIp, ENT_QUOTES, 'UTF-8');
 $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
 
-// Create clean WhatsApp quick-reply link for you
+// Create clean WhatsApp quick-reply link
 $waDigits = preg_replace('/[^0-9]/', '', $phone);
-if (str_starts_with($waDigits, '0')) {
+if (strpos($waDigits, '0') === 0) {
     $waDigits = '6' . $waDigits;
 }
 $waQuickLink = $waDigits !== '' ? "https://wa.me/{$waDigits}" : '';
@@ -295,10 +289,7 @@ $htmlBody = <<<HTML
                 </tr>
                 <tr>
                   <td style="color:#94a3b8;border-bottom:1px solid #1e293b;"><strong>Phone / WhatsApp:</strong></td>
-                  <td style="color:#ffffff;border-bottom:1px solid #1e293b;">
-                    {$safePhone}
-                    <!-- Quick WhatsApp button if valid -->
-                  </td>
+                  <td style="color:#ffffff;border-bottom:1px solid #1e293b;">{$safePhone}</td>
                 </tr>
                 <tr>
                   <td style="color:#94a3b8;border-bottom:1px solid #1e293b;"><strong>Service Needed:</strong></td>
@@ -329,7 +320,7 @@ $htmlBody .= <<<HTML
           </tr>
           <tr>
             <td style="padding:14px 24px;background-color:#020617;color:#64748b;font-size:12px;text-align:center;">
-              Protected by Nextravox Honeypot &amp; Rate Limiter (Client IP: {$clientIp})
+              Sent via {$config['from_email']} • Protected by Nextravox Honeypot &amp; Rate Limiter (Client IP: {$safeIp})
             </td>
           </tr>
         </table>
@@ -388,7 +379,7 @@ if ($config['use_smtp']) {
     }
 }
 
-// Default native PHP mail() fallback (works out-of-the-box on OpenLiteSpeed / Plesk / cPanel)
+// Default CyberPanel Postfix mail() with -f envelope sender for SPF/DKIM alignment
 if (!$sent) {
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
     $headers = [
@@ -399,7 +390,8 @@ if (!$sent) {
         'X-Mailer: PHP/' . phpversion(),
     ];
 
-    $sent = @mail($config['to_email'], $encodedSubject, $htmlBody, implode("\r\n", $headers));
+    $envelopeSender = '-f' . $config['from_email'];
+    $sent = @mail($config['to_email'], $encodedSubject, $htmlBody, implode("\r\n", $headers), $envelopeSender);
 }
 
 if ($sent) {
