@@ -1,16 +1,4 @@
 <?php
-/**
- * Nextravox Tech - Secure Contact Form Handler
- * Configured Sender: automail@nextravox.com (Hostinger CyberPanel)
- * Target Recipient:  nextravox@gmail.com
- *
- * Features:
- * 1. Top-level email configuration (Native Postfix mail() with -f envelope sender + optional SMTP)
- * 2. Off-screen CSS Honeypot spam trap
- * 3. Submission speed check (< 2 seconds blocked)
- * 4. IP-based rate limiting (Max 3 submissions per 1 hour, SHA-256 hashed IPs)
- */
-
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -24,7 +12,7 @@ $config = [
     'from_name'         => 'Nextravox Website Inquiry',
 
     // Optional SMTP Settings (Set 'use_smtp' => true if you install PHPMailer)
-    'use_smtp'          => false,
+    'use_smtp'          => true,
     'smtp_host'         => 'mail.nextravox.com',
     'smtp_port'         => 587,
     'smtp_username'     => 'automail@nextravox.com',
@@ -42,7 +30,7 @@ $config = [
 
 // ============================================================================
 // 2. ONLY ALLOW POST REQUESTS
-// ============================================================================
+// ===============================V=============================================
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode([
