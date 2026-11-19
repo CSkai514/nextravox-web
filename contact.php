@@ -3,34 +3,43 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
+
+// ============================================================================
+// 1. CONFIGURATION
+// ============================================================================
 $config = [
-    'to_email'          => 'nextravox@gmail.com',
-    'to_name'           => 'Nextravox Tech',
+    // Target inbox where lead notifications will be sent
+    'to_email'           => 'nextravox@gmail.com',
+    'to_name'            => 'Nextravox Tech',
 
     // Hostinger CyberPanel sender address
-    'from_email'        => 'automail@nextravox.com',
-    'from_name'         => 'Nextravox Website Inquiry',
+    'from_email'         => 'automail@nextravox.com',
+    'from_name'          => 'Nextravox Website Inquiry',
 
-    // Optional SMTP Settings (Set 'use_smtp' => true if you install PHPMailer)
-    'use_smtp'          => true,
-    'smtp_host'         => 'mail.nextravox.com',
-    'smtp_port'         => 587,
-    'smtp_username'     => 'automail@nextravox.com',
-    'smtp_password'     => 'IBe51OC#n5B5edbD',
-    'smtp_encryption'   => 'tls', // 'tls' (port 587) or 'ssl' (port 465)
+    // Built-in SMTP Settings (Supports AUTH PLAIN & AUTH LOGIN automatically)
+    'use_smtp'           => true,
+    'smtp_host'          => 'mail.nextravox.com',
+    'smtp_port'          => 587,
+    'smtp_username'      => 'automail@nextravox.com',
+    'smtp_password'      => 'IBe51OC!@3312ABOP#n5B5edbD',
+    'smtp_encryption'    => 'tls',   // 'tls' (port 587 STARTTLS) or 'ssl' (port 465)
+    'smtp_verify_ssl'    => false,   // Set to true after issuing MailServer SSL in CyberPanel
 
-    'rate_limit_max'    => 3,
-    'rate_limit_window' => 3600,
-    'rate_limit_salt'   => 'nxv_2026_penang_rate_salt_change_me',
-    'data_dir'          => __DIR__ . '/data',
+    // Testing & Rate Limiting Settings
+    'testing_mode'       => false,    // Set to false after testing (hides technical SMTP errors from visitors)
+    'rate_limit_enabled' => true,   // Set to true after testing to enable 3/hour IP rate limit
+    'rate_limit_max'     => 3,
+    'rate_limit_window'  => 3600,
+    'rate_limit_salt'    => 'nxv_2026_penang_rate_salt_change_me',
+    'data_dir'           => __DIR__ . '/data',
 
-    // Anti-bot minimum fill time in seconds
-    'min_fill_seconds'  => 2,
+    // Anti-bot minimum fill time in seconds (0 during testing; set to 2 after testing)
+    'min_fill_seconds'   => 2,
 ];
 
 // ============================================================================
 // 2. ONLY ALLOW POST REQUESTS
-// ===============================V=============================================
+// ============================================================================
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode([
@@ -64,21 +73,24 @@ if ($honeypot !== '') {
 }
 
 // ============================================================================
-// 4. SUBMISSION SPEED CHECK (REJECT INSTANT BOT POSTS < 2 SECONDS)
+// 4. SUBMISSION SPEED CHECK
 // ============================================================================
-$formRenderedAt = (int)($input['form_ts'] ?? 0);
-$now = time();
-if ($formRenderedAt <= 0 || ($now - $formRenderedAt) < $config['min_fill_seconds']) {
-    http_response_code(400);
-    echo json_encode([
-        'status'  => 'error',
-        'message' => 'Form submitted too quickly. Please wait a moment and try again.'
-    ]);
-    exit;
+$minFillSeconds = (int)$config['min_fill_seconds'];
+if ($minFillSeconds > 0) {
+    $formRenderedAt = (int)($input['form_ts'] ?? 0);
+    $now = time();
+    if ($formRenderedAt <= 0 || ($now - $formRenderedAt) < $minFillSeconds) {
+        http_response_code(400);
+        echo json_encode([
+            'status'  => 'error',
+            'message' => 'Form submitted too quickly. Please wait a moment and try again.'
+        ]);
+        exit;
+    }
 }
 
 // ============================================================================
-// 5. IP-BASED RATE LIMITING (MAX 3 SUBMISSIONS PER HOUR)
+// 5. IP-BASED RATE LIMITING (TOGGLED VIA 'rate_limit_enabled')
 // ============================================================================
 function getClientIpAddress(): string
 {
@@ -103,7 +115,7 @@ function checkAndRecordRateLimit(string $ip, array $config): array
         @mkdir($dataDir, 0750, true);
     }
 
-    // Protect data directory from direct web access (Apache & OpenLiteSpeed compatible)
+    // Protect data directory from direct web access
     $htaccessFile = $dataDir . '/.htaccess';
     if (!file_exists($htaccessFile)) {
         @file_put_contents($htaccessFile, "Order deny,allow\nDeny from all\n<IfModule mod_authz_core.c>\nRequire all denied\n</IfModule>\n");
@@ -174,17 +186,19 @@ function checkAndRecordRateLimit(string $ip, array $config): array
 }
 
 $clientIp = getClientIpAddress();
-$rateCheck = checkAndRecordRateLimit($clientIp, $config);
 
-if (!$rateCheck['allowed']) {
-    $minutesLeft = (int)ceil($rateCheck['retry_after'] / 60);
-    http_response_code(429);
-    echo json_encode([
-        'status'      => 'rate_limited',
-        'retry_after' => $rateCheck['retry_after'],
-        'message'     => "Too many inquiries from your network. Please try again in about {$minutesLeft} minute(s) or message us directly on WhatsApp."
-    ]);
-    exit;
+if (!empty($config['rate_limit_enabled'])) {
+    $rateCheck = checkAndRecordRateLimit($clientIp, $config);
+    if (!$rateCheck['allowed']) {
+        $minutesLeft = (int)ceil($rateCheck['retry_after'] / 60);
+        http_response_code(429);
+        echo json_encode([
+            'status'      => 'rate_limited',
+            'retry_after' => $rateCheck['retry_after'],
+            'message'     => "Too many inquiries from your network. Please try again in about {$minutesLeft} minute(s) or message us directly on WhatsApp."
+        ]);
+        exit;
+    }
 }
 
 // ============================================================================
@@ -224,7 +238,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // ============================================================================
-// 7. BUILD EMAIL CONTENT & SEND
+// 7. BUILD EMAIL CONTENT
 // ============================================================================
 date_default_timezone_set('Asia/Kuala_Lumpur');
 $submittedTime = date('d M Y, h:i A (MYT)');
@@ -237,7 +251,6 @@ $safeLang    = htmlspecialchars(strtoupper($lang), ENT_QUOTES, 'UTF-8');
 $safeIp      = htmlspecialchars($clientIp, ENT_QUOTES, 'UTF-8');
 $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
 
-// Create clean WhatsApp quick-reply link
 $waDigits = preg_replace('/[^0-9]/', '', $phone);
 if (strpos($waDigits, '0') === 0) {
     $waDigits = '6' . $waDigits;
@@ -308,7 +321,7 @@ $htmlBody .= <<<HTML
           </tr>
           <tr>
             <td style="padding:14px 24px;background-color:#020617;color:#64748b;font-size:12px;text-align:center;">
-              Sent via {$config['from_email']} • Protected by Nextravox Honeypot &amp; Rate Limiter (Client IP: {$safeIp})
+              Sent via {$config['from_email']} • Client IP: {$safeIp}
             </td>
           </tr>
         </table>
@@ -319,56 +332,151 @@ $htmlBody .= <<<HTML
 </html>
 HTML;
 
-$sent = false;
+// ============================================================================
+// 8. NATIVE PHP SMTP SENDER (AUTO-DETECTS AUTH PLAIN & AUTH LOGIN)
+// ============================================================================
+function encodeMimeHeader(string $text): string
+{
+    if (preg_match('/[^\x20-\x7E]/', $text)) {
+        return '=?UTF-8?B?' . base64_encode($text) . '?=';
+    }
+    if (preg_match('/[",:;<>@\(\)\[\]\\\\]/', $text)) {
+        return '"' . addcslashes($text, '"\\') . '"';
+    }
+    return $text;
+}
 
-// Optional PHPMailer SMTP path if enabled and library exists
-if ($config['use_smtp']) {
-    $autoloadPaths = [
-        __DIR__ . '/vendor/autoload.php',
-        __DIR__ . '/phpmailer/src/PHPMailer.php',
-    ];
-    foreach ($autoloadPaths as $path) {
-        if (file_exists($path)) {
-            require_once $path;
+function readSmtpResponse($socket): array
+{
+    $response = '';
+    $code = 0;
+    while (($line = fgets($socket, 515)) !== false) {
+        $response .= $line;
+        if (strlen($line) >= 4 && $line[3] === ' ') {
+            $code = (int)substr($line, 0, 3);
             break;
         }
     }
-    if (file_exists(__DIR__ . '/phpmailer/src/SMTP.php')) {
-        require_once __DIR__ . '/phpmailer/src/SMTP.php';
-        require_once __DIR__ . '/phpmailer/src/Exception.php';
+    return [$code, trim($response)];
+}
+
+function sendSmtpCommand($socket, string $command, array $expectedCodes, bool $maskLog = false): string
+{
+    fwrite($socket, $command . "\r\n");
+    [$code, $response] = readSmtpResponse($socket);
+    if (!in_array($code, $expectedCodes, true)) {
+        $label = $maskLog ? 'AUTH ***' : $command;
+        throw new \RuntimeException("SMTP command failed [{$label}] -> {$response}");
+    }
+    return $response;
+}
+
+function sendViaNativeSmtp(array $config, string $replyToEmail, string $replyToName, string $subject, string $htmlBody): void
+{
+    $host       = (string)$config['smtp_host'];
+    $port       = (int)$config['smtp_port'];
+    $encryption = strtolower((string)$config['smtp_encryption']);
+    $username   = (string)$config['smtp_username'];
+    $password   = (string)$config['smtp_password'];
+    $fromEmail  = (string)$config['from_email'];
+    $fromName   = (string)$config['from_name'];
+    $toEmail    = (string)$config['to_email'];
+    $toName     = (string)$config['to_name'];
+    $verifySsl  = (bool)($config['smtp_verify_ssl'] ?? false);
+
+    $contextOptions = [
+        'ssl' => [
+            'verify_peer'       => $verifySsl,
+            'verify_peer_name'  => $verifySsl,
+            'allow_self_signed' => !$verifySsl,
+        ],
+    ];
+    $context = stream_context_create($contextOptions);
+
+    $remote = ($encryption === 'ssl') ? "ssl://{$host}:{$port}" : "tcp://{$host}:{$port}";
+    $errno = 0;
+    $errstr = '';
+    $socket = @stream_socket_client($remote, $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $context);
+
+    if (!$socket) {
+        throw new \RuntimeException("Could not connect to SMTP server {$remote} ({$errno}: {$errstr})");
     }
 
-    if (class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-        try {
-            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host       = $config['smtp_host'];
-            $mail->SMTPAuth   = true;
-            $mail->Username   = $config['smtp_username'];
-            $mail->Password   = $config['smtp_password'];
-            $mail->SMTPSecure = $config['smtp_encryption'];
-            $mail->Port       = (int)$config['smtp_port'];
-            $mail->CharSet    = 'UTF-8';
+    stream_set_timeout($socket, 15);
 
-            $mail->setFrom($config['from_email'], $config['from_name']);
-            $mail->addAddress($config['to_email'], $config['to_name']);
-            $mail->addReplyTo($email, $name);
-
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body    = $htmlBody;
-            $mail->AltBody = "New Inquiry from {$name} ({$email} / {$phone})\nService: {$service}\n\nMessage:\n{$message}";
-
-            $sent = $mail->send();
-        } catch (\Throwable $e) {
-            error_log('Nextravox SMTP Error: ' . $e->getMessage());
-            $sent = false;
+    try {
+        [$greetCode, $greetMsg] = readSmtpResponse($socket);
+        if ($greetCode !== 220) {
+            throw new \RuntimeException("Unexpected SMTP greeting: {$greetMsg}");
         }
+
+        $ehloDomain = $_SERVER['SERVER_NAME'] ?? 'nextravox.com';
+        $ehloCaps = sendSmtpCommand($socket, "EHLO {$ehloDomain}", [250]);
+
+        if ($encryption === 'tls') {
+            sendSmtpCommand($socket, 'STARTTLS', [220]);
+            $cryptoMethod = STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT;
+            if (defined('STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT')) {
+                $cryptoMethod |= STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT;
+            }
+            if (!@stream_socket_enable_crypto($socket, true, $cryptoMethod)) {
+                throw new \RuntimeException('STARTTLS encryption handshake failed.');
+            }
+            $ehloCaps = sendSmtpCommand($socket, "EHLO {$ehloDomain}", [250]);
+        }
+
+        // CyberPanel Dovecot advertises AUTH PLAIN; use PLAIN if supported, else fallback to LOGIN
+        if (preg_match('/250[- ]AUTH\b.*\bPLAIN\b/i', $ehloCaps)) {
+            $plainToken = base64_encode("\0" . $username . "\0" . $password);
+            sendSmtpCommand($socket, "AUTH PLAIN {$plainToken}", [235], true);
+        } else {
+            sendSmtpCommand($socket, 'AUTH LOGIN', [334]);
+            sendSmtpCommand($socket, base64_encode($username), [334], true);
+            sendSmtpCommand($socket, base64_encode($password), [235], true);
+        }
+
+        sendSmtpCommand($socket, "MAIL FROM:<{$fromEmail}>", [250]);
+        sendSmtpCommand($socket, "RCPT TO:<{$toEmail}>", [250, 251]);
+        sendSmtpCommand($socket, 'DATA', [354]);
+
+        $domainPart = substr(strrchr($fromEmail, '@') ?: '@nextravox.com', 1);
+        $messageId  = '<' . bin2hex(random_bytes(16)) . '@' . $domainPart . '>';
+
+        $headers = [
+            'Date: ' . date('r'),
+            'Message-ID: ' . $messageId,
+            'From: ' . encodeMimeHeader($fromName) . " <{$fromEmail}>",
+            'To: ' . encodeMimeHeader($toName) . " <{$toEmail}>",
+            'Reply-To: ' . encodeMimeHeader($replyToName) . " <{$replyToEmail}>",
+            'Subject: ' . encodeMimeHeader($subject),
+            'MIME-Version: 1.0',
+            'Content-Type: text/html; charset=UTF-8',
+            'Content-Transfer-Encoding: base64',
+        ];
+
+        $encodedBody = chunk_split(base64_encode($htmlBody));
+        $rawEmail = implode("\r\n", $headers) . "\r\n\r\n" . $encodedBody . "\r\n.";
+
+        sendSmtpCommand($socket, $rawEmail, [250]);
+        @fwrite($socket, "QUIT\r\n");
+    } finally {
+        @fclose($socket);
     }
 }
 
-// Default CyberPanel Postfix mail() with -f envelope sender for SPF/DKIM alignment
-if (!$sent) {
+$sent = false;
+$errorDetail = '';
+
+if (!empty($config['use_smtp'])) {
+    try {
+        sendViaNativeSmtp($config, $email, $name, $subject, $htmlBody);
+        $sent = true;
+    } catch (\Throwable $e) {
+        error_log('Nextravox SMTP Error: ' . $e->getMessage());
+        $errorDetail = $e->getMessage();
+        $sent = false;
+    }
+} else {
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
     $headers = [
         'MIME-Version: 1.0',
@@ -377,7 +485,6 @@ if (!$sent) {
         'Reply-To: ' . $name . ' <' . $email . '>',
         'X-Mailer: PHP/' . phpversion(),
     ];
-
     $envelopeSender = '-f' . $config['from_email'];
     $sent = @mail($config['to_email'], $encodedSubject, $htmlBody, implode("\r\n", $headers), $envelopeSender);
 }
@@ -390,8 +497,12 @@ if ($sent) {
     ]);
 } else {
     http_response_code(500);
+    $publicMessage = 'Unable to send email right now. Please reach out directly via WhatsApp (+6014-288 0514).';
+    if (!empty($config['testing_mode']) && $errorDetail !== '') {
+        $publicMessage .= ' [SMTP Debug: ' . $errorDetail . ']';
+    }
     echo json_encode([
         'status'  => 'error',
-        'message' => 'Unable to send email right now. Please reach out directly via WhatsApp (+6014-288 0514).'
+        'message' => $publicMessage
     ]);
 }
